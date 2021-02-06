@@ -1,0 +1,38 @@
+.header{
+  height: 100vh;
+  background-color:rgba(#f2f2f2,1);
+  color: #000;
+  padding: 2rem 10%;
+  display: flex;
+  //flex-direction: column;
+  align-items: center;
+  &__right{
+    flex : 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__sub-heading{
+    font-size: 1.8rem;
+    font-weight: 500;
+    padding-left: 1rem;
+    border-left: 0.5rem solid $red;
+  }
+  &__box{
+    
+    height: 20rem;
+    width: 20rem;
+    border-radius: 200rem;
+    background-image: url(../images/roopam.png);
+    background-size: cover;
+    //background-color: $red;
+  }
+}
+
+.heading{
+  font-size: 8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  
+  //border-bottom: 0.1rem solid $red;
+}
