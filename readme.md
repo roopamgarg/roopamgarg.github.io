@@ -1,4 +1,4 @@
-## React Slider Component 
+<!-- ## React Slider Component 
 
 * [Simple Demo](https://roopamgarg.github.io/adaptive-react-slider/)
 
@@ -16,4 +16,4 @@ npm i
 npm start
 
 visit http://localhost:1234/ in your browser
-```
+``` -->
