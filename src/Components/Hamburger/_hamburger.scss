@@ -1,0 +1,138 @@
+// hamburger menu
+.hamburger-menu {
+  display: none;
+  z-index: 9;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  .hamburger-image{
+
+    height: 20rem;
+    width: 20rem;
+    border-radius: 200rem;
+    background-image: url(../images/roopam_3.png);
+    background-size: cover;
+
+    background-color: $black;
+  }
+  .menu-secondary-background-color {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    background-color: $black;
+  }
+
+  .menu-layer {
+    position: relative;
+    background: $red;
+    height: 100%;
+    overflow: hidden;
+    .menu-city-background {
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      opacity: 0;
+    }
+    .wrapper {
+      position: relative;
+      .menu-links {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        top: 200px;
+        @media (max-width:720px) {
+          // flex-direction: column;
+        }
+        nav {
+          display: block;
+          ul {
+            padding: 0;
+            margin: 0;
+            li {
+              list-style: none;
+              font-size: 4rem;
+              font-weight: 700;
+              cursor: pointer;
+              height: 135px;
+              overflow: hidden;
+              position: relative;
+              width: 700px;
+              @media (max-width:720px) {
+                font-size: 3rem;
+                height: 135px;
+                
+              }
+              a {
+                position: absolute;
+                color: #fff;
+                text-decoration: none;
+                transition: color 0.2s;
+                &:hover {
+                  color: $black;
+                }
+              }
+            }
+          }
+        }
+        .info {
+          color: #fff;
+          width: 300px;
+          h3 {
+            font-size: 1.2rem;
+            margin: 8px auto;
+          }
+          p {
+            margin: 0 auto;
+            font-size: 0.8rem;
+          }
+          @media (max-width:720px) {
+            display: none;
+          }
+        }
+
+        .locations {
+          position: absolute;
+          bottom: -80px;
+          color: #fff;
+          margin-top: 16px;
+          font-size: 0.8rem;
+          font-weight: 600;
+          span {
+            &:first-child {
+             // margin-left: 64px;
+            }
+            // color: $black;
+            font-weight: 400;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: 0.3s ease-in-out;
+
+            background: $black;
+            padding: 8px 24px;
+            border-radius: 4px;
+            
+          @media (max-width:720px) {
+            font-size: 1rem;
+
+          }
+          }
+        }
+      }
+    }
+  }
+}

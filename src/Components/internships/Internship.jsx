@@ -36,7 +36,15 @@ function Internship(props) {
   const createSlides = () => {
     return bg.map((cur, index) => <Card data={cur} />);
   };
-  return <div className="internships">{createSlides()}</div>;
+  return (
+    <div className="internships-section">
+    <div className="heading-primary">Internships</div>
+
+    <div className="internships">
+    {createSlides()}
+    </div>
+    </div>
+  )
 }
 
 export default Internship;

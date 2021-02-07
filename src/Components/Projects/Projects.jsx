@@ -88,7 +88,9 @@ const data = [
 
 function Projects(props) {
   return (
-    <div className="projects">
+    <div className="projects" id="projects">
+        <div className="heading-primary">Projects</div>
+
       {data.map(({ image, points, name }, index) => (
         <div className={`project ${(index%2 === 0) ? "left" : "right"}`}>
           <div className="project__image">

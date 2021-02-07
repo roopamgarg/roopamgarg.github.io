@@ -1,0 +1,32 @@
+.education{
+  padding: 0 10%;
+  padding-bottom: 5rem;
+  //min-height: 20vh;
+  &__heading{
+    font-size: 3rem;
+    border-left: 1rem solid $red;
+    text-align: left;
+    padding: 0 1rem;
+  }
+  &__container{
+    display: flex;
+    & > div{
+      flex : 1;
+    }
+    @media (max-width:720px) {
+      flex-direction: column;
+    }
+  }
+  &__card{
+    padding: 1rem 0;
+  }
+  &__degree{
+    font-size: 1.4rem;
+    text-transform: uppercase;
+  }
+  &__info{
+    padding: 0 0.5rem;
+    border-left: 0.1rem solid $red;
+
+  }
+}
