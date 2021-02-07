@@ -1,6 +1,7 @@
 html,
 body {
   height: 100%;
+  background: $white;
 }
 
 body {
@@ -53,4 +54,16 @@ h2 {
       position: absolute;
     }
   }
+}
+
+.heading-primary{
+    font-size: 3rem;
+    border-left: 1rem solid $red;
+    text-align: left;
+    padding: 0 1rem;
+    text-transform: capitalize;
+}
+
+.divider-4{
+  padding: 4rem;
 }

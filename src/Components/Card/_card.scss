@@ -1,23 +1,25 @@
-.card{
+.card {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
- // height: 80vh;
- padding: 5rem 0;
+  align-items: flex-start;
+  padding: 2rem 0;
   width: 100%;
-    font-family: 'Open Sans Condensed', sans-serif;
-    transform-origin: bottom;
-    transition: all .2s;
-    &:hover{
+  font-family: "Open Sans Condensed", sans-serif;
+  transform-origin: bottom;
+  transition: all 0.2s;
+  @media (max-width: 720px) {
+    padding: 0;
+  }
+  &__content {
+    padding: 0 2rem;
+    border-left: 0.1rem solid $red;
+    margin-left: 1rem;
+  height: 100%;
 
-    background-color: $red;
-      color: #fff;
-      border-radius: 0.5rem;
-    }
-  &__image{
-    height: 10rem;
-    width: 10rem;
+  }
+  &__image {
+    height: 5rem;
+    width: 5rem;
     background: #fff;
     //background: center center no-repeat;
     background-size: contain;
@@ -25,39 +27,44 @@
     border-radius: 200rem;
     display: flex;
     align-items: center;
+    margin-top: 1.4rem;
     padding: 1rem;
-    img{
-      //height: 100%;
-      width: 100%;
+    @media (max-width: 720px) {
+      width: 2rem;
+      height: 2rem;
+    }
+    img {
+      //height: 50%;
+      width: 5rem;
+      @media (max-width: 720px) {
+        width: 2rem;
+      }
     }
   }
-  &__name{
-    flex:1;
+  &__name {
+    flex: 1;
 
-  font-weight: 700;
+    font-weight: 400;
 
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin-top: 2rem;
   }
-  &__description{
-   // flex:0;
+  &__description {
+    // flex:0;
 
-    padding: 0 2rem;
     text-align: left;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     margin-top: 2rem;
-    height: 10rem;
+    line-height: 1.8rem;
+    height: 100%;
     //overflow: hidden;
-    
-    animation: slideInUp .5s;
+
+    animation: slideInUp 0.5s;
     //display: none;
-
-  }
-  &:hover &__description{
-    height: 10rem;
-    display: block;
-
-
+    @media (max-width: 720px) {
+      font-size: 1rem;
+    
+    }
   }
 }
 @keyframes slideInUp {

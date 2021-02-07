@@ -1,21 +1,35 @@
 .projects{
   min-height: 100vh;
+  //padding-top: 100px;
+  padding: 0 10%;
   background-color: $white;
 }
 
 .project{
-  padding: 2rem 10%;
+  padding: 2rem 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media (max-width:720px) {
+    flex-direction: column;
+  }
   &.right &__image{
     order: 1;
+    @media (max-width:720px) {
+      order: 0;
+    
+    }
   }
   &__image{
     img{
       height: 20rem;
-    max-width: 40rem;
-
+      max-width: 40rem;
+      box-shadow: 0.2rem 0.2rem 1rem rgba(#000,0.2);
+      @media (max-width:720px) {
+        max-width: 80vw;
+        height: unset;
+        margin-bottom: 2rem;
+      }
     }
   }
   &__name{

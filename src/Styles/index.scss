@@ -1,7 +1,10 @@
-@import "./base";
 @import "./variables";
+@import "./base";
 @import "../Components/Slider/slider";
 @import "../Components/Card/card";
 @import "../Components/Header/Header.scss";
 @import "../Components/internships/internships";
 @import "../Components/Projects/projects";
+@import "../Components/Hamburger/hamburger";
+@import "../Components/Navbar/navbar";
+@import "../Components/Education/education";

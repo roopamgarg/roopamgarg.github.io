@@ -1,9 +1,27 @@
-import React from 'react';
-
+import React, { useEffect, useRef, useState } from 'react';
+import { TimelineLite, Power2 } from "gsap";
+import CSSRulePlugin from "gsap/CSSRulePlugin";
+import roopam_image from "../../images/roopam.png";
 function Header(props) {
+  let image = useRef(null);
+  let container = useRef(null);
+  
+  let imageReveal = CSSRulePlugin.getRule(".header__box:after");
+
+  let tl = new TimelineLite();
+
+  useEffect(() => {
+    tl.to(container, 0, { css: { visibility: "visible" } });
+    tl.to(imageReveal, 1.4, { width: "0%", ease: Power2.easeInOut });
+    tl.from(image, 1.4, {
+      scale: 1.6,
+      ease: Power2.easeInOut,
+      delay: -1.4
+    });
+  });
   return (
     <div className="header">
-        <div>
+        <div className="header__left">
         <div className="header__sub-heading">
           Hello, I am
         </div>
@@ -13,8 +31,8 @@ function Header(props) {
         </div>
         <div className="header__right">
           
-          <div className="header__box">
-
+          <div ref={el => container = el} className="header__box">
+              <img ref={el => image = el} width="100%"  src={roopam_image} />
           </div>
         </div>
     </div>
