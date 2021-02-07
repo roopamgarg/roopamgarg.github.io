@@ -1,6 +1,7 @@
 html,
 body {
   height: 100%;
+  background: #f2f2f2;
 }
 
 body {
@@ -54,6 +55,18 @@ h2 .outline {
 .App .img-container img {
   width: 100%;
   position: absolute;
+}
+
+.heading-primary {
+  font-size: 3rem;
+  border-left: 1rem solid #DB4437;
+  text-align: left;
+  padding: 0 1rem;
+  text-transform: capitalize;
+}
+
+.divider-4 {
+  padding: 4rem;
 }
 
 .slider {
@@ -123,50 +136,68 @@ h2 .outline {
 
 .card {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  padding: 5rem 0;
+  align-items: flex-start;
+  padding: 2rem 0;
   width: 100%;
   font-family: "Open Sans Condensed", sans-serif;
   transform-origin: bottom;
   transition: all 0.2s;
 }
-.card:hover {
-  background-color: #DB4437;
-  color: #fff;
-  border-radius: 0.5rem;
+@media (max-width: 720px) {
+  .card {
+    padding: 0;
+  }
+}
+.card__content {
+  padding: 0 2rem;
+  border-left: 0.1rem solid #DB4437;
+  margin-left: 1rem;
+  height: 100%;
 }
 .card__image {
-  height: 10rem;
-  width: 10rem;
+  height: 5rem;
+  width: 5rem;
   background: #fff;
   background-size: contain;
   border-radius: 200rem;
   display: flex;
   align-items: center;
+  margin-top: 1.4rem;
   padding: 1rem;
 }
+@media (max-width: 720px) {
+  .card__image {
+    width: 2rem;
+    height: 2rem;
+  }
+}
 .card__image img {
-  width: 100%;
+  width: 5rem;
+}
+@media (max-width: 720px) {
+  .card__image img {
+    width: 2rem;
+  }
 }
 .card__name {
   flex: 1;
-  font-weight: 700;
-  font-size: 2.5rem;
+  font-weight: 400;
+  font-size: 2rem;
   margin-top: 2rem;
 }
 .card__description {
-  padding: 0 2rem;
   text-align: left;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   margin-top: 2rem;
-  height: 10rem;
+  line-height: 1.8rem;
+  height: 100%;
   animation: slideInUp 0.5s;
 }
-.card:hover .card__description {
-  height: 10rem;
-  display: block;
+@media (max-width: 720px) {
+  .card__description {
+    font-size: 1rem;
+  }
 }
 
 @keyframes slideInUp {
@@ -178,18 +209,29 @@ h2 .outline {
   }
 }
 .header {
-  height: 100vh;
+  min-height: 100vh;
   background-color: #f2f2f2;
   color: #000;
   padding: 2rem 10%;
   display: flex;
   align-items: center;
 }
+@media (max-width: 720px) {
+  .header {
+    flex-direction: column;
+  }
+}
 .header__right {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+@media (max-width: 720px) {
+  .header__left {
+    order: 1;
+    flex: 1;
+  }
 }
 .header__sub-heading {
   font-size: 1.8rem;
@@ -201,8 +243,22 @@ h2 .outline {
   height: 20rem;
   width: 20rem;
   border-radius: 200rem;
-  background-image: url(/roopam.4964b4d0.png);
   background-size: cover;
+  overflow: hidden;
+  background-color: #f2f2f2;
+  position: relative;
+}
+.header__box img {
+  border-radius: 200rem;
+}
+.header__box:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: #000;
+  top: 0;
+  right: 0;
 }
 
 .heading {
@@ -210,29 +266,66 @@ h2 .outline {
   font-weight: 700;
   text-transform: uppercase;
 }
+@media (max-width: 720px) {
+  .heading {
+    font-size: 4rem;
+  }
+}
 
 .internships {
-  display: flex;
+  margin: 2rem 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
   background-color: #f2f2f2;
+}
+@media (max-width: 720px) {
+  .internships {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.internships-section {
+  padding: 0 10%;
+  min-height: 100vh;
 }
 
 .projects {
   min-height: 100vh;
+  padding: 0 10%;
   background-color: #f2f2f2;
 }
 
 .project {
-  padding: 2rem 10%;
+  padding: 2rem 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+@media (max-width: 720px) {
+  .project {
+    flex-direction: column;
+  }
+}
 .project.right .project__image {
   order: 1;
+}
+@media (max-width: 720px) {
+  .project.right .project__image {
+    order: 0;
+  }
 }
 .project__image img {
   height: 20rem;
   max-width: 40rem;
+  box-shadow: 0.2rem 0.2rem 1rem rgba(0, 0, 0, 0.2);
+}
+@media (max-width: 720px) {
+  .project__image img {
+    max-width: 80vw;
+    height: unset;
+    margin-bottom: 2rem;
+  }
 }
 .project__name {
   font-size: 2rem;
@@ -243,6 +336,216 @@ h2 .outline {
   margin: 1rem 0;
   padding: 0.5rem 1rem;
   border-left: 0.2rem solid #DB4437;
+}
+
+.hamburger-menu {
+  display: none;
+  z-index: 9;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+}
+.hamburger-menu .hamburger-image {
+  height: 20rem;
+  width: 20rem;
+  border-radius: 200rem;
+  background-image: url(/roopam_3.f042e367.png);
+  background-size: cover;
+  background-color: #000;
+}
+.hamburger-menu .menu-secondary-background-color {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  background-color: #000;
+}
+.hamburger-menu .menu-layer {
+  position: relative;
+  background: #DB4437;
+  height: 100%;
+  overflow: hidden;
+}
+.hamburger-menu .menu-layer .menu-city-background {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+}
+.hamburger-menu .menu-layer .wrapper {
+  position: relative;
+}
+.hamburger-menu .menu-layer .wrapper .menu-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  top: 200px;
+}
+.hamburger-menu .menu-layer .wrapper .menu-links nav {
+  display: block;
+}
+.hamburger-menu .menu-layer .wrapper .menu-links nav ul {
+  padding: 0;
+  margin: 0;
+}
+.hamburger-menu .menu-layer .wrapper .menu-links nav ul li {
+  list-style: none;
+  font-size: 4rem;
+  font-weight: 700;
+  cursor: pointer;
+  height: 135px;
+  overflow: hidden;
+  position: relative;
+  width: 700px;
+}
+@media (max-width: 720px) {
+  .hamburger-menu .menu-layer .wrapper .menu-links nav ul li {
+    font-size: 3rem;
+    height: 135px;
+  }
+}
+.hamburger-menu .menu-layer .wrapper .menu-links nav ul li a {
+  position: absolute;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.hamburger-menu .menu-layer .wrapper .menu-links nav ul li a:hover {
+  color: #000;
+}
+.hamburger-menu .menu-layer .wrapper .menu-links .info {
+  color: #fff;
+  width: 300px;
+}
+.hamburger-menu .menu-layer .wrapper .menu-links .info h3 {
+  font-size: 1.2rem;
+  margin: 8px auto;
+}
+.hamburger-menu .menu-layer .wrapper .menu-links .info p {
+  margin: 0 auto;
+  font-size: 0.8rem;
+}
+@media (max-width: 720px) {
+  .hamburger-menu .menu-layer .wrapper .menu-links .info {
+    display: none;
+  }
+}
+.hamburger-menu .menu-layer .wrapper .menu-links .locations {
+  position: absolute;
+  bottom: -80px;
+  color: #fff;
+  margin-top: 16px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.hamburger-menu .menu-layer .wrapper .menu-links .locations span {
+  font-weight: 400;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin: 0 10px;
+  transition: 0.3s ease-in-out;
+  background: #000;
+  padding: 8px 24px;
+  border-radius: 4px;
+}
+@media (max-width: 720px) {
+  .hamburger-menu .menu-layer .wrapper .menu-links .locations span {
+    font-size: 1rem;
+  }
+}
+
+.container .wrapper {
+  padding: 0 10%;
+}
+.container .wrapper .home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+.container .wrapper .home p {
+  font-size: 0.75rem;
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.container .wrapper .home h5 {
+  margin-top: 200px;
+  font-size: 1.8rem;
+  font-weight: 600;
+  padding-right: 360px;
+}
+
+header {
+  height: 100px;
+}
+header .inner-header {
+  position: relative;
+  z-index: 10;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .inner-header .logo a {
+  font-weight: 700;
+  text-decoration: none;
+  color: #000;
+}
+header .inner-header .menu button {
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 0.8rem;
+  color: #000;
+}
+
+.education {
+  padding: 0 10%;
+  padding-bottom: 5rem;
+}
+.education__heading {
+  font-size: 3rem;
+  border-left: 1rem solid #DB4437;
+  text-align: left;
+  padding: 0 1rem;
+}
+.education__container {
+  display: flex;
+}
+.education__container > div {
+  flex: 1;
+}
+@media (max-width: 720px) {
+  .education__container {
+    flex-direction: column;
+  }
+}
+.education__card {
+  padding: 1rem 0;
+}
+.education__degree {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+.education__info {
+  padding: 0 0.5rem;
+  border-left: 0.1rem solid #DB4437;
 }
 
 /*# sourceMappingURL=/app.c328ef1a.css.map */
