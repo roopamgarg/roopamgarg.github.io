@@ -11,8 +11,10 @@ function Home(props) {
     <>
       <Header />
       <Projects />
-      <Education/>
+      <div style={{padding:"4rem"}}></div>
       <Internship/>
+      <Education/>
+
       <Communities/>
     </>
   );

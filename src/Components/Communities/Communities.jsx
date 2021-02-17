@@ -6,24 +6,23 @@ import Card from '../Card/Card';
 const data = [
 
   {
-    name: "DSC",
-    description:
-      "IOSD helps student's in improving there coding skills by building open source projects and teaching programming concepts",
+    name: "Developer Student Clubs",
+    description:"Developer Student Clubs is university based community groups for students interested in Google developer and latest technologies.",
     image: dsc,
   },
   {
-    name: "IOSD",
+    name: "International Organization of Software Developers",
     description:
       "IOSD helps student's in improving there coding skills by building open source projects and teaching programming concepts",
     image: iosd,
   },
 
-  {
-    name: "Mini Troika",
-    description:
-      "IOSD helps student's in improving there coding skills by building open source projects and teaching programming concepts",
-    image: minitroika,
-  },
+  // {
+  //   name: "Mini Troika",
+  //   description:
+  //     "IOSD helps student's in improving there coding skills by building open source projects and teaching programming concepts",
+  //   image: minitroika,
+  // },
 ];
 function Communities(props) {
   const createSlides = () => {
