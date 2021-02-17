@@ -299,7 +299,7 @@ h2 .outline {
 .project {
   padding: 2rem 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 @media (max-width: 720px) {
@@ -307,17 +307,31 @@ h2 .outline {
     flex-direction: column;
   }
 }
+.project__content {
+  flex: 1;
+  padding: 4rem;
+}
+@media (max-width: 720px) {
+  .project__content {
+    padding: 0;
+  }
+}
 .project.right .project__image {
   order: 1;
+  margin-right: 0;
 }
 @media (max-width: 720px) {
   .project.right .project__image {
     order: 0;
   }
 }
-.project__image img {
+.project__image {
   height: 20rem;
   max-width: 40rem;
+  position: relative;
+}
+.project__image img {
+  max-height: 100%;
   box-shadow: 0.2rem 0.2rem 1rem rgba(0, 0, 0, 0.2);
 }
 @media (max-width: 720px) {

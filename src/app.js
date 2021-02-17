@@ -14,7 +14,7 @@ import "./Styles/index.scss";
 function App() {
   useEffect(() => {
     gsap.registerPlugin(Power2, TimelineLite);
-  });
+  },[]);
   return (
     <BrowserRouter>
       <div>
