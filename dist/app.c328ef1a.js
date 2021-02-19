@@ -39371,13 +39371,13 @@ function Education(props) {
 var _default = Education;
 exports.default = _default;
 },{"react":"../node_modules/react/index.js"}],"images/hoohoop.png":[function(require,module,exports) {
-module.exports = "/hoohoop.b0ef021e.png";
+module.exports = "hoohoop.b0ef021e.png";
 },{}],"images/pracify.png":[function(require,module,exports) {
-module.exports = "/pracify.486b6fa3.png";
+module.exports = "pracify.486b6fa3.png";
 },{}],"images/iosd.png":[function(require,module,exports) {
-module.exports = "/iosd.8c71869c.png";
+module.exports = "iosd.8c71869c.png";
 },{}],"images/monktree.png":[function(require,module,exports) {
-module.exports = "/monktree.e674c5cb.png";
+module.exports = "monktree.e674c5cb.png";
 },{}],"Components/Card/Card.jsx":[function(require,module,exports) {
 "use strict";
 
@@ -49131,19 +49131,19 @@ var ProjectCard = function ProjectCard(_ref) {
 var _default = ProjectCard;
 exports.default = _default;
 },{"react":"../node_modules/react/index.js","gsap":"../node_modules/gsap/index.js","gsap/CSSRulePlugin":"../node_modules/gsap/CSSRulePlugin.js","react-use":"../node_modules/react-use/esm/index.js"}],"images/poll.png":[function(require,module,exports) {
-module.exports = "/poll.d8d14cc2.png";
+module.exports = "poll.d8d14cc2.png";
 },{}],"images/pracify_sc.png":[function(require,module,exports) {
-module.exports = "/pracify_sc.3bbcfbb0.png";
+module.exports = "pracify_sc.3bbcfbb0.png";
 },{}],"images/hoohoop_sc.png":[function(require,module,exports) {
-module.exports = "/hoohoop_sc.cfd93723.png";
+module.exports = "hoohoop_sc.cfd93723.png";
 },{}],"images/monktree_sc.png":[function(require,module,exports) {
-module.exports = "/monktree_sc.e935d536.png";
+module.exports = "monktree_sc.e935d536.png";
 },{}],"images/iosd_sc.png":[function(require,module,exports) {
-module.exports = "/iosd_sc.3c7f1496.png";
+module.exports = "iosd_sc.3c7f1496.png";
 },{}],"images/fourier.png":[function(require,module,exports) {
-module.exports = "/fourier.6a2a2d9a.png";
+module.exports = "fourier.6a2a2d9a.png";
 },{}],"images/gitforker.png":[function(require,module,exports) {
-module.exports = "/gitforker.05617655.png";
+module.exports = "gitforker.05617655.png";
 },{}],"Components/Projects/Projects.jsx":[function(require,module,exports) {
 "use strict";
 
@@ -49241,9 +49241,9 @@ function Projects(props) {
 var _default = Projects;
 exports.default = _default;
 },{"react":"../node_modules/react/index.js","../ProjectCard/ProjectCard":"Components/ProjectCard/ProjectCard.jsx","../../images/poll.png":"images/poll.png","../../images/pracify_sc.png":"images/pracify_sc.png","../../images/hoohoop_sc.png":"images/hoohoop_sc.png","../../images/monktree_sc.png":"images/monktree_sc.png","../../images/iosd_sc.png":"images/iosd_sc.png","../../images/fourier.png":"images/fourier.png","../../images/gitforker.png":"images/gitforker.png"}],"images/dsc.png":[function(require,module,exports) {
-module.exports = "/dsc.e882721c.png";
+module.exports = "dsc.e882721c.png";
 },{}],"images/minitroika.png":[function(require,module,exports) {
-module.exports = "/minitroika.3bea6131.png";
+module.exports = "minitroika.3bea6131.png";
 },{}],"Components/Communities/Communities.jsx":[function(require,module,exports) {
 "use strict";
 
@@ -49322,8 +49322,8 @@ function EducationPage(props) {
 
 var _default = EducationPage;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","../Components/Communities/Communities":"Components/Communities/Communities.jsx","../Components/Education/Education":"Components/Education/Education.jsx"}],"images/roopam.png":[function(require,module,exports) {
-module.exports = "/roopam.4964b4d0.png";
+},{"react":"../node_modules/react/index.js","../Components/Communities/Communities":"Components/Communities/Communities.jsx","../Components/Education/Education":"Components/Education/Education.jsx"}],"images/roopam_sm.jpg":[function(require,module,exports) {
+module.exports = "roopam_sm.47ccea8d.jpg";
 },{}],"Components/Header/Header.jsx":[function(require,module,exports) {
 "use strict";
 
@@ -49338,7 +49338,7 @@ var _gsap = _interopRequireWildcard(require("gsap"));
 
 var _CSSRulePlugin = _interopRequireDefault(require("gsap/CSSRulePlugin"));
 
-var _roopam = _interopRequireDefault(require("../../images/roopam.png"));
+var _roopam_sm = _interopRequireDefault(require("../../images/roopam_sm.jpg"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -49389,13 +49389,13 @@ function Header(props) {
       return image = el;
     },
     width: "100%",
-    src: _roopam.default
+    src: _roopam_sm.default
   }))));
 }
 
 var _default = Header;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","gsap":"../node_modules/gsap/index.js","gsap/CSSRulePlugin":"../node_modules/gsap/CSSRulePlugin.js","../../images/roopam.png":"images/roopam.png"}],"Pages/Home.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","gsap":"../node_modules/gsap/index.js","gsap/CSSRulePlugin":"../node_modules/gsap/CSSRulePlugin.js","../../images/roopam_sm.jpg":"images/roopam_sm.jpg"}],"Pages/Home.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -49505,7 +49505,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./../images/roopam_3.png":[["roopam_3.f042e367.png","images/roopam_3.png"],"images/roopam_3.png"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"app.js":[function(require,module,exports) {
+},{"./../images/roopam_3_sm.jpg":[["roopam_3_sm.5fe68fa3.jpg","images/roopam_3_sm.jpg"],"images/roopam_3_sm.jpg"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"app.js":[function(require,module,exports) {
 "use strict";
 
 var _gsap = _interopRequireWildcard(require("gsap"));
@@ -49588,7 +49588,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "38863" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "43295" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -49765,4 +49765,4 @@ function hmrAcceptRun(bundle, id) {
   }
 }
 },{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","app.js"], null)
-//# sourceMappingURL=/app.c328ef1a.js.map
+//# sourceMappingURL=app.c328ef1a.js.map

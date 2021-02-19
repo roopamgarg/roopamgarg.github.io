@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import gsap,{ Power2 } from "gsap";
 import CSSRulePlugin from "gsap/CSSRulePlugin";
-import roopam_image from "../../images/roopam.png";
+import roopam_image from "../../images/roopam_sm.jpg";
 
 function Header(props) {
   let image = useRef(null);
