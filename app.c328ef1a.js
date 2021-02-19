@@ -39391,13 +39391,13 @@ function Education(props) {
 var _default = Education;
 exports.default = _default;
 },{"react":"../node_modules/react/index.js"}],"images/hoohoop.png":[function(require,module,exports) {
-module.exports = "hoohoop.b0ef021e.png";
+module.exports = "/hoohoop.b0ef021e.png";
 },{}],"images/pracify.png":[function(require,module,exports) {
-module.exports = "pracify.486b6fa3.png";
+module.exports = "/pracify.486b6fa3.png";
 },{}],"images/iosd.png":[function(require,module,exports) {
-module.exports = "iosd.8c71869c.png";
+module.exports = "/iosd.8c71869c.png";
 },{}],"images/monktree.png":[function(require,module,exports) {
-module.exports = "monktree.e674c5cb.png";
+module.exports = "/monktree.e674c5cb.png";
 },{}],"Components/Card/Card.jsx":[function(require,module,exports) {
 "use strict";
 
@@ -39493,7 +39493,7 @@ function Internship(props) {
 var _default = Internship;
 exports.default = _default;
 },{"react":"../node_modules/react/index.js","../../images/hoohoop.png":"images/hoohoop.png","../../images/pracify.png":"images/pracify.png","../../images/iosd.png":"images/iosd.png","../../images/monktree.png":"images/monktree.png","../Card/Card":"Components/Card/Card.jsx"}],"images/roopam_3_sm.jpg":[function(require,module,exports) {
-module.exports = "roopam_3_sm.5fe68fa3.jpg";
+module.exports = "/roopam_3_sm.5fe68fa3.jpg";
 },{}],"Components/Hamburger/Hamburger.jsx":[function(require,module,exports) {
 "use strict";
 
@@ -50734,19 +50734,19 @@ var ProjectCard = function ProjectCard(_ref) {
 var _default = ProjectCard;
 exports.default = _default;
 },{"react":"../node_modules/react/index.js","gsap":"../node_modules/gsap/index.js","gsap/CSSRulePlugin":"../node_modules/gsap/CSSRulePlugin.js","react-use":"../node_modules/react-use/esm/index.js","../LazyLoadImage":"Components/LazyLoadImage/index.jsx","react-lazy-load-image-component":"../node_modules/react-lazy-load-image-component/build/index.js","react-lazy-load-image-component/src/effects/blur.css":"../node_modules/react-lazy-load-image-component/src/effects/blur.css"}],"images/poll.jpg":[function(require,module,exports) {
-module.exports = "poll.dff67ddb.jpg";
+module.exports = "/poll.dff67ddb.jpg";
 },{}],"images/pracify_sc.jpg":[function(require,module,exports) {
-module.exports = "pracify_sc.57860263.jpg";
+module.exports = "/pracify_sc.57860263.jpg";
 },{}],"images/hoohoop_sc.jpg":[function(require,module,exports) {
-module.exports = "hoohoop_sc.85e44fc7.jpg";
+module.exports = "/hoohoop_sc.85e44fc7.jpg";
 },{}],"images/monktree_sc.jpg":[function(require,module,exports) {
-module.exports = "monktree_sc.78e1f160.jpg";
+module.exports = "/monktree_sc.78e1f160.jpg";
 },{}],"images/iosd_sc.jpg":[function(require,module,exports) {
-module.exports = "iosd_sc.35537e74.jpg";
+module.exports = "/iosd_sc.35537e74.jpg";
 },{}],"images/fourier.jpg":[function(require,module,exports) {
-module.exports = "fourier.bb108a8b.jpg";
+module.exports = "/fourier.bb108a8b.jpg";
 },{}],"images/gitforker.png":[function(require,module,exports) {
-module.exports = "gitforker.05617655.png";
+module.exports = "/gitforker.05617655.png";
 },{}],"Components/Projects/Projects.jsx":[function(require,module,exports) {
 "use strict";
 
@@ -50846,9 +50846,9 @@ function Projects(props) {
 var _default = Projects;
 exports.default = _default;
 },{"react":"../node_modules/react/index.js","../ProjectCard/ProjectCard":"Components/ProjectCard/ProjectCard.jsx","../../images/poll.jpg":"images/poll.jpg","../../images/pracify_sc.jpg":"images/pracify_sc.jpg","../../images/hoohoop_sc.jpg":"images/hoohoop_sc.jpg","../../images/monktree_sc.jpg":"images/monktree_sc.jpg","../../images/iosd_sc.jpg":"images/iosd_sc.jpg","../../images/fourier.jpg":"images/fourier.jpg","../../images/gitforker.png":"images/gitforker.png","../LazyLoadImage":"Components/LazyLoadImage/index.jsx"}],"images/dsc.png":[function(require,module,exports) {
-module.exports = "dsc.e882721c.png";
+module.exports = "/dsc.e882721c.png";
 },{}],"images/minitroika.png":[function(require,module,exports) {
-module.exports = "minitroika.3bea6131.png";
+module.exports = "/minitroika.3bea6131.png";
 },{}],"Components/Communities/Communities.jsx":[function(require,module,exports) {
 "use strict";
 
@@ -50928,7 +50928,7 @@ function EducationPage(props) {
 var _default = EducationPage;
 exports.default = _default;
 },{"react":"../node_modules/react/index.js","../Components/Communities/Communities":"Components/Communities/Communities.jsx","../Components/Education/Education":"Components/Education/Education.jsx"}],"images/roopam_sm.jpg":[function(require,module,exports) {
-module.exports = "roopam_sm.47ccea8d.jpg";
+module.exports = "/roopam_sm.47ccea8d.jpg";
 },{}],"Components/Header/Header.jsx":[function(require,module,exports) {
 "use strict";
 
@@ -51127,7 +51127,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "44501" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "46809" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -51304,4 +51304,4 @@ function hmrAcceptRun(bundle, id) {
   }
 }
 },{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","app.js"], null)
-//# sourceMappingURL=app.c328ef1a.js.map
+//# sourceMappingURL=/app.c328ef1a.js.map
