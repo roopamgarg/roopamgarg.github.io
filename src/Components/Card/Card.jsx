@@ -1,11 +1,12 @@
 import React from 'react';
+import LazyImage from '../LazyLoadImage';
 
 function Card({data}) {
   const {name,description,image} = data;
   return (
     <div className="card">
       <div className="card__image">
-        <img src={image}/> 
+        <LazyImage src={image} alt="logo"/> 
       </div>
       <div className="card__content">
       <div className="card__name">
