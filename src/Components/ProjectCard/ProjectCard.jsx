@@ -1,29 +1,12 @@
-import React, { useEffect, useRef } from "react";
-import gsap, { Power2, power1 } from "gsap";
-import CSSRulePlugin from "gsap/CSSRulePlugin";
-import { useIntersection } from "react-use";
+import React, { useRef } from "react";
 import LazyImage from "../LazyLoadImage";
-import { LazyLoadComponent, LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const ProjectCard = ({ index, image, name, points }) => {
   const intersectionRef = useRef(null);
   const container = useRef(null);
-  const imageRef = useRef(null);
 
-  // const intersection = useIntersection(intersectionRef, {
-  //   root: null,
-  //   rootMargin: "0px",
-  //   threshold: 0.2,
-  // });
-  // const imageReveal = CSSRulePlugin.getRule(`.project__image:after`);
-  // const tl = new gsap.timeline();
-  // const playAnimation = () => {
-  //   tl.to(imageReveal, 1.4, { height: "0%", ease: Power2.easeInOut });
-
-  // };
   const renderImage = () => {
-    return <LazyLoadImage ref={imageRef} effect="blur" src={image} alt="poll" />;
+    return <LazyImage  src={image} alt="poll" />;
   };
   return (
     <div
