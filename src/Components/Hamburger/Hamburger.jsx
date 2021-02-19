@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import gsap from 'gsap';
+import roopam_image from "../../images/roopam_3_sm.jpg";
 const Hamburger = ({state}) => {
   
   let menu = useRef(null);
@@ -100,6 +101,7 @@ const Hamburger = ({state}) => {
             <div ref={el => info = el} className="info">
                   
               <div className="hamburger-image">
+                <img   width="100%"  src={roopam_image} />
 
               </div>       
             </div>

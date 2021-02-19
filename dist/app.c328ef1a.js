@@ -39472,7 +39472,9 @@ function Internship(props) {
 
 var _default = Internship;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","../../images/hoohoop.png":"images/hoohoop.png","../../images/pracify.png":"images/pracify.png","../../images/iosd.png":"images/iosd.png","../../images/monktree.png":"images/monktree.png","../Card/Card":"Components/Card/Card.jsx"}],"Components/Hamburger/Hamburger.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../../images/hoohoop.png":"images/hoohoop.png","../../images/pracify.png":"images/pracify.png","../../images/iosd.png":"images/iosd.png","../../images/monktree.png":"images/monktree.png","../Card/Card":"Components/Card/Card.jsx"}],"images/roopam_3_sm.jpg":[function(require,module,exports) {
+module.exports = "roopam_3_sm.5fe68fa3.jpg";
+},{}],"Components/Hamburger/Hamburger.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -39485,6 +39487,8 @@ var _react = _interopRequireWildcard(require("react"));
 var _reactRouterDom = require("react-router-dom");
 
 var _gsap = _interopRequireDefault(require("gsap"));
+
+var _roopam_3_sm = _interopRequireDefault(require("../../images/roopam_3_sm.jpg"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -39621,14 +39625,17 @@ var Hamburger = function Hamburger(_ref) {
     className: "info"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "hamburger-image"
-  })), /*#__PURE__*/_react.default.createElement("div", {
+  }, /*#__PURE__*/_react.default.createElement("img", {
+    width: "100%",
+    src: _roopam_3_sm.default
+  }))), /*#__PURE__*/_react.default.createElement("div", {
     className: "locations"
   }, "Email me @", /*#__PURE__*/_react.default.createElement("span", null, "roopamg777@gmail.com")))))));
 };
 
 var _default = Hamburger;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","gsap":"../node_modules/gsap/index.js"}],"Hooks/useWindowSize.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","gsap":"../node_modules/gsap/index.js","../../images/roopam_3_sm.jpg":"images/roopam_3_sm.jpg"}],"Hooks/useWindowSize.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -39717,7 +39724,7 @@ var Navbar = function Navbar(_ref) {
   var app = (0, _react.useRef)();
   var scrollContainer = (0, _react.useRef)();
   var skewConfigs = {
-    ease: 0.2,
+    ease: 0.1,
     current: 0,
     previous: 0,
     rounded: 0
@@ -39739,7 +39746,7 @@ var Navbar = function Navbar(_ref) {
     var difference = skewConfigs.current - skewConfigs.rounded;
     var acceleration = difference / size.width;
     var velocity = +acceleration;
-    var skew = velocity * 7.5;
+    var skew = velocity * 9.5;
     scrollContainer.current.style.transform = "translate3d(0, -".concat(skewConfigs.rounded, "px, 0) skewY(").concat(skew, "deg)");
     requestAnimationFrame(function () {
       return skewScrolling();
@@ -49409,8 +49416,6 @@ var _Header = _interopRequireDefault(require("../Components/Header/Header.jsx"))
 
 var _Projects = _interopRequireDefault(require("../Components/Projects/Projects"));
 
-var _Navbar = _interopRequireDefault(require("../Components/Navbar/Navbar"));
-
 var _Education = _interopRequireDefault(require("../Components/Education/Education.jsx"));
 
 var _Internship = _interopRequireDefault(require("../Components/internships/Internship"));
@@ -49423,6 +49428,9 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
+// const Education = lazy(() => import("../Components/Education/Education.jsx"));
+// const Internship = lazy(() => import("../Components/internships/Internship"));
+// const Communities = lazy(() => import("../Components/Communities/Communities.jsx"));
 function Home(props) {
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_Header.default, null), /*#__PURE__*/_react.default.createElement(_Projects.default, null), /*#__PURE__*/_react.default.createElement("div", {
     style: {
@@ -49433,7 +49441,7 @@ function Home(props) {
 
 var _default = Home;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","../Components/Header/Header.jsx":"Components/Header/Header.jsx","../Components/Projects/Projects":"Components/Projects/Projects.jsx","../Components/Navbar/Navbar":"Components/Navbar/Navbar.jsx","../Components/Education/Education.jsx":"Components/Education/Education.jsx","../Components/internships/Internship":"Components/internships/Internship.jsx","../Components/Communities/Communities.jsx":"Components/Communities/Communities.jsx"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../Components/Header/Header.jsx":"Components/Header/Header.jsx","../Components/Projects/Projects":"Components/Projects/Projects.jsx","../Components/Education/Education.jsx":"Components/Education/Education.jsx","../Components/internships/Internship":"Components/internships/Internship.jsx","../Components/Communities/Communities.jsx":"Components/Communities/Communities.jsx"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -49505,7 +49513,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./../images/roopam_3_sm.jpg":[["roopam_3_sm.5fe68fa3.jpg","images/roopam_3_sm.jpg"],"images/roopam_3_sm.jpg"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"app.js":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"app.js":[function(require,module,exports) {
 "use strict";
 
 var _gsap = _interopRequireWildcard(require("gsap"));
@@ -49588,7 +49596,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "35479" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "38631" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
