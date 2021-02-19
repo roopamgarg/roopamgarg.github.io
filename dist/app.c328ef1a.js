@@ -41928,7 +41928,7 @@ function Home(props) {
     style: {
       padding: "4rem"
     }
-  }), /*#__PURE__*/_react.default.createElement(_Internship.default, null), /*#__PURE__*/_react.default.createElement(_Education.default, null), /*#__PURE__*/_react.default.createElement(_Communities.default, null));
+  }), /*#__PURE__*/_react.default.createElement(_Internship.default, null), /*#__PURE__*/_react.default.createElement(_Communities.default, null));
 }
 
 var _default = Home;
@@ -42021,7 +42021,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "43469" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "36527" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
