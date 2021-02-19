@@ -367,8 +367,8 @@ h2 .outline {
   height: 20rem;
   width: 20rem;
   border-radius: 200rem;
-  background-image: url(roopam_3_sm.5fe68fa3.jpg);
   background-size: cover;
+  overflow: hidden;
   background-color: #000;
 }
 .hamburger-menu .menu-secondary-background-color {
