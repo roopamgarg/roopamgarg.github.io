@@ -350,6 +350,7 @@ h2 .outline {
 }
 .project__image img {
   height: 20rem;
+  min-width: 35rem;
 }
 .project__image img {
   max-height: 100%;
@@ -583,4 +584,4 @@ header .inner-header .menu button {
   border-left: 0.1rem solid #DB4437;
 }
 
-/*# sourceMappingURL=app.c328ef1a.css.map */
+/*# sourceMappingURL=/app.c328ef1a.css.map */
