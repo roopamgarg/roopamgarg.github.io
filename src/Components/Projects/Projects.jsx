@@ -1,12 +1,14 @@
 import React from "react";
 import ProjectCard from "../ProjectCard/ProjectCard";
-import poll from "../../images/poll.png";
-import pracify from "../../images/pracify_sc.png";
-import hoohoop from "../../images/hoohoop_sc.png";
-import monktree from "../../images/monktree_sc.png";
-import iosd from "../../images/iosd_sc.png";
-import fourier from "../../images/fourier.png";
+import poll from "../../images/poll.jpg";
+import pracify from "../../images/pracify_sc.jpg";
+import hoohoop from "../../images/hoohoop_sc.jpg";
+import monktree from "../../images/monktree_sc.jpg";
+import iosd from "../../images/iosd_sc.jpg";
+import fourier from "../../images/fourier.jpg";
 import gitforker from "../../images/gitforker.png";
+import LazyLoadImage from "../LazyLoadImage";
+import LazyImage from "../LazyLoadImage";
 
 const data = [
   {
@@ -92,7 +94,6 @@ function Projects(props) {
   return (
     <div className="projects" id="projects">
       <div className="heading-primary">Projects</div>
-
       {data.map(({ image, points, name }, index) => (
         <ProjectCard index={index} image={image} points={points} name={name} />
       ))}

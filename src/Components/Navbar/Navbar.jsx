@@ -37,7 +37,7 @@ const Navbar = ({ children }) => {
     const difference = skewConfigs.current - skewConfigs.rounded;
     const acceleration = difference / size.width;
     const velocity = +acceleration;
-    const skew = velocity * 9.5;
+    const skew = velocity * 7.5;
 
     scrollContainer.current.style.transform = `translate3d(0, -${skewConfigs.rounded}px, 0) skewY(${skew}deg)`;
 

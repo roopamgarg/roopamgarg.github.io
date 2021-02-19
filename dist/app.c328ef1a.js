@@ -35237,7 +35237,23 @@ if ("development" === 'production') {
 } else {
   module.exports = require('./cjs/react-dom.development.js');
 }
-},{"./cjs/react-dom.development.js":"../node_modules/react-dom/cjs/react-dom.development.js"}],"../node_modules/@babel/runtime/helpers/esm/inheritsLoose.js":[function(require,module,exports) {
+},{"./cjs/react-dom.development.js":"../node_modules/react-dom/cjs/react-dom.development.js"}],"../node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = _setPrototypeOf;
+
+function _setPrototypeOf(o, p) {
+  exports.default = _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+    o.__proto__ = p;
+    return o;
+  };
+
+  return _setPrototypeOf(o, p);
+}
+},{}],"../node_modules/@babel/runtime/helpers/esm/inheritsLoose.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -35245,12 +35261,16 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = _inheritsLoose;
 
+var _setPrototypeOf = _interopRequireDefault(require("@babel/runtime/helpers/esm/setPrototypeOf"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function _inheritsLoose(subClass, superClass) {
   subClass.prototype = Object.create(superClass.prototype);
   subClass.prototype.constructor = subClass;
-  subClass.__proto__ = superClass;
+  (0, _setPrototypeOf.default)(subClass, superClass);
 }
-},{}],"../node_modules/react-is/cjs/react-is.development.js":[function(require,module,exports) {
+},{"@babel/runtime/helpers/esm/setPrototypeOf":"../node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js"}],"../node_modules/react-is/cjs/react-is.development.js":[function(require,module,exports) {
 /** @license React v16.13.1
  * react-is.development.js
  *
@@ -39746,7 +39766,7 @@ var Navbar = function Navbar(_ref) {
     var difference = skewConfigs.current - skewConfigs.rounded;
     var acceleration = difference / size.width;
     var velocity = +acceleration;
-    var skew = velocity * 9.5;
+    var skew = velocity * 7.5;
     scrollContainer.current.style.transform = "translate3d(0, -".concat(skewConfigs.rounded, "px, 0) skewY(").concat(skew, "deg)");
     requestAnimationFrame(function () {
       return skewScrolling();
@@ -40722,7 +40742,7 @@ function useMountedState() {
     return function () {
       mountedRef.current = false;
     };
-  });
+  }, []);
   return get;
 }
 },{"react":"../node_modules/react/index.js"}],"../node_modules/react-use/esm/useAsyncFn.js":[function(require,module,exports) {
@@ -49073,7 +49093,1572 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./factory/createMemo":"../node_modules/react-use/esm/factory/createMemo.js","./factory/createReducerContext":"../node_modules/react-use/esm/factory/createReducerContext.js","./factory/createReducer":"../node_modules/react-use/esm/factory/createReducer.js","./factory/createStateContext":"../node_modules/react-use/esm/factory/createStateContext.js","./useAsync":"../node_modules/react-use/esm/useAsync.js","./useAsyncFn":"../node_modules/react-use/esm/useAsyncFn.js","./useAsyncRetry":"../node_modules/react-use/esm/useAsyncRetry.js","./useAudio":"../node_modules/react-use/esm/useAudio.js","./useBattery":"../node_modules/react-use/esm/useBattery.js","./useBeforeUnload":"../node_modules/react-use/esm/useBeforeUnload.js","./useBoolean":"../node_modules/react-use/esm/useBoolean.js","./useClickAway":"../node_modules/react-use/esm/useClickAway.js","./useCookie":"../node_modules/react-use/esm/useCookie.js","./useCopyToClipboard":"../node_modules/react-use/esm/useCopyToClipboard.js","./useCounter":"../node_modules/react-use/esm/useCounter.js","./useCss":"../node_modules/react-use/esm/useCss.js","./useCustomCompareEffect":"../node_modules/react-use/esm/useCustomCompareEffect.js","./useDebounce":"../node_modules/react-use/esm/useDebounce.js","./useDeepCompareEffect":"../node_modules/react-use/esm/useDeepCompareEffect.js","./useDefault":"../node_modules/react-use/esm/useDefault.js","./useDrop":"../node_modules/react-use/esm/useDrop.js","./useDropArea":"../node_modules/react-use/esm/useDropArea.js","./useEffectOnce":"../node_modules/react-use/esm/useEffectOnce.js","./useEnsuredForwardedRef":"../node_modules/react-use/esm/useEnsuredForwardedRef.js","./useEvent":"../node_modules/react-use/esm/useEvent.js","./useError":"../node_modules/react-use/esm/useError.js","./useFavicon":"../node_modules/react-use/esm/useFavicon.js","./useFullscreen":"../node_modules/react-use/esm/useFullscreen.js","./useGeolocation":"../node_modules/react-use/esm/useGeolocation.js","./useGetSet":"../node_modules/react-use/esm/useGetSet.js","./useGetSetState":"../node_modules/react-use/esm/useGetSetState.js","./useHarmonicIntervalFn":"../node_modules/react-use/esm/useHarmonicIntervalFn.js","./useHover":"../node_modules/react-use/esm/useHover.js","./useHoverDirty":"../node_modules/react-use/esm/useHoverDirty.js","./useIdle":"../node_modules/react-use/esm/useIdle.js","./useIntersection":"../node_modules/react-use/esm/useIntersection.js","./useInterval":"../node_modules/react-use/esm/useInterval.js","./useIsomorphicLayoutEffect":"../node_modules/react-use/esm/useIsomorphicLayoutEffect.js","./useKey":"../node_modules/react-use/esm/useKey.js","./factory/createBreakpoint":"../node_modules/react-use/esm/factory/createBreakpoint.js","./useKeyPress":"../node_modules/react-use/esm/useKeyPress.js","./useKeyPressEvent":"../node_modules/react-use/esm/useKeyPressEvent.js","./useLatest":"../node_modules/react-use/esm/useLatest.js","./useLifecycles":"../node_modules/react-use/esm/useLifecycles.js","./useList":"../node_modules/react-use/esm/useList.js","./useLocalStorage":"../node_modules/react-use/esm/useLocalStorage.js","./useLocation":"../node_modules/react-use/esm/useLocation.js","./useLockBodyScroll":"../node_modules/react-use/esm/useLockBodyScroll.js","./useLogger":"../node_modules/react-use/esm/useLogger.js","./useLongPress":"../node_modules/react-use/esm/useLongPress.js","./useMap":"../node_modules/react-use/esm/useMap.js","./useMedia":"../node_modules/react-use/esm/useMedia.js","./useMediaDevices":"../node_modules/react-use/esm/useMediaDevices.js","./useMediatedState":"../node_modules/react-use/esm/useMediatedState.js","./useMethods":"../node_modules/react-use/esm/useMethods.js","./useMotion":"../node_modules/react-use/esm/useMotion.js","./useMount":"../node_modules/react-use/esm/useMount.js","./useMountedState":"../node_modules/react-use/esm/useMountedState.js","./useMouse":"../node_modules/react-use/esm/useMouse.js","./useMouseHovered":"../node_modules/react-use/esm/useMouseHovered.js","./useMouseWheel":"../node_modules/react-use/esm/useMouseWheel.js","./useNetworkState":"../node_modules/react-use/esm/useNetworkState.js","./useNumber":"../node_modules/react-use/esm/useNumber.js","./useObservable":"../node_modules/react-use/esm/useObservable.js","./useOrientation":"../node_modules/react-use/esm/useOrientation.js","./usePageLeave":"../node_modules/react-use/esm/usePageLeave.js","./usePermission":"../node_modules/react-use/esm/usePermission.js","./usePrevious":"../node_modules/react-use/esm/usePrevious.js","./usePreviousDistinct":"../node_modules/react-use/esm/usePreviousDistinct.js","./usePromise":"../node_modules/react-use/esm/usePromise.js","./useQueue":"../node_modules/react-use/esm/useQueue.js","./useRaf":"../node_modules/react-use/esm/useRaf.js","./useRafLoop":"../node_modules/react-use/esm/useRafLoop.js","./useRafState":"../node_modules/react-use/esm/useRafState.js","./useSearchParam":"../node_modules/react-use/esm/useSearchParam.js","./useScratch":"../node_modules/react-use/esm/useScratch.js","./useScroll":"../node_modules/react-use/esm/useScroll.js","./useScrolling":"../node_modules/react-use/esm/useScrolling.js","./useSessionStorage":"../node_modules/react-use/esm/useSessionStorage.js","./useSetState":"../node_modules/react-use/esm/useSetState.js","./useShallowCompareEffect":"../node_modules/react-use/esm/useShallowCompareEffect.js","./useSize":"../node_modules/react-use/esm/useSize.js","./useSlider":"../node_modules/react-use/esm/useSlider.js","./useSpeech":"../node_modules/react-use/esm/useSpeech.js","./useStartTyping":"../node_modules/react-use/esm/useStartTyping.js","./useStateWithHistory":"../node_modules/react-use/esm/useStateWithHistory.js","./useStateList":"../node_modules/react-use/esm/useStateList.js","./useThrottle":"../node_modules/react-use/esm/useThrottle.js","./useThrottleFn":"../node_modules/react-use/esm/useThrottleFn.js","./useTimeout":"../node_modules/react-use/esm/useTimeout.js","./useTimeoutFn":"../node_modules/react-use/esm/useTimeoutFn.js","./useTitle":"../node_modules/react-use/esm/useTitle.js","./useToggle":"../node_modules/react-use/esm/useToggle.js","./useTween":"../node_modules/react-use/esm/useTween.js","./useUnmount":"../node_modules/react-use/esm/useUnmount.js","./useUnmountPromise":"../node_modules/react-use/esm/useUnmountPromise.js","./useUpdate":"../node_modules/react-use/esm/useUpdate.js","./useUpdateEffect":"../node_modules/react-use/esm/useUpdateEffect.js","./useUpsert":"../node_modules/react-use/esm/useUpsert.js","./useVibrate":"../node_modules/react-use/esm/useVibrate.js","./useVideo":"../node_modules/react-use/esm/useVideo.js","./useStateValidator":"../node_modules/react-use/esm/useStateValidator.js","./useScrollbarWidth":"../node_modules/react-use/esm/useScrollbarWidth.js","./useMultiStateValidator":"../node_modules/react-use/esm/useMultiStateValidator.js","./useWindowScroll":"../node_modules/react-use/esm/useWindowScroll.js","./useWindowSize":"../node_modules/react-use/esm/useWindowSize.js","./useMeasure":"../node_modules/react-use/esm/useMeasure.js","./useRendersCount":"../node_modules/react-use/esm/useRendersCount.js","./useFirstMountState":"../node_modules/react-use/esm/useFirstMountState.js","./useSet":"../node_modules/react-use/esm/useSet.js","./factory/createGlobalState":"../node_modules/react-use/esm/factory/createGlobalState.js","./useHash":"../node_modules/react-use/esm/useHash.js"}],"Components/ProjectCard/ProjectCard.jsx":[function(require,module,exports) {
+},{"./factory/createMemo":"../node_modules/react-use/esm/factory/createMemo.js","./factory/createReducerContext":"../node_modules/react-use/esm/factory/createReducerContext.js","./factory/createReducer":"../node_modules/react-use/esm/factory/createReducer.js","./factory/createStateContext":"../node_modules/react-use/esm/factory/createStateContext.js","./useAsync":"../node_modules/react-use/esm/useAsync.js","./useAsyncFn":"../node_modules/react-use/esm/useAsyncFn.js","./useAsyncRetry":"../node_modules/react-use/esm/useAsyncRetry.js","./useAudio":"../node_modules/react-use/esm/useAudio.js","./useBattery":"../node_modules/react-use/esm/useBattery.js","./useBeforeUnload":"../node_modules/react-use/esm/useBeforeUnload.js","./useBoolean":"../node_modules/react-use/esm/useBoolean.js","./useClickAway":"../node_modules/react-use/esm/useClickAway.js","./useCookie":"../node_modules/react-use/esm/useCookie.js","./useCopyToClipboard":"../node_modules/react-use/esm/useCopyToClipboard.js","./useCounter":"../node_modules/react-use/esm/useCounter.js","./useCss":"../node_modules/react-use/esm/useCss.js","./useCustomCompareEffect":"../node_modules/react-use/esm/useCustomCompareEffect.js","./useDebounce":"../node_modules/react-use/esm/useDebounce.js","./useDeepCompareEffect":"../node_modules/react-use/esm/useDeepCompareEffect.js","./useDefault":"../node_modules/react-use/esm/useDefault.js","./useDrop":"../node_modules/react-use/esm/useDrop.js","./useDropArea":"../node_modules/react-use/esm/useDropArea.js","./useEffectOnce":"../node_modules/react-use/esm/useEffectOnce.js","./useEnsuredForwardedRef":"../node_modules/react-use/esm/useEnsuredForwardedRef.js","./useEvent":"../node_modules/react-use/esm/useEvent.js","./useError":"../node_modules/react-use/esm/useError.js","./useFavicon":"../node_modules/react-use/esm/useFavicon.js","./useFullscreen":"../node_modules/react-use/esm/useFullscreen.js","./useGeolocation":"../node_modules/react-use/esm/useGeolocation.js","./useGetSet":"../node_modules/react-use/esm/useGetSet.js","./useGetSetState":"../node_modules/react-use/esm/useGetSetState.js","./useHarmonicIntervalFn":"../node_modules/react-use/esm/useHarmonicIntervalFn.js","./useHover":"../node_modules/react-use/esm/useHover.js","./useHoverDirty":"../node_modules/react-use/esm/useHoverDirty.js","./useIdle":"../node_modules/react-use/esm/useIdle.js","./useIntersection":"../node_modules/react-use/esm/useIntersection.js","./useInterval":"../node_modules/react-use/esm/useInterval.js","./useIsomorphicLayoutEffect":"../node_modules/react-use/esm/useIsomorphicLayoutEffect.js","./useKey":"../node_modules/react-use/esm/useKey.js","./factory/createBreakpoint":"../node_modules/react-use/esm/factory/createBreakpoint.js","./useKeyPress":"../node_modules/react-use/esm/useKeyPress.js","./useKeyPressEvent":"../node_modules/react-use/esm/useKeyPressEvent.js","./useLatest":"../node_modules/react-use/esm/useLatest.js","./useLifecycles":"../node_modules/react-use/esm/useLifecycles.js","./useList":"../node_modules/react-use/esm/useList.js","./useLocalStorage":"../node_modules/react-use/esm/useLocalStorage.js","./useLocation":"../node_modules/react-use/esm/useLocation.js","./useLockBodyScroll":"../node_modules/react-use/esm/useLockBodyScroll.js","./useLogger":"../node_modules/react-use/esm/useLogger.js","./useLongPress":"../node_modules/react-use/esm/useLongPress.js","./useMap":"../node_modules/react-use/esm/useMap.js","./useMedia":"../node_modules/react-use/esm/useMedia.js","./useMediaDevices":"../node_modules/react-use/esm/useMediaDevices.js","./useMediatedState":"../node_modules/react-use/esm/useMediatedState.js","./useMethods":"../node_modules/react-use/esm/useMethods.js","./useMotion":"../node_modules/react-use/esm/useMotion.js","./useMount":"../node_modules/react-use/esm/useMount.js","./useMountedState":"../node_modules/react-use/esm/useMountedState.js","./useMouse":"../node_modules/react-use/esm/useMouse.js","./useMouseHovered":"../node_modules/react-use/esm/useMouseHovered.js","./useMouseWheel":"../node_modules/react-use/esm/useMouseWheel.js","./useNetworkState":"../node_modules/react-use/esm/useNetworkState.js","./useNumber":"../node_modules/react-use/esm/useNumber.js","./useObservable":"../node_modules/react-use/esm/useObservable.js","./useOrientation":"../node_modules/react-use/esm/useOrientation.js","./usePageLeave":"../node_modules/react-use/esm/usePageLeave.js","./usePermission":"../node_modules/react-use/esm/usePermission.js","./usePrevious":"../node_modules/react-use/esm/usePrevious.js","./usePreviousDistinct":"../node_modules/react-use/esm/usePreviousDistinct.js","./usePromise":"../node_modules/react-use/esm/usePromise.js","./useQueue":"../node_modules/react-use/esm/useQueue.js","./useRaf":"../node_modules/react-use/esm/useRaf.js","./useRafLoop":"../node_modules/react-use/esm/useRafLoop.js","./useRafState":"../node_modules/react-use/esm/useRafState.js","./useSearchParam":"../node_modules/react-use/esm/useSearchParam.js","./useScratch":"../node_modules/react-use/esm/useScratch.js","./useScroll":"../node_modules/react-use/esm/useScroll.js","./useScrolling":"../node_modules/react-use/esm/useScrolling.js","./useSessionStorage":"../node_modules/react-use/esm/useSessionStorage.js","./useSetState":"../node_modules/react-use/esm/useSetState.js","./useShallowCompareEffect":"../node_modules/react-use/esm/useShallowCompareEffect.js","./useSize":"../node_modules/react-use/esm/useSize.js","./useSlider":"../node_modules/react-use/esm/useSlider.js","./useSpeech":"../node_modules/react-use/esm/useSpeech.js","./useStartTyping":"../node_modules/react-use/esm/useStartTyping.js","./useStateWithHistory":"../node_modules/react-use/esm/useStateWithHistory.js","./useStateList":"../node_modules/react-use/esm/useStateList.js","./useThrottle":"../node_modules/react-use/esm/useThrottle.js","./useThrottleFn":"../node_modules/react-use/esm/useThrottleFn.js","./useTimeout":"../node_modules/react-use/esm/useTimeout.js","./useTimeoutFn":"../node_modules/react-use/esm/useTimeoutFn.js","./useTitle":"../node_modules/react-use/esm/useTitle.js","./useToggle":"../node_modules/react-use/esm/useToggle.js","./useTween":"../node_modules/react-use/esm/useTween.js","./useUnmount":"../node_modules/react-use/esm/useUnmount.js","./useUnmountPromise":"../node_modules/react-use/esm/useUnmountPromise.js","./useUpdate":"../node_modules/react-use/esm/useUpdate.js","./useUpdateEffect":"../node_modules/react-use/esm/useUpdateEffect.js","./useUpsert":"../node_modules/react-use/esm/useUpsert.js","./useVibrate":"../node_modules/react-use/esm/useVibrate.js","./useVideo":"../node_modules/react-use/esm/useVideo.js","./useStateValidator":"../node_modules/react-use/esm/useStateValidator.js","./useScrollbarWidth":"../node_modules/react-use/esm/useScrollbarWidth.js","./useMultiStateValidator":"../node_modules/react-use/esm/useMultiStateValidator.js","./useWindowScroll":"../node_modules/react-use/esm/useWindowScroll.js","./useWindowSize":"../node_modules/react-use/esm/useWindowSize.js","./useMeasure":"../node_modules/react-use/esm/useMeasure.js","./useRendersCount":"../node_modules/react-use/esm/useRendersCount.js","./useFirstMountState":"../node_modules/react-use/esm/useFirstMountState.js","./useSet":"../node_modules/react-use/esm/useSet.js","./factory/createGlobalState":"../node_modules/react-use/esm/factory/createGlobalState.js","./useHash":"../node_modules/react-use/esm/useHash.js"}],"../node_modules/react-lazy-load-image-component/build/index.js":[function(require,module,exports) {
+module.exports = (function(e) {
+	var t = {};
+	function r(n) {
+		if (t[n]) return t[n].exports;
+		var o = (t[n] = { i: n, l: !1, exports: {} });
+		return e[n].call(o.exports, o, o.exports, r), (o.l = !0), o.exports;
+	}
+	return (
+		(r.m = e),
+		(r.c = t),
+		(r.d = function(e, t, n) {
+			r.o(e, t) ||
+				Object.defineProperty(e, t, { enumerable: !0, get: n });
+		}),
+		(r.r = function(e) {
+			'undefined' != typeof Symbol &&
+				Symbol.toStringTag &&
+				Object.defineProperty(e, Symbol.toStringTag, {
+					value: 'Module',
+				}),
+				Object.defineProperty(e, '__esModule', { value: !0 });
+		}),
+		(r.t = function(e, t) {
+			if ((1 & t && (e = r(e)), 8 & t)) return e;
+			if (4 & t && 'object' == typeof e && e && e.__esModule) return e;
+			var n = Object.create(null);
+			if (
+				(r.r(n),
+				Object.defineProperty(n, 'default', {
+					enumerable: !0,
+					value: e,
+				}),
+				2 & t && 'string' != typeof e)
+			)
+				for (var o in e)
+					r.d(
+						n,
+						o,
+						function(t) {
+							return e[t];
+						}.bind(null, o)
+					);
+			return n;
+		}),
+		(r.n = function(e) {
+			var t =
+				e && e.__esModule
+					? function() {
+							return e.default;
+					  }
+					: function() {
+							return e;
+					  };
+			return r.d(t, 'a', t), t;
+		}),
+		(r.o = function(e, t) {
+			return Object.prototype.hasOwnProperty.call(e, t);
+		}),
+		(r.p = ''),
+		r((r.s = 8))
+	);
+})([
+	function(e, t) {
+		e.exports = require('react');
+	},
+	function(e, t, r) {
+		e.exports = r(10)();
+	},
+	function(e, t, r) {
+		'use strict';
+		Object.defineProperty(t, '__esModule', { value: !0 }),
+			(t.default = function() {
+				return (
+					'undefined' != typeof window &&
+					'IntersectionObserver' in window &&
+					'isIntersecting' in
+						window.IntersectionObserverEntry.prototype
+				);
+			});
+	},
+	function(e, t, r) {
+		'use strict';
+		Object.defineProperty(t, '__esModule', { value: !0 });
+		var n = (function() {
+				function e(e, t) {
+					for (var r = 0; r < t.length; r++) {
+						var n = t[r];
+						(n.enumerable = n.enumerable || !1),
+							(n.configurable = !0),
+							'value' in n && (n.writable = !0),
+							Object.defineProperty(e, n.key, n);
+					}
+				}
+				return function(t, r, n) {
+					return r && e(t.prototype, r), n && e(t, n), t;
+				};
+			})(),
+			o = u(r(0)),
+			i = r(1),
+			a = u(r(4)),
+			s = u(r(12)),
+			l = u(r(2));
+		function u(e) {
+			return e && e.__esModule ? e : { default: e };
+		}
+		var c = (function(e) {
+			function t(e) {
+				!(function(e, t) {
+					if (!(e instanceof t))
+						throw new TypeError(
+							'Cannot call a class as a function'
+						);
+				})(this, t);
+				var r = (function(e, t) {
+						if (!e)
+							throw new ReferenceError(
+								"this hasn't been initialised - super() hasn't been called"
+							);
+						return !t ||
+							('object' != typeof t && 'function' != typeof t)
+							? e
+							: t;
+					})(
+						this,
+						(t.__proto__ || Object.getPrototypeOf(t)).call(this, e)
+					),
+					n = e.afterLoad,
+					o = e.beforeLoad,
+					i = e.scrollPosition,
+					a = e.visibleByDefault;
+				return (
+					(r.state = { visible: a }),
+					a && (o(), n()),
+					(r.onVisible = r.onVisible.bind(r)),
+					(r.isScrollTracked = Boolean(
+						i &&
+							Number.isFinite(i.x) &&
+							i.x >= 0 &&
+							Number.isFinite(i.y) &&
+							i.y >= 0
+					)),
+					r
+				);
+			}
+			return (
+				(function(e, t) {
+					if ('function' != typeof t && null !== t)
+						throw new TypeError(
+							'Super expression must either be null or a function, not ' +
+								typeof t
+						);
+					(e.prototype = Object.create(t && t.prototype, {
+						constructor: {
+							value: e,
+							enumerable: !1,
+							writable: !0,
+							configurable: !0,
+						},
+					})),
+						t &&
+							(Object.setPrototypeOf
+								? Object.setPrototypeOf(e, t)
+								: (e.__proto__ = t));
+				})(t, e),
+				n(t, [
+					{
+						key: 'componentDidUpdate',
+						value: function(e, t) {
+							t.visible !== this.state.visible &&
+								this.props.afterLoad();
+						},
+					},
+					{
+						key: 'onVisible',
+						value: function() {
+							this.props.beforeLoad(),
+								this.setState({ visible: !0 });
+						},
+					},
+					{
+						key: 'render',
+						value: function() {
+							if (this.state.visible) return this.props.children;
+							var e = this.props,
+								t = e.className,
+								r = e.delayMethod,
+								n = e.delayTime,
+								i = e.height,
+								u = e.placeholder,
+								c = e.scrollPosition,
+								f = e.style,
+								p = e.threshold,
+								d = e.useIntersectionObserver,
+								y = e.width;
+							return this.isScrollTracked ||
+								(d && (0, l.default)())
+								? o.default.createElement(a.default, {
+										className: t,
+										height: i,
+										onVisible: this.onVisible,
+										placeholder: u,
+										scrollPosition: c,
+										style: f,
+										threshold: p,
+										useIntersectionObserver: d,
+										width: y,
+								  })
+								: o.default.createElement(s.default, {
+										className: t,
+										delayMethod: r,
+										delayTime: n,
+										height: i,
+										onVisible: this.onVisible,
+										placeholder: u,
+										style: f,
+										threshold: p,
+										width: y,
+								  });
+						},
+					},
+				]),
+				t
+			);
+		})(o.default.Component);
+		(c.propTypes = {
+			afterLoad: i.PropTypes.func,
+			beforeLoad: i.PropTypes.func,
+			useIntersectionObserver: i.PropTypes.bool,
+			visibleByDefault: i.PropTypes.bool,
+		}),
+			(c.defaultProps = {
+				afterLoad: function() {
+					return {};
+				},
+				beforeLoad: function() {
+					return {};
+				},
+				useIntersectionObserver: !0,
+				visibleByDefault: !1,
+			}),
+			(t.default = c);
+	},
+	function(e, t, r) {
+		'use strict';
+		Object.defineProperty(t, '__esModule', { value: !0 });
+		var n =
+				Object.assign ||
+				function(e) {
+					for (var t = 1; t < arguments.length; t++) {
+						var r = arguments[t];
+						for (var n in r)
+							Object.prototype.hasOwnProperty.call(r, n) &&
+								(e[n] = r[n]);
+					}
+					return e;
+				},
+			o = (function() {
+				function e(e, t) {
+					for (var r = 0; r < t.length; r++) {
+						var n = t[r];
+						(n.enumerable = n.enumerable || !1),
+							(n.configurable = !0),
+							'value' in n && (n.writable = !0),
+							Object.defineProperty(e, n.key, n);
+					}
+				}
+				return function(t, r, n) {
+					return r && e(t.prototype, r), n && e(t, n), t;
+				};
+			})(),
+			i = u(r(0)),
+			a = u(r(5)),
+			s = r(1),
+			l = u(r(2));
+		function u(e) {
+			return e && e.__esModule ? e : { default: e };
+		}
+		var c = function(e) {
+				e.forEach(function(e) {
+					e.isIntersecting && e.target.onVisible();
+				});
+			},
+			f = {},
+			p = function(e) {
+				return (
+					(f[e] =
+						f[e] ||
+						new IntersectionObserver(c, { rootMargin: e + 'px' })),
+					f[e]
+				);
+			},
+			d = (function(e) {
+				function t(e) {
+					!(function(e, t) {
+						if (!(e instanceof t))
+							throw new TypeError(
+								'Cannot call a class as a function'
+							);
+					})(this, t);
+					var r = (function(e, t) {
+						if (!e)
+							throw new ReferenceError(
+								"this hasn't been initialised - super() hasn't been called"
+							);
+						return !t ||
+							('object' != typeof t && 'function' != typeof t)
+							? e
+							: t;
+					})(
+						this,
+						(t.__proto__ || Object.getPrototypeOf(t)).call(this, e)
+					);
+					if (
+						((r.supportsObserver =
+							!e.scrollPosition &&
+							e.useIntersectionObserver &&
+							(0, l.default)()),
+						r.supportsObserver)
+					) {
+						var n = e.threshold;
+						r.observer = p(n);
+					}
+					return r;
+				}
+				return (
+					(function(e, t) {
+						if ('function' != typeof t && null !== t)
+							throw new TypeError(
+								'Super expression must either be null or a function, not ' +
+									typeof t
+							);
+						(e.prototype = Object.create(t && t.prototype, {
+							constructor: {
+								value: e,
+								enumerable: !1,
+								writable: !0,
+								configurable: !0,
+							},
+						})),
+							t &&
+								(Object.setPrototypeOf
+									? Object.setPrototypeOf(e, t)
+									: (e.__proto__ = t));
+					})(t, e),
+					o(t, [
+						{
+							key: 'componentDidMount',
+							value: function() {
+								this.placeholder &&
+									this.observer &&
+									((this.placeholder.onVisible = this.props.onVisible),
+									this.observer.observe(this.placeholder)),
+									this.supportsObserver ||
+										this.updateVisibility();
+							},
+						},
+						{
+							key: 'componentWillUnmount',
+							value: function() {
+								this.observer &&
+									this.observer.unobserve(this.placeholder);
+							},
+						},
+						{
+							key: 'componentDidUpdate',
+							value: function() {
+								this.supportsObserver ||
+									this.updateVisibility();
+							},
+						},
+						{
+							key: 'getPlaceholderBoundingBox',
+							value: function() {
+								var e =
+										arguments.length > 0 &&
+										void 0 !== arguments[0]
+											? arguments[0]
+											: this.props.scrollPosition,
+									t = this.placeholder.getBoundingClientRect(),
+									r = a.default.findDOMNode(this.placeholder)
+										.style,
+									n = {
+										left:
+											parseInt(
+												r.getPropertyValue(
+													'margin-left'
+												),
+												10
+											) || 0,
+										top:
+											parseInt(
+												r.getPropertyValue(
+													'margin-top'
+												),
+												10
+											) || 0,
+									};
+								return {
+									bottom: e.y + t.bottom + n.top,
+									left: e.x + t.left + n.left,
+									right: e.x + t.right + n.left,
+									top: e.y + t.top + n.top,
+								};
+							},
+						},
+						{
+							key: 'isPlaceholderInViewport',
+							value: function() {
+								if (
+									'undefined' == typeof window ||
+									!this.placeholder
+								)
+									return !1;
+								var e = this.props,
+									t = e.scrollPosition,
+									r = e.threshold,
+									n = this.getPlaceholderBoundingBox(t),
+									o = t.y + window.innerHeight,
+									i = t.x,
+									a = t.x + window.innerWidth,
+									s = t.y;
+								return Boolean(
+									s - r <= n.bottom &&
+										o + r >= n.top &&
+										i - r <= n.right &&
+										a + r >= n.left
+								);
+							},
+						},
+						{
+							key: 'updateVisibility',
+							value: function() {
+								this.isPlaceholderInViewport() &&
+									this.props.onVisible();
+							},
+						},
+						{
+							key: 'render',
+							value: function() {
+								var e = this,
+									t = this.props,
+									r = t.className,
+									o = t.height,
+									a = t.placeholder,
+									s = t.style,
+									l = t.width;
+								if (a && 'function' != typeof a.type)
+									return i.default.cloneElement(a, {
+										ref: function(t) {
+											return (e.placeholder = t);
+										},
+									});
+								var u = n({ display: 'inline-block' }, s);
+								return (
+									void 0 !== l && (u.width = l),
+									void 0 !== o && (u.height = o),
+									i.default.createElement(
+										'span',
+										{
+											className: r,
+											ref: function(t) {
+												return (e.placeholder = t);
+											},
+											style: u,
+										},
+										a
+									)
+								);
+							},
+						},
+					]),
+					t
+				);
+			})(i.default.Component);
+		(d.propTypes = {
+			onVisible: s.PropTypes.func.isRequired,
+			className: s.PropTypes.string,
+			height: s.PropTypes.oneOfType([
+				s.PropTypes.number,
+				s.PropTypes.string,
+			]),
+			placeholder: s.PropTypes.element,
+			threshold: s.PropTypes.number,
+			useIntersectionObserver: s.PropTypes.bool,
+			scrollPosition: s.PropTypes.shape({
+				x: s.PropTypes.number.isRequired,
+				y: s.PropTypes.number.isRequired,
+			}),
+			width: s.PropTypes.oneOfType([
+				s.PropTypes.number,
+				s.PropTypes.string,
+			]),
+		}),
+			(d.defaultProps = {
+				className: '',
+				placeholder: null,
+				threshold: 100,
+				useIntersectionObserver: !0,
+			}),
+			(t.default = d);
+	},
+	function(e, t) {
+		e.exports = require('react-dom');
+	},
+	function(e, t, r) {
+		'use strict';
+		Object.defineProperty(t, '__esModule', { value: !0 });
+		var n =
+				Object.assign ||
+				function(e) {
+					for (var t = 1; t < arguments.length; t++) {
+						var r = arguments[t];
+						for (var n in r)
+							Object.prototype.hasOwnProperty.call(r, n) &&
+								(e[n] = r[n]);
+					}
+					return e;
+				},
+			o = (function() {
+				function e(e, t) {
+					for (var r = 0; r < t.length; r++) {
+						var n = t[r];
+						(n.enumerable = n.enumerable || !1),
+							(n.configurable = !0),
+							'value' in n && (n.writable = !0),
+							Object.defineProperty(e, n.key, n);
+					}
+				}
+				return function(t, r, n) {
+					return r && e(t.prototype, r), n && e(t, n), t;
+				};
+			})(),
+			i = p(r(0)),
+			a = p(r(5)),
+			s = r(1),
+			l = p(r(13)),
+			u = p(r(14)),
+			c = p(r(2)),
+			f = p(r(15));
+		function p(e) {
+			return e && e.__esModule ? e : { default: e };
+		}
+		function d(e, t) {
+			if (!e)
+				throw new ReferenceError(
+					"this hasn't been initialised - super() hasn't been called"
+				);
+			return !t || ('object' != typeof t && 'function' != typeof t)
+				? e
+				: t;
+		}
+		var y = function() {
+				return 'undefined' == typeof window
+					? 0
+					: window.scrollX || window.pageXOffset;
+			},
+			h = function() {
+				return 'undefined' == typeof window
+					? 0
+					: window.scrollY || window.pageYOffset;
+			};
+		t.default = function(e) {
+			var t = (function(t) {
+				function r(e) {
+					!(function(e, t) {
+						if (!(e instanceof t))
+							throw new TypeError(
+								'Cannot call a class as a function'
+							);
+					})(this, r);
+					var t = d(
+						this,
+						(r.__proto__ || Object.getPrototypeOf(r)).call(this, e)
+					);
+					if (
+						((t.useIntersectionObserver =
+							e.useIntersectionObserver && (0, c.default)()),
+						t.useIntersectionObserver)
+					)
+						return d(t);
+					var n = t.onChangeScroll.bind(t);
+					return (
+						'debounce' === e.delayMethod
+							? (t.delayedScroll = (0, l.default)(n, e.delayTime))
+							: 'throttle' === e.delayMethod &&
+							  (t.delayedScroll = (0, u.default)(
+									n,
+									e.delayTime
+							  )),
+						(t.state = { scrollPosition: { x: y(), y: h() } }),
+						(t.baseComponentRef = i.default.createRef()),
+						t
+					);
+				}
+				return (
+					(function(e, t) {
+						if ('function' != typeof t && null !== t)
+							throw new TypeError(
+								'Super expression must either be null or a function, not ' +
+									typeof t
+							);
+						(e.prototype = Object.create(t && t.prototype, {
+							constructor: {
+								value: e,
+								enumerable: !1,
+								writable: !0,
+								configurable: !0,
+							},
+						})),
+							t &&
+								(Object.setPrototypeOf
+									? Object.setPrototypeOf(e, t)
+									: (e.__proto__ = t));
+					})(r, t),
+					o(r, [
+						{
+							key: 'componentDidMount',
+							value: function() {
+								this.addListeners();
+							},
+						},
+						{
+							key: 'componentWillUnmount',
+							value: function() {
+								this.removeListeners();
+							},
+						},
+						{
+							key: 'componentDidUpdate',
+							value: function() {
+								'undefined' == typeof window ||
+									this.useIntersectionObserver ||
+									((0, f.default)(
+										a.default.findDOMNode(
+											this.baseComponentRef.current
+										)
+									) !== this.scrollElement &&
+										(this.removeListeners(),
+										this.addListeners()));
+							},
+						},
+						{
+							key: 'addListeners',
+							value: function() {
+								'undefined' == typeof window ||
+									this.useIntersectionObserver ||
+									((this.scrollElement = (0, f.default)(
+										a.default.findDOMNode(
+											this.baseComponentRef.current
+										)
+									)),
+									this.scrollElement.addEventListener(
+										'scroll',
+										this.delayedScroll,
+										{ passive: !0 }
+									),
+									window.addEventListener(
+										'resize',
+										this.delayedScroll,
+										{ passive: !0 }
+									),
+									this.scrollElement !== window &&
+										window.addEventListener(
+											'scroll',
+											this.delayedScroll,
+											{ passive: !0 }
+										));
+							},
+						},
+						{
+							key: 'removeListeners',
+							value: function() {
+								'undefined' == typeof window ||
+									this.useIntersectionObserver ||
+									(this.scrollElement.removeEventListener(
+										'scroll',
+										this.delayedScroll
+									),
+									window.removeEventListener(
+										'resize',
+										this.delayedScroll
+									),
+									this.scrollElement !== window &&
+										window.removeEventListener(
+											'scroll',
+											this.delayedScroll
+										));
+							},
+						},
+						{
+							key: 'onChangeScroll',
+							value: function() {
+								this.useIntersectionObserver ||
+									this.setState({
+										scrollPosition: { x: y(), y: h() },
+									});
+							},
+						},
+						{
+							key: 'render',
+							value: function() {
+								var t = this.props,
+									r =
+										(t.delayMethod,
+										t.delayTime,
+										(function(e, t) {
+											var r = {};
+											for (var n in e)
+												t.indexOf(n) >= 0 ||
+													(Object.prototype.hasOwnProperty.call(
+														e,
+														n
+													) &&
+														(r[n] = e[n]));
+											return r;
+										})(t, ['delayMethod', 'delayTime'])),
+									o = this.useIntersectionObserver
+										? null
+										: this.state.scrollPosition;
+								return i.default.createElement(
+									e,
+									n(
+										{
+											ref: this.baseComponentRef,
+											scrollPosition: o,
+										},
+										r
+									)
+								);
+							},
+						},
+					]),
+					r
+				);
+			})(i.default.Component);
+			return (
+				(t.propTypes = {
+					delayMethod: s.PropTypes.oneOf(['debounce', 'throttle']),
+					delayTime: s.PropTypes.number,
+					useIntersectionObserver: s.PropTypes.bool,
+				}),
+				(t.defaultProps = {
+					delayMethod: 'throttle',
+					delayTime: 300,
+					useIntersectionObserver: !0,
+				}),
+				t
+			);
+		};
+	},
+	function(e, t) {
+		var r;
+		r = (function() {
+			return this;
+		})();
+		try {
+			r = r || new Function('return this')();
+		} catch (e) {
+			'object' == typeof window && (r = window);
+		}
+		e.exports = r;
+	},
+	function(e, t, r) {
+		'use strict';
+		Object.defineProperty(t, '__esModule', { value: !0 }),
+			(t.trackWindowScroll = t.LazyLoadComponent = t.LazyLoadImage = void 0);
+		var n = a(r(9)),
+			o = a(r(3)),
+			i = a(r(6));
+		function a(e) {
+			return e && e.__esModule ? e : { default: e };
+		}
+		(t.LazyLoadImage = n.default),
+			(t.LazyLoadComponent = o.default),
+			(t.trackWindowScroll = i.default);
+	},
+	function(e, t, r) {
+		'use strict';
+		Object.defineProperty(t, '__esModule', { value: !0 });
+		var n =
+				Object.assign ||
+				function(e) {
+					for (var t = 1; t < arguments.length; t++) {
+						var r = arguments[t];
+						for (var n in r)
+							Object.prototype.hasOwnProperty.call(r, n) &&
+								(e[n] = r[n]);
+					}
+					return e;
+				},
+			o = (function() {
+				function e(e, t) {
+					for (var r = 0; r < t.length; r++) {
+						var n = t[r];
+						(n.enumerable = n.enumerable || !1),
+							(n.configurable = !0),
+							'value' in n && (n.writable = !0),
+							Object.defineProperty(e, n.key, n);
+					}
+				}
+				return function(t, r, n) {
+					return r && e(t.prototype, r), n && e(t, n), t;
+				};
+			})(),
+			i = l(r(0)),
+			a = r(1),
+			s = l(r(3));
+		function l(e) {
+			return e && e.__esModule ? e : { default: e };
+		}
+		var u = (function(e) {
+			function t(e) {
+				!(function(e, t) {
+					if (!(e instanceof t))
+						throw new TypeError(
+							'Cannot call a class as a function'
+						);
+				})(this, t);
+				var r = (function(e, t) {
+					if (!e)
+						throw new ReferenceError(
+							"this hasn't been initialised - super() hasn't been called"
+						);
+					return !t ||
+						('object' != typeof t && 'function' != typeof t)
+						? e
+						: t;
+				})(
+					this,
+					(t.__proto__ || Object.getPrototypeOf(t)).call(this, e)
+				);
+				return (r.state = { loaded: !1 }), r;
+			}
+			return (
+				(function(e, t) {
+					if ('function' != typeof t && null !== t)
+						throw new TypeError(
+							'Super expression must either be null or a function, not ' +
+								typeof t
+						);
+					(e.prototype = Object.create(t && t.prototype, {
+						constructor: {
+							value: e,
+							enumerable: !1,
+							writable: !0,
+							configurable: !0,
+						},
+					})),
+						t &&
+							(Object.setPrototypeOf
+								? Object.setPrototypeOf(e, t)
+								: (e.__proto__ = t));
+				})(t, e),
+				o(t, [
+					{
+						key: 'onImageLoad',
+						value: function() {
+							var e = this;
+							return this.state.loaded
+								? null
+								: function() {
+										e.props.afterLoad(),
+											e.setState({ loaded: !0 });
+								  };
+						},
+					},
+					{
+						key: 'getImg',
+						value: function() {
+							var e = this.props,
+								t =
+									(e.afterLoad,
+									e.beforeLoad,
+									e.delayMethod,
+									e.delayTime,
+									e.effect,
+									e.placeholder,
+									e.placeholderSrc,
+									e.scrollPosition,
+									e.threshold,
+									e.useIntersectionObserver,
+									e.visibleByDefault,
+									e.wrapperClassName,
+									e.wrapperProps,
+									(function(e, t) {
+										var r = {};
+										for (var n in e)
+											t.indexOf(n) >= 0 ||
+												(Object.prototype.hasOwnProperty.call(
+													e,
+													n
+												) &&
+													(r[n] = e[n]));
+										return r;
+									})(e, [
+										'afterLoad',
+										'beforeLoad',
+										'delayMethod',
+										'delayTime',
+										'effect',
+										'placeholder',
+										'placeholderSrc',
+										'scrollPosition',
+										'threshold',
+										'useIntersectionObserver',
+										'visibleByDefault',
+										'wrapperClassName',
+										'wrapperProps',
+									]));
+							return i.default.createElement(
+								'img',
+								n({ onLoad: this.onImageLoad() }, t)
+							);
+						},
+					},
+					{
+						key: 'getLazyLoadImage',
+						value: function() {
+							var e = this.props,
+								t = e.beforeLoad,
+								r = e.className,
+								n = e.delayMethod,
+								o = e.delayTime,
+								a = e.height,
+								l = e.placeholder,
+								u = e.scrollPosition,
+								c = e.style,
+								f = e.threshold,
+								p = e.useIntersectionObserver,
+								d = e.visibleByDefault,
+								y = e.width;
+							return i.default.createElement(
+								s.default,
+								{
+									beforeLoad: t,
+									className: r,
+									delayMethod: n,
+									delayTime: o,
+									height: a,
+									placeholder: l,
+									scrollPosition: u,
+									style: c,
+									threshold: f,
+									useIntersectionObserver: p,
+									visibleByDefault: d,
+									width: y,
+								},
+								this.getImg()
+							);
+						},
+					},
+					{
+						key: 'getWrappedLazyLoadImage',
+						value: function(e) {
+							var t = this.props,
+								r = t.effect,
+								o = t.height,
+								a = t.placeholderSrc,
+								s = t.width,
+								l = t.wrapperClassName,
+								u = t.wrapperProps,
+								c = this.state.loaded,
+								f = c ? ' lazy-load-image-loaded' : '';
+							return i.default.createElement(
+								'span',
+								n(
+									{
+										className:
+											l +
+											' lazy-load-image-background ' +
+											r +
+											f,
+										style: {
+											backgroundImage:
+												c || !a ? '' : 'url(' + a + ')',
+											backgroundSize:
+												c || !a ? '' : '100% 100%',
+											display: 'inline-block',
+											height: o,
+											width: s,
+										},
+									},
+									u
+								),
+								e
+							);
+						},
+					},
+					{
+						key: 'render',
+						value: function() {
+							var e = this.props,
+								t = e.effect,
+								r = e.placeholderSrc,
+								n = e.visibleByDefault,
+								o = e.wrapperClassName,
+								i = e.wrapperProps,
+								a = this.getLazyLoadImage();
+							return ((t || r) && !n) || o || i
+								? this.getWrappedLazyLoadImage(a)
+								: a;
+						},
+					},
+				]),
+				t
+			);
+		})(i.default.Component);
+		(u.propTypes = {
+			afterLoad: a.PropTypes.func,
+			beforeLoad: a.PropTypes.func,
+			delayMethod: a.PropTypes.string,
+			delayTime: a.PropTypes.number,
+			effect: a.PropTypes.string,
+			placeholderSrc: a.PropTypes.string,
+			threshold: a.PropTypes.number,
+			useIntersectionObserver: a.PropTypes.bool,
+			visibleByDefault: a.PropTypes.bool,
+			wrapperClassName: a.PropTypes.string,
+			wrapperProps: a.PropTypes.object,
+		}),
+			(u.defaultProps = {
+				afterLoad: function() {
+					return {};
+				},
+				beforeLoad: function() {
+					return {};
+				},
+				delayMethod: 'throttle',
+				delayTime: 300,
+				effect: '',
+				placeholderSrc: null,
+				threshold: 100,
+				useIntersectionObserver: !0,
+				visibleByDefault: !1,
+				wrapperClassName: '',
+			}),
+			(t.default = u);
+	},
+	function(e, t, r) {
+		'use strict';
+		var n = r(11);
+		function o() {}
+		function i() {}
+		(i.resetWarningCache = o),
+			(e.exports = function() {
+				function e(e, t, r, o, i, a) {
+					if (a !== n) {
+						var s = new Error(
+							'Calling PropTypes validators directly is not supported by the `prop-types` package. Use PropTypes.checkPropTypes() to call them. Read more at http://fb.me/use-check-prop-types'
+						);
+						throw ((s.name = 'Invariant Violation'), s);
+					}
+				}
+				function t() {
+					return e;
+				}
+				e.isRequired = e;
+				var r = {
+					array: e,
+					bool: e,
+					func: e,
+					number: e,
+					object: e,
+					string: e,
+					symbol: e,
+					any: e,
+					arrayOf: t,
+					element: e,
+					elementType: e,
+					instanceOf: t,
+					node: e,
+					objectOf: t,
+					oneOf: t,
+					oneOfType: t,
+					shape: t,
+					exact: t,
+					checkPropTypes: i,
+					resetWarningCache: o,
+				};
+				return (r.PropTypes = r), r;
+			});
+	},
+	function(e, t, r) {
+		'use strict';
+		e.exports = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
+	},
+	function(e, t, r) {
+		'use strict';
+		Object.defineProperty(t, '__esModule', { value: !0 });
+		var n = (function() {
+				function e(e, t) {
+					for (var r = 0; r < t.length; r++) {
+						var n = t[r];
+						(n.enumerable = n.enumerable || !1),
+							(n.configurable = !0),
+							'value' in n && (n.writable = !0),
+							Object.defineProperty(e, n.key, n);
+					}
+				}
+				return function(t, r, n) {
+					return r && e(t.prototype, r), n && e(t, n), t;
+				};
+			})(),
+			o = s(r(0)),
+			i = s(r(4)),
+			a = s(r(6));
+		function s(e) {
+			return e && e.__esModule ? e : { default: e };
+		}
+		var l = (function(e) {
+			function t(e) {
+				return (
+					(function(e, t) {
+						if (!(e instanceof t))
+							throw new TypeError(
+								'Cannot call a class as a function'
+							);
+					})(this, t),
+					(function(e, t) {
+						if (!e)
+							throw new ReferenceError(
+								"this hasn't been initialised - super() hasn't been called"
+							);
+						return !t ||
+							('object' != typeof t && 'function' != typeof t)
+							? e
+							: t;
+					})(
+						this,
+						(t.__proto__ || Object.getPrototypeOf(t)).call(this, e)
+					)
+				);
+			}
+			return (
+				(function(e, t) {
+					if ('function' != typeof t && null !== t)
+						throw new TypeError(
+							'Super expression must either be null or a function, not ' +
+								typeof t
+						);
+					(e.prototype = Object.create(t && t.prototype, {
+						constructor: {
+							value: e,
+							enumerable: !1,
+							writable: !0,
+							configurable: !0,
+						},
+					})),
+						t &&
+							(Object.setPrototypeOf
+								? Object.setPrototypeOf(e, t)
+								: (e.__proto__ = t));
+				})(t, e),
+				n(t, [
+					{
+						key: 'render',
+						value: function() {
+							return o.default.createElement(
+								i.default,
+								this.props
+							);
+						},
+					},
+				]),
+				t
+			);
+		})(o.default.Component);
+		t.default = (0, a.default)(l);
+	},
+	function(e, t, r) {
+		(function(t) {
+			var r = 'Expected a function',
+				n = NaN,
+				o = '[object Symbol]',
+				i = /^\s+|\s+$/g,
+				a = /^[-+]0x[0-9a-f]+$/i,
+				s = /^0b[01]+$/i,
+				l = /^0o[0-7]+$/i,
+				u = parseInt,
+				c = 'object' == typeof t && t && t.Object === Object && t,
+				f =
+					'object' == typeof self &&
+					self &&
+					self.Object === Object &&
+					self,
+				p = c || f || Function('return this')(),
+				d = Object.prototype.toString,
+				y = Math.max,
+				h = Math.min,
+				b = function() {
+					return p.Date.now();
+				};
+			function v(e) {
+				var t = typeof e;
+				return !!e && ('object' == t || 'function' == t);
+			}
+			function m(e) {
+				if ('number' == typeof e) return e;
+				if (
+					(function(e) {
+						return (
+							'symbol' == typeof e ||
+							((function(e) {
+								return !!e && 'object' == typeof e;
+							})(e) &&
+								d.call(e) == o)
+						);
+					})(e)
+				)
+					return n;
+				if (v(e)) {
+					var t = 'function' == typeof e.valueOf ? e.valueOf() : e;
+					e = v(t) ? t + '' : t;
+				}
+				if ('string' != typeof e) return 0 === e ? e : +e;
+				e = e.replace(i, '');
+				var r = s.test(e);
+				return r || l.test(e)
+					? u(e.slice(2), r ? 2 : 8)
+					: a.test(e)
+					? n
+					: +e;
+			}
+			e.exports = function(e, t, n) {
+				var o,
+					i,
+					a,
+					s,
+					l,
+					u,
+					c = 0,
+					f = !1,
+					p = !1,
+					d = !0;
+				if ('function' != typeof e) throw new TypeError(r);
+				function w(t) {
+					var r = o,
+						n = i;
+					return (o = i = void 0), (c = t), (s = e.apply(n, r));
+				}
+				function O(e) {
+					var r = e - u;
+					return void 0 === u || r >= t || r < 0 || (p && e - c >= a);
+				}
+				function g() {
+					var e = b();
+					if (O(e)) return P(e);
+					l = setTimeout(
+						g,
+						(function(e) {
+							var r = t - (e - u);
+							return p ? h(r, a - (e - c)) : r;
+						})(e)
+					);
+				}
+				function P(e) {
+					return (l = void 0), d && o ? w(e) : ((o = i = void 0), s);
+				}
+				function T() {
+					var e = b(),
+						r = O(e);
+					if (((o = arguments), (i = this), (u = e), r)) {
+						if (void 0 === l)
+							return (function(e) {
+								return (
+									(c = e),
+									(l = setTimeout(g, t)),
+									f ? w(e) : s
+								);
+							})(u);
+						if (p) return (l = setTimeout(g, t)), w(u);
+					}
+					return void 0 === l && (l = setTimeout(g, t)), s;
+				}
+				return (
+					(t = m(t) || 0),
+					v(n) &&
+						((f = !!n.leading),
+						(a = (p = 'maxWait' in n)
+							? y(m(n.maxWait) || 0, t)
+							: a),
+						(d = 'trailing' in n ? !!n.trailing : d)),
+					(T.cancel = function() {
+						void 0 !== l && clearTimeout(l),
+							(c = 0),
+							(o = u = i = l = void 0);
+					}),
+					(T.flush = function() {
+						return void 0 === l ? s : P(b());
+					}),
+					T
+				);
+			};
+		}.call(this, r(7)));
+	},
+	function(e, t, r) {
+		(function(t) {
+			var r = 'Expected a function',
+				n = NaN,
+				o = '[object Symbol]',
+				i = /^\s+|\s+$/g,
+				a = /^[-+]0x[0-9a-f]+$/i,
+				s = /^0b[01]+$/i,
+				l = /^0o[0-7]+$/i,
+				u = parseInt,
+				c = 'object' == typeof t && t && t.Object === Object && t,
+				f =
+					'object' == typeof self &&
+					self &&
+					self.Object === Object &&
+					self,
+				p = c || f || Function('return this')(),
+				d = Object.prototype.toString,
+				y = Math.max,
+				h = Math.min,
+				b = function() {
+					return p.Date.now();
+				};
+			function v(e, t, n) {
+				var o,
+					i,
+					a,
+					s,
+					l,
+					u,
+					c = 0,
+					f = !1,
+					p = !1,
+					d = !0;
+				if ('function' != typeof e) throw new TypeError(r);
+				function v(t) {
+					var r = o,
+						n = i;
+					return (o = i = void 0), (c = t), (s = e.apply(n, r));
+				}
+				function O(e) {
+					var r = e - u;
+					return void 0 === u || r >= t || r < 0 || (p && e - c >= a);
+				}
+				function g() {
+					var e = b();
+					if (O(e)) return P(e);
+					l = setTimeout(
+						g,
+						(function(e) {
+							var r = t - (e - u);
+							return p ? h(r, a - (e - c)) : r;
+						})(e)
+					);
+				}
+				function P(e) {
+					return (l = void 0), d && o ? v(e) : ((o = i = void 0), s);
+				}
+				function T() {
+					var e = b(),
+						r = O(e);
+					if (((o = arguments), (i = this), (u = e), r)) {
+						if (void 0 === l)
+							return (function(e) {
+								return (
+									(c = e),
+									(l = setTimeout(g, t)),
+									f ? v(e) : s
+								);
+							})(u);
+						if (p) return (l = setTimeout(g, t)), v(u);
+					}
+					return void 0 === l && (l = setTimeout(g, t)), s;
+				}
+				return (
+					(t = w(t) || 0),
+					m(n) &&
+						((f = !!n.leading),
+						(a = (p = 'maxWait' in n)
+							? y(w(n.maxWait) || 0, t)
+							: a),
+						(d = 'trailing' in n ? !!n.trailing : d)),
+					(T.cancel = function() {
+						void 0 !== l && clearTimeout(l),
+							(c = 0),
+							(o = u = i = l = void 0);
+					}),
+					(T.flush = function() {
+						return void 0 === l ? s : P(b());
+					}),
+					T
+				);
+			}
+			function m(e) {
+				var t = typeof e;
+				return !!e && ('object' == t || 'function' == t);
+			}
+			function w(e) {
+				if ('number' == typeof e) return e;
+				if (
+					(function(e) {
+						return (
+							'symbol' == typeof e ||
+							((function(e) {
+								return !!e && 'object' == typeof e;
+							})(e) &&
+								d.call(e) == o)
+						);
+					})(e)
+				)
+					return n;
+				if (m(e)) {
+					var t = 'function' == typeof e.valueOf ? e.valueOf() : e;
+					e = m(t) ? t + '' : t;
+				}
+				if ('string' != typeof e) return 0 === e ? e : +e;
+				e = e.replace(i, '');
+				var r = s.test(e);
+				return r || l.test(e)
+					? u(e.slice(2), r ? 2 : 8)
+					: a.test(e)
+					? n
+					: +e;
+			}
+			e.exports = function(e, t, n) {
+				var o = !0,
+					i = !0;
+				if ('function' != typeof e) throw new TypeError(r);
+				return (
+					m(n) &&
+						((o = 'leading' in n ? !!n.leading : o),
+						(i = 'trailing' in n ? !!n.trailing : i)),
+					v(e, t, { leading: o, maxWait: t, trailing: i })
+				);
+			};
+		}.call(this, r(7)));
+	},
+	function(e, t, r) {
+		'use strict';
+		Object.defineProperty(t, '__esModule', { value: !0 });
+		var n = function(e, t) {
+				return 'undefined' == typeof getComputedStyle
+					? e.style[t]
+					: getComputedStyle(e, null).getPropertyValue(t);
+			},
+			o = function(e) {
+				return (
+					n(e, 'overflow') + n(e, 'overflow-y') + n(e, 'overflow-x')
+				);
+			};
+		t.default = function(e) {
+			if (!(e instanceof HTMLElement)) return window;
+			for (
+				var t = e;
+				t &&
+				t !== document.body &&
+				t !== document.documentElement &&
+				t.parentNode;
+
+			) {
+				if (/(scroll|auto)/.test(o(t))) return t;
+				t = t.parentNode;
+			}
+			return window;
+		};
+	},
+]);
+
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+var bundleURL = null;
+
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
+  }
+
+  return bundleURL;
+}
+
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error();
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
+
+    if (matches) {
+      return getBaseURL(matches[0]);
+    }
+  }
+
+  return '/';
+}
+
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
+}
+
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+},{}],"../node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+var bundle = require('./bundle-url');
+
+function updateLink(link) {
+  var newLink = link.cloneNode();
+
+  newLink.onload = function () {
+    link.remove();
+  };
+
+  newLink.href = link.href.split('?')[0] + '?' + Date.now();
+  link.parentNode.insertBefore(newLink, link.nextSibling);
+}
+
+var cssTimeout = null;
+
+function reloadCSS() {
+  if (cssTimeout) {
+    return;
+  }
+
+  cssTimeout = setTimeout(function () {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
+
+    for (var i = 0; i < links.length; i++) {
+      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
+        updateLink(links[i]);
+      }
+    }
+
+    cssTimeout = null;
+  }, 50);
+}
+
+module.exports = reloadCSS;
+},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"../node_modules/react-lazy-load-image-component/src/effects/blur.css":[function(require,module,exports) {
+
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"Components/LazyLoadImage/index.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactLazyLoadImageComponent = require("react-lazy-load-image-component");
+
+require("react-lazy-load-image-component/src/effects/blur.css");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var LazyImage = function LazyImage(_ref) {
+  var src = _ref.src,
+      alt = _ref.alt;
+  return /*#__PURE__*/_react.default.createElement(_reactLazyLoadImageComponent.LazyLoadImage, {
+    alt: alt,
+    effect: "blur",
+    src: src
+  });
+};
+
+var _default = LazyImage;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","react-lazy-load-image-component":"../node_modules/react-lazy-load-image-component/build/index.js","react-lazy-load-image-component/src/effects/blur.css":"../node_modules/react-lazy-load-image-component/src/effects/blur.css"}],"Components/ProjectCard/ProjectCard.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -49088,6 +50673,12 @@ var _gsap = _interopRequireWildcard(require("gsap"));
 var _CSSRulePlugin = _interopRequireDefault(require("gsap/CSSRulePlugin"));
 
 var _reactUse = require("react-use");
+
+var _LazyLoadImage = _interopRequireDefault(require("../LazyLoadImage"));
+
+var _reactLazyLoadImageComponent = require("react-lazy-load-image-component");
+
+require("react-lazy-load-image-component/src/effects/blur.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -49113,6 +50704,15 @@ var ProjectCard = function ProjectCard(_ref) {
   //   tl.to(imageReveal, 1.4, { height: "0%", ease: Power2.easeInOut });
   // };
 
+  var renderImage = function renderImage() {
+    return /*#__PURE__*/_react.default.createElement(_reactLazyLoadImageComponent.LazyLoadImage, {
+      ref: imageRef,
+      effect: "blur",
+      src: image,
+      alt: "poll"
+    });
+  };
+
   return /*#__PURE__*/_react.default.createElement("div", {
     ref: intersectionRef,
     id: "project-".concat(index),
@@ -49120,11 +50720,7 @@ var ProjectCard = function ProjectCard(_ref) {
   }, /*#__PURE__*/_react.default.createElement("div", {
     ref: container,
     className: "project__image"
-  }, /*#__PURE__*/_react.default.createElement("img", {
-    ref: imageRef,
-    src: image,
-    alt: "poll"
-  })), /*#__PURE__*/_react.default.createElement("div", {
+  }, renderImage()), /*#__PURE__*/_react.default.createElement("div", {
     className: "project__content"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "project__name"
@@ -49137,18 +50733,18 @@ var ProjectCard = function ProjectCard(_ref) {
 
 var _default = ProjectCard;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","gsap":"../node_modules/gsap/index.js","gsap/CSSRulePlugin":"../node_modules/gsap/CSSRulePlugin.js","react-use":"../node_modules/react-use/esm/index.js"}],"images/poll.png":[function(require,module,exports) {
-module.exports = "poll.d8d14cc2.png";
-},{}],"images/pracify_sc.png":[function(require,module,exports) {
-module.exports = "pracify_sc.3bbcfbb0.png";
-},{}],"images/hoohoop_sc.png":[function(require,module,exports) {
-module.exports = "hoohoop_sc.cfd93723.png";
-},{}],"images/monktree_sc.png":[function(require,module,exports) {
-module.exports = "monktree_sc.e935d536.png";
-},{}],"images/iosd_sc.png":[function(require,module,exports) {
-module.exports = "iosd_sc.3c7f1496.png";
-},{}],"images/fourier.png":[function(require,module,exports) {
-module.exports = "fourier.6a2a2d9a.png";
+},{"react":"../node_modules/react/index.js","gsap":"../node_modules/gsap/index.js","gsap/CSSRulePlugin":"../node_modules/gsap/CSSRulePlugin.js","react-use":"../node_modules/react-use/esm/index.js","../LazyLoadImage":"Components/LazyLoadImage/index.jsx","react-lazy-load-image-component":"../node_modules/react-lazy-load-image-component/build/index.js","react-lazy-load-image-component/src/effects/blur.css":"../node_modules/react-lazy-load-image-component/src/effects/blur.css"}],"images/poll.jpg":[function(require,module,exports) {
+module.exports = "poll.dff67ddb.jpg";
+},{}],"images/pracify_sc.jpg":[function(require,module,exports) {
+module.exports = "pracify_sc.57860263.jpg";
+},{}],"images/hoohoop_sc.jpg":[function(require,module,exports) {
+module.exports = "hoohoop_sc.85e44fc7.jpg";
+},{}],"images/monktree_sc.jpg":[function(require,module,exports) {
+module.exports = "monktree_sc.78e1f160.jpg";
+},{}],"images/iosd_sc.jpg":[function(require,module,exports) {
+module.exports = "iosd_sc.35537e74.jpg";
+},{}],"images/fourier.jpg":[function(require,module,exports) {
+module.exports = "fourier.bb108a8b.jpg";
 },{}],"images/gitforker.png":[function(require,module,exports) {
 module.exports = "gitforker.05617655.png";
 },{}],"Components/Projects/Projects.jsx":[function(require,module,exports) {
@@ -49163,19 +50759,21 @@ var _react = _interopRequireDefault(require("react"));
 
 var _ProjectCard = _interopRequireDefault(require("../ProjectCard/ProjectCard"));
 
-var _poll = _interopRequireDefault(require("../../images/poll.png"));
+var _poll = _interopRequireDefault(require("../../images/poll.jpg"));
 
-var _pracify_sc = _interopRequireDefault(require("../../images/pracify_sc.png"));
+var _pracify_sc = _interopRequireDefault(require("../../images/pracify_sc.jpg"));
 
-var _hoohoop_sc = _interopRequireDefault(require("../../images/hoohoop_sc.png"));
+var _hoohoop_sc = _interopRequireDefault(require("../../images/hoohoop_sc.jpg"));
 
-var _monktree_sc = _interopRequireDefault(require("../../images/monktree_sc.png"));
+var _monktree_sc = _interopRequireDefault(require("../../images/monktree_sc.jpg"));
 
-var _iosd_sc = _interopRequireDefault(require("../../images/iosd_sc.png"));
+var _iosd_sc = _interopRequireDefault(require("../../images/iosd_sc.jpg"));
 
-var _fourier = _interopRequireDefault(require("../../images/fourier.png"));
+var _fourier = _interopRequireDefault(require("../../images/fourier.jpg"));
 
 var _gitforker = _interopRequireDefault(require("../../images/gitforker.png"));
+
+var _LazyLoadImage = _interopRequireDefault(require("../LazyLoadImage"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -49247,7 +50845,7 @@ function Projects(props) {
 
 var _default = Projects;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","../ProjectCard/ProjectCard":"Components/ProjectCard/ProjectCard.jsx","../../images/poll.png":"images/poll.png","../../images/pracify_sc.png":"images/pracify_sc.png","../../images/hoohoop_sc.png":"images/hoohoop_sc.png","../../images/monktree_sc.png":"images/monktree_sc.png","../../images/iosd_sc.png":"images/iosd_sc.png","../../images/fourier.png":"images/fourier.png","../../images/gitforker.png":"images/gitforker.png"}],"images/dsc.png":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../ProjectCard/ProjectCard":"Components/ProjectCard/ProjectCard.jsx","../../images/poll.jpg":"images/poll.jpg","../../images/pracify_sc.jpg":"images/pracify_sc.jpg","../../images/hoohoop_sc.jpg":"images/hoohoop_sc.jpg","../../images/monktree_sc.jpg":"images/monktree_sc.jpg","../../images/iosd_sc.jpg":"images/iosd_sc.jpg","../../images/fourier.jpg":"images/fourier.jpg","../../images/gitforker.png":"images/gitforker.png","../LazyLoadImage":"Components/LazyLoadImage/index.jsx"}],"images/dsc.png":[function(require,module,exports) {
 module.exports = "dsc.e882721c.png";
 },{}],"images/minitroika.png":[function(require,module,exports) {
 module.exports = "minitroika.3bea6131.png";
@@ -49441,74 +51039,7 @@ function Home(props) {
 
 var _default = Home;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","../Components/Header/Header.jsx":"Components/Header/Header.jsx","../Components/Projects/Projects":"Components/Projects/Projects.jsx","../Components/Education/Education.jsx":"Components/Education/Education.jsx","../Components/internships/Internship":"Components/internships/Internship.jsx","../Components/Communities/Communities.jsx":"Components/Communities/Communities.jsx"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
-
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
-  }
-
-  return bundleURL;
-}
-
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
-
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
-  }
-
-  return '/';
-}
-
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
-}
-
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"../node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
-
-function updateLink(link) {
-  var newLink = link.cloneNode();
-
-  newLink.onload = function () {
-    link.remove();
-  };
-
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-
-var cssTimeout = null;
-
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
-  }
-
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
-      }
-    }
-
-    cssTimeout = null;
-  }, 50);
-}
-
-module.exports = reloadCSS;
-},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"Styles/index.scss":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../Components/Header/Header.jsx":"Components/Header/Header.jsx","../Components/Projects/Projects":"Components/Projects/Projects.jsx","../Components/Education/Education.jsx":"Components/Education/Education.jsx","../Components/internships/Internship":"Components/internships/Internship.jsx","../Components/Communities/Communities.jsx":"Components/Communities/Communities.jsx"}],"Styles/index.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -49596,7 +51127,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "38631" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "44501" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
