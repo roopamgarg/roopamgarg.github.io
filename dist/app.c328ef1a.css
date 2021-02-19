@@ -1,3 +1,21 @@
+.lazy-load-image-background.blur {
+  filter: blur(15px);
+}
+
+.lazy-load-image-background.blur.lazy-load-image-loaded {
+  filter: blur(0);
+  transition: filter .3s;
+}
+
+.lazy-load-image-background.blur > img {
+  opacity: 0;
+}
+
+.lazy-load-image-background.blur.lazy-load-image-loaded > img {
+  opacity: 1;
+  transition: opacity .3s;
+}
+
 html,
 body {
   height: 100%;
@@ -329,6 +347,9 @@ h2 .outline {
   height: 20rem;
   max-width: 40rem;
   position: relative;
+}
+.project__image img {
+  height: 20rem;
 }
 .project__image img {
   max-height: 100%;

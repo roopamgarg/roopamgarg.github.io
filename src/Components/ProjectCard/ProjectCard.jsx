@@ -2,6 +2,9 @@ import React, { useEffect, useRef } from "react";
 import gsap, { Power2, power1 } from "gsap";
 import CSSRulePlugin from "gsap/CSSRulePlugin";
 import { useIntersection } from "react-use";
+import LazyImage from "../LazyLoadImage";
+import { LazyLoadComponent, LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const ProjectCard = ({ index, image, name, points }) => {
   const intersectionRef = useRef(null);
@@ -19,6 +22,9 @@ const ProjectCard = ({ index, image, name, points }) => {
   //   tl.to(imageReveal, 1.4, { height: "0%", ease: Power2.easeInOut });
 
   // };
+  const renderImage = () => {
+    return <LazyLoadImage ref={imageRef} effect="blur" src={image} alt="poll" />;
+  };
   return (
     <div
       ref={intersectionRef}
@@ -26,7 +32,7 @@ const ProjectCard = ({ index, image, name, points }) => {
       className={`project ${index % 2 === 0 ? "left" : "right"}`}
     >
       <div ref={container} className="project__image">
-        <img ref={imageRef} src={image} alt="poll" />
+        {renderImage()}
       </div>
       <div className="project__content">
         <div className="project__name">{name}</div>
