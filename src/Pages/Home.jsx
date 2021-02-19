@@ -15,7 +15,6 @@ function Home(props) {
         <Projects />
         <div style={{ padding: "4rem" }}></div>
         <Internship />
-        <Education />
         <Communities />
     </>
   );
