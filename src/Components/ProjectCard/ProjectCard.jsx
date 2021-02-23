@@ -6,7 +6,7 @@ const ProjectCard = ({ index, image, name, points }) => {
   const container = useRef(null);
 
   const renderImage = () => {
-    return <LazyImage  src={image} alt="poll" />;
+    return <LazyImage style={{width:"100%"}} src={image} alt="poll" />;
   };
   return (
     <div
