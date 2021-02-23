@@ -345,22 +345,30 @@ h2 .outline {
 }
 .project__image {
   height: 20rem;
-  max-width: 40rem;
+  max-width: 35rem;
   position: relative;
 }
-.project__image img {
-  height: 20rem;
-  min-width: 35rem;
+@media (max-width: 720px) {
+  .project__image {
+    height: 10rem;
+    min-width: 80vw;
+    margin-bottom: 2rem;
+  }
+}
+.project__image span {
+  width: 100%;
+  height: 100%;
 }
 .project__image img {
   max-height: 100%;
   box-shadow: 0.2rem 0.2rem 1rem rgba(0, 0, 0, 0.2);
+  height: 20rem;
+  min-width: 35rem;
 }
 @media (max-width: 720px) {
   .project__image img {
-    max-width: 80vw;
-    height: unset;
-    margin-bottom: 2rem;
+    height: 10rem;
+    min-width: 80vw;
   }
 }
 .project__name {
