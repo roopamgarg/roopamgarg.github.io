@@ -41460,6 +41460,9 @@ var ProjectCard = function ProjectCard(_ref) {
 
   var renderImage = function renderImage() {
     return /*#__PURE__*/_react.default.createElement(_LazyLoadImage.default, {
+      style: {
+        width: "100%"
+      },
       src: image,
       alt: "poll"
     });
@@ -41902,13 +41905,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _react = _interopRequireWildcard(require("react"));
+var _react = _interopRequireDefault(require("react"));
 
 var _Header = _interopRequireDefault(require("../Components/Header/Header.jsx"));
 
 var _Projects = _interopRequireDefault(require("../Components/Projects/Projects"));
-
-var _Education = _interopRequireDefault(require("../Components/Education/Education.jsx"));
 
 var _Internship = _interopRequireDefault(require("../Components/internships/Internship"));
 
@@ -41916,13 +41917,6 @@ var _Communities = _interopRequireDefault(require("../Components/Communities/Com
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-// const Education = lazy(() => import("../Components/Education/Education.jsx"));
-// const Internship = lazy(() => import("../Components/internships/Internship"));
-// const Communities = lazy(() => import("../Components/Communities/Communities.jsx"));
 function Home(props) {
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_Header.default, null), /*#__PURE__*/_react.default.createElement(_Projects.default, null), /*#__PURE__*/_react.default.createElement("div", {
     style: {
@@ -41933,7 +41927,7 @@ function Home(props) {
 
 var _default = Home;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","../Components/Header/Header.jsx":"Components/Header/Header.jsx","../Components/Projects/Projects":"Components/Projects/Projects.jsx","../Components/Education/Education.jsx":"Components/Education/Education.jsx","../Components/internships/Internship":"Components/internships/Internship.jsx","../Components/Communities/Communities.jsx":"Components/Communities/Communities.jsx"}],"Styles/index.scss":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../Components/Header/Header.jsx":"Components/Header/Header.jsx","../Components/Projects/Projects":"Components/Projects/Projects.jsx","../Components/internships/Internship":"Components/internships/Internship.jsx","../Components/Communities/Communities.jsx":"Components/Communities/Communities.jsx"}],"Styles/index.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -42021,7 +42015,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "36527" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63121" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
