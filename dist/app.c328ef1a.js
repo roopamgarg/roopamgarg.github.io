@@ -41488,16 +41488,16 @@ var ProjectCard = function ProjectCard(_ref) {
 
 var _default = ProjectCard;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","../LazyLoadImage":"Components/LazyLoadImage/index.jsx"}],"images/poll.jpg":[function(require,module,exports) {
-module.exports = "poll.dff67ddb.jpg";
-},{}],"images/pracify_sc.jpg":[function(require,module,exports) {
-module.exports = "pracify_sc.57860263.jpg";
-},{}],"images/hoohoop_sc.jpg":[function(require,module,exports) {
-module.exports = "hoohoop_sc.85e44fc7.jpg";
-},{}],"images/monktree_sc.jpg":[function(require,module,exports) {
-module.exports = "monktree_sc.78e1f160.jpg";
-},{}],"images/iosd_sc.jpg":[function(require,module,exports) {
-module.exports = "iosd_sc.35537e74.jpg";
+},{"react":"../node_modules/react/index.js","../LazyLoadImage":"Components/LazyLoadImage/index.jsx"}],"images/poll_bg.jpg":[function(require,module,exports) {
+module.exports = "poll_bg.d70c1491.jpg";
+},{}],"images/pracify_bg.jpg":[function(require,module,exports) {
+module.exports = "pracify_bg.7ed6708e.jpg";
+},{}],"images/hoohoop_bg.jpg":[function(require,module,exports) {
+module.exports = "hoohoop_bg.2f1f8c26.jpg";
+},{}],"images/monktree_bg.jpg":[function(require,module,exports) {
+module.exports = "monktree_bg.66aa77d7.jpg";
+},{}],"images/iosd_bg.jpg":[function(require,module,exports) {
+module.exports = "iosd_bg.3f0ac244.jpg";
 },{}],"images/fourier.jpg":[function(require,module,exports) {
 module.exports = "fourier.bb108a8b.jpg";
 },{}],"images/gitforker.png":[function(require,module,exports) {
@@ -41514,15 +41514,15 @@ var _react = _interopRequireDefault(require("react"));
 
 var _ProjectCard = _interopRequireDefault(require("../ProjectCard/ProjectCard"));
 
-var _poll = _interopRequireDefault(require("../../images/poll.jpg"));
+var _poll_bg = _interopRequireDefault(require("../../images/poll_bg.jpg"));
 
-var _pracify_sc = _interopRequireDefault(require("../../images/pracify_sc.jpg"));
+var _pracify_bg = _interopRequireDefault(require("../../images/pracify_bg.jpg"));
 
-var _hoohoop_sc = _interopRequireDefault(require("../../images/hoohoop_sc.jpg"));
+var _hoohoop_bg = _interopRequireDefault(require("../../images/hoohoop_bg.jpg"));
 
-var _monktree_sc = _interopRequireDefault(require("../../images/monktree_sc.jpg"));
+var _monktree_bg = _interopRequireDefault(require("../../images/monktree_bg.jpg"));
 
-var _iosd_sc = _interopRequireDefault(require("../../images/iosd_sc.jpg"));
+var _iosd_bg = _interopRequireDefault(require("../../images/iosd_bg.jpg"));
 
 var _fourier = _interopRequireDefault(require("../../images/fourier.jpg"));
 
@@ -41535,23 +41535,23 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var data = [{
   name: "Pracify",
   points: ["Pracify helps companies scale on-demand by connecting them to a network of selected and trained gig workers for performing easily doable task-based jobs on a pay-per-performance system.", "Companies can directly monitor there tasks completion in real time.", "Users can redeem there earned rewards from there wallet anytime."],
-  image: _pracify_sc.default
+  image: _pracify_bg.default
 }, {
   name: "HooHoop",
   points: ["Hoohoop NZ is a New-Zealand-based Car Search & Deal Venture.", "Features like Gyroscope enabled 360° interior and 360° exterior view for cars.", "Anyone can add there car for selling after paying minimal amount for posting"],
-  image: _hoohoop_sc.default
+  image: _hoohoop_bg.default
 }, {
   name: "IOSD ",
   points: ["IOSD helps student's in improving there coding skills by building open source projects and teaching programming concepts.", "Anyone can watch the recorded lectures or playlist after paying subscription fee", "Student's can get regular updates about what IOSD is planning in different colleges", "Every college activities were updated by their college IOSD council members"],
-  image: _iosd_sc.default
+  image: _iosd_bg.default
 }, {
   name: "Monktree",
   points: ["Monktree improves student's education quality from stationary to learning, from internship to Placement.", "Anyone can get access to all these features after paying the subscription fee"],
-  image: _monktree_sc.default
+  image: _monktree_bg.default
 }, {
   name: "Real Time Poll",
   points: ["Real Time Polling system build on top of web sockets.", "User's can create or vote on a poll anonymously.", "Anyone can see the poll results instantly."],
-  image: _poll.default
+  image: _poll_bg.default
 } // {
 //   name: "Fourier Series Visualizer",
 //   points: [
@@ -41600,7 +41600,7 @@ function Projects(props) {
 
 var _default = Projects;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","../ProjectCard/ProjectCard":"Components/ProjectCard/ProjectCard.jsx","../../images/poll.jpg":"images/poll.jpg","../../images/pracify_sc.jpg":"images/pracify_sc.jpg","../../images/hoohoop_sc.jpg":"images/hoohoop_sc.jpg","../../images/monktree_sc.jpg":"images/monktree_sc.jpg","../../images/iosd_sc.jpg":"images/iosd_sc.jpg","../../images/fourier.jpg":"images/fourier.jpg","../../images/gitforker.png":"images/gitforker.png","../LazyLoadImage":"Components/LazyLoadImage/index.jsx"}],"images/dsc.png":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../ProjectCard/ProjectCard":"Components/ProjectCard/ProjectCard.jsx","../../images/poll_bg.jpg":"images/poll_bg.jpg","../../images/pracify_bg.jpg":"images/pracify_bg.jpg","../../images/hoohoop_bg.jpg":"images/hoohoop_bg.jpg","../../images/monktree_bg.jpg":"images/monktree_bg.jpg","../../images/iosd_bg.jpg":"images/iosd_bg.jpg","../../images/fourier.jpg":"images/fourier.jpg","../../images/gitforker.png":"images/gitforker.png","../LazyLoadImage":"Components/LazyLoadImage/index.jsx"}],"images/dsc.png":[function(require,module,exports) {
 module.exports = "dsc.e882721c.png";
 },{}],"images/minitroika.png":[function(require,module,exports) {
 module.exports = "minitroika.3bea6131.png";
@@ -42015,7 +42015,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65005" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56096" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
