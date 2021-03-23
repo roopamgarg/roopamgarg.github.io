@@ -1,19 +1,6 @@
 import React from "react";
+import data from "../../data";
 
-const data = [
-  {
-    degree: "Bachelors In Technology",
-    duration: "2019 - 2022",
-    branch: "Information Technology",
-    college: "Maharaja Agrasen Institute of Technology",
-  },
-  {
-    degree: "Diploma",
-    duration: "2016 - 2019",
-    branch: "Computer Science",
-    college: "Guru Nanak Dev Institute of Technology",
-  },
-];
 
 function Education(props) {
   return (
@@ -23,7 +10,7 @@ function Education(props) {
       </div>
       <div className="education__container">
 
-      {data.map(({ degree, duration, branch, college }) => (
+      {data.education.map(({ degree, duration, branch, college }) => (
         <div className="education__card">
           <h3 className="education__degree">{degree}</h3>
           <p className="education__info">{duration}</p>

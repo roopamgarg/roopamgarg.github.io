@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import gsap,{ Power2 } from "gsap";
 import CSSRulePlugin from "gsap/CSSRulePlugin";
-import roopam_image from "../../images/roopam_sm.jpg";
+import { roopam } from '../../Assets';
 
 function Header(props) {
   let image = useRef(null);
@@ -31,7 +31,7 @@ function Header(props) {
         <div className="header__right">
           
           <div ref={el => container = el} className="header__box">
-              <img ref={el => image = el} width="100%"  src={roopam_image} />
+              <img ref={el => image = el} width="100%"  src={roopam} />
           </div>
         </div>
     </div>

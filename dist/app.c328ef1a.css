@@ -19,7 +19,7 @@
 html,
 body {
   height: 100%;
-  background: #f2f2f2;
+  background: #f7f7f7;
 }
 
 body {
@@ -81,6 +81,7 @@ h2 .outline {
   text-align: left;
   padding: 0 1rem;
   text-transform: capitalize;
+  color: #000;
 }
 
 .divider-4 {
@@ -100,9 +101,9 @@ h2 .outline {
   align-items: center;
   font-size: 4rem;
   transition: all 0.2s;
-  border-right: 0.1px solid rgba(242, 242, 242, 0.2);
-  border-top: 0.1px solid rgba(242, 242, 242, 0.2);
-  background: #f2f2f2;
+  border-right: 0.1px solid rgba(247, 247, 247, 0.2);
+  border-top: 0.1px solid rgba(247, 247, 247, 0.2);
+  background: #f7f7f7;
 }
 @media (max-width: 720px) {
   .slider > .slide {
@@ -122,12 +123,12 @@ h2 .outline {
   margin: 1rem;
   background-color: #ccc;
   transition: all 0.2s;
-  box-shadow: 0.2rem 0.2rem 1rem rgba(242, 242, 242, 0.2);
+  box-shadow: 0.2rem 0.2rem 1rem rgba(247, 247, 247, 0.2);
   border-radius: 200rem;
 }
 .slider__dot.transparent {
-  background-color: #f2f2f2;
-  box-shadow: 0.2rem 0.1rem 2rem #f2f2f2;
+  background-color: #f7f7f7;
+  box-shadow: 0.2rem 0.1rem 2rem #f7f7f7;
 }
 .slider__container {
   position: relative;
@@ -172,11 +173,12 @@ h2 .outline {
   border-left: 0.1rem solid #DB4437;
   margin-left: 1rem;
   height: 100%;
+  color: #000;
 }
 .card__image {
   height: 5rem;
   width: 5rem;
-  background: #fff;
+  background: #f7f7f7;
   background-size: contain;
   border-radius: 200rem;
   display: flex;
@@ -228,7 +230,7 @@ h2 .outline {
 }
 .header {
   min-height: 100vh;
-  background-color: #f2f2f2;
+  background-color: #f7f7f7;
   color: #000;
   padding: 2rem 10%;
   display: flex;
@@ -263,7 +265,7 @@ h2 .outline {
   border-radius: 200rem;
   background-size: cover;
   overflow: hidden;
-  background-color: #f2f2f2;
+  background-color: #f7f7f7;
   position: relative;
 }
 .header__box img {
@@ -295,7 +297,7 @@ h2 .outline {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr;
-  background-color: #f2f2f2;
+  background-color: #f7f7f7;
 }
 @media (max-width: 720px) {
   .internships {
@@ -311,7 +313,7 @@ h2 .outline {
 .projects {
   min-height: 100vh;
   padding: 0 10%;
-  background-color: #f2f2f2;
+  background-color: #f7f7f7;
 }
 
 .project {
@@ -319,6 +321,7 @@ h2 .outline {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #000;
 }
 @media (max-width: 720px) {
   .project {
@@ -380,6 +383,16 @@ h2 .outline {
   margin: 1rem 0;
   padding: 0.5rem 1rem;
   border-left: 0.2rem solid #DB4437;
+}
+.project__icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.project__icon {
+  height: 3rem;
+  display: block;
+  margin: 1rem;
 }
 
 .hamburger-menu {
@@ -592,4 +605,4 @@ header .inner-header .menu button {
   border-left: 0.1rem solid #DB4437;
 }
 
-/*# sourceMappingURL=app.c328ef1a.css.map */
+/*# sourceMappingURL=/app.c328ef1a.css.map */

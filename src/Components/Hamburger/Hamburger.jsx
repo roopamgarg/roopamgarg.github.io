@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import gsap from 'gsap';
-import roopam_image from "../../images/roopam_3_sm.jpg";
 import { Lazy } from "react-is";
 import LazyImage from "../LazyLoadImage";
+import { roopamImg2 } from "../../Assets";
 const Hamburger = ({state}) => {
   
   let menu = useRef(null);
@@ -103,7 +103,7 @@ const Hamburger = ({state}) => {
             <div ref={el => info = el} className="info">
                   
               <div className="hamburger-image">
-                <LazyImage width="100%"  src={roopam_image} alt="roopam"/>
+                <LazyImage width="100%"  src={roopamImg2} alt="roopam"/>
 
               </div>       
             </div>

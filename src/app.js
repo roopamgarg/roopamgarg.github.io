@@ -3,7 +3,6 @@ import gsap, { TimelineLite, Power2 } from "gsap";
 import React, { useState, useRef, useEffect } from "react";
 import ReactDOM from "react-dom";
 import { Route, BrowserRouter, Switch } from "react-router-dom";
-import Education from "./Components/Education/Education";
 import Internship from "./Components/internships/Internship";
 import Navbar from "./Components/Navbar/Navbar";
 import Projects from "./Components/Projects/Projects";
