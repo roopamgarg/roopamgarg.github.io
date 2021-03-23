@@ -330,7 +330,7 @@ h2 .outline {
 }
 .project__content {
   flex: 1;
-  padding: 4rem;
+  padding: 0 0 0 4rem;
 }
 @media (max-width: 720px) {
   .project__content {
@@ -340,10 +340,12 @@ h2 .outline {
 .project.right .project__image {
   order: 1;
   margin-right: 0;
+  margin-left: 4rem;
 }
 @media (max-width: 720px) {
   .project.right .project__image {
     order: 0;
+    margin-left: 0;
   }
 }
 .project__image {
@@ -605,4 +607,4 @@ header .inner-header .menu button {
   border-left: 0.1rem solid #DB4437;
 }
 
-/*# sourceMappingURL=app.c328ef1a.css.map */
+/*# sourceMappingURL=/app.c328ef1a.css.map */
