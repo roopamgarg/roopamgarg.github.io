@@ -10,7 +10,7 @@
   }
   &__content{
     flex:1;
-    padding: 4rem;
+    padding: 0 0 0 4rem;
     @media (max-width:720px) {
       padding: 0;
     }
@@ -18,9 +18,10 @@
   &.right &__image{
     order: 1;
     margin-right: 0;
-
+    margin-left: 4rem;
     @media (max-width:720px) {
       order: 0;
+      margin-left: 0;
     
     }
   }
