@@ -39338,7 +39338,275 @@ if ("development" !== "production") {
     style: _propTypes.default.object
   });
 }
-},{"react-router":"../node_modules/react-router/esm/react-router.js","@babel/runtime/helpers/esm/inheritsLoose":"../node_modules/@babel/runtime/helpers/esm/inheritsLoose.js","react":"../node_modules/react/index.js","history":"../node_modules/history/esm/history.js","prop-types":"../node_modules/prop-types/index.js","tiny-warning":"../node_modules/tiny-warning/dist/tiny-warning.esm.js","@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","tiny-invariant":"../node_modules/tiny-invariant/dist/tiny-invariant.esm.js"}],"Components/Education/Education.jsx":[function(require,module,exports) {
+},{"react-router":"../node_modules/react-router/esm/react-router.js","@babel/runtime/helpers/esm/inheritsLoose":"../node_modules/@babel/runtime/helpers/esm/inheritsLoose.js","react":"../node_modules/react/index.js","history":"../node_modules/history/esm/history.js","prop-types":"../node_modules/prop-types/index.js","tiny-warning":"../node_modules/tiny-warning/dist/tiny-warning.esm.js","@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","tiny-invariant":"../node_modules/tiny-invariant/dist/tiny-invariant.esm.js"}],"Assets/images/poll_bg.jpg":[function(require,module,exports) {
+module.exports = "/poll_bg.c223a3f1.jpg";
+},{}],"Assets/images/pracify_bg.jpg":[function(require,module,exports) {
+module.exports = "/pracify_bg.837695a6.jpg";
+},{}],"Assets/images/hoohoop_bg.jpg":[function(require,module,exports) {
+module.exports = "/hoohoop_bg.e4550758.jpg";
+},{}],"Assets/images/monktree_bg.jpg":[function(require,module,exports) {
+module.exports = "/monktree_bg.f09f7cfe.jpg";
+},{}],"Assets/images/iosd_bg.jpg":[function(require,module,exports) {
+module.exports = "/iosd_bg.7fec2ad1.jpg";
+},{}],"Assets/images/pracify.png":[function(require,module,exports) {
+module.exports = "/pracify.1868e0b2.png";
+},{}],"Assets/images/hoohoop.png":[function(require,module,exports) {
+module.exports = "/hoohoop.5ae79c85.png";
+},{}],"Assets/images/monktree.png":[function(require,module,exports) {
+module.exports = "/monktree.4ee3bd46.png";
+},{}],"Assets/images/iosd.png":[function(require,module,exports) {
+module.exports = "/iosd.019c024d.png";
+},{}],"Assets/images/dsc.png":[function(require,module,exports) {
+module.exports = "/dsc.e0fca5c5.png";
+},{}],"Assets/images/roopam_sm.jpg":[function(require,module,exports) {
+module.exports = "/roopam_sm.fe8c4fca.jpg";
+},{}],"Assets/images/roopam_3_sm.jpg":[function(require,module,exports) {
+module.exports = "/roopam_3_sm.60cde2b0.jpg";
+},{}],"Assets/icons/mongodb_0.png":[function(require,module,exports) {
+module.exports = "/mongodb_0.2460fce0.png";
+},{}],"Assets/icons/nodejs.svg":[function(require,module,exports) {
+module.exports = "/nodejs.be2a8c97.svg";
+},{}],"Assets/icons/react.svg":[function(require,module,exports) {
+module.exports = "/react.93b56323.svg";
+},{}],"Assets/icons/redux.svg":[function(require,module,exports) {
+module.exports = "/redux.1657d36b.svg";
+},{}],"Assets/icons/firebase.svg":[function(require,module,exports) {
+module.exports = "/firebase.3f79716e.svg";
+},{}],"Assets/icons/aws.svg":[function(require,module,exports) {
+module.exports = "/aws.be1aa642.svg";
+},{}],"Assets/icons/angular.svg":[function(require,module,exports) {
+module.exports = "/angular.1346805d.svg";
+},{}],"Assets/icons/nginx.svg":[function(require,module,exports) {
+module.exports = "/nginx.01c8b4a5.svg";
+},{}],"Assets/icons/razorpay.svg":[function(require,module,exports) {
+module.exports = "/razorpay.58839982.svg";
+},{}],"Assets/icons/egjs.svg":[function(require,module,exports) {
+module.exports = "/egjs.136acab0.svg";
+},{}],"Assets/icons/paypal.svg":[function(require,module,exports) {
+module.exports = "/paypal.455fe837.svg";
+},{}],"Assets/icons/material-ui.svg":[function(require,module,exports) {
+module.exports = "/material-ui.be45293e.svg";
+},{}],"Assets/icons/socket-io.svg":[function(require,module,exports) {
+module.exports = "/socket-io.11df0150.svg";
+},{}],"Assets/icons/heroku.svg":[function(require,module,exports) {
+module.exports = "/heroku.deb1bbe4.svg";
+},{}],"Assets/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "poll", {
+  enumerable: true,
+  get: function () {
+    return _poll_bg.default;
+  }
+});
+Object.defineProperty(exports, "pracify", {
+  enumerable: true,
+  get: function () {
+    return _pracify_bg.default;
+  }
+});
+Object.defineProperty(exports, "hoohoop", {
+  enumerable: true,
+  get: function () {
+    return _hoohoop_bg.default;
+  }
+});
+Object.defineProperty(exports, "monktree", {
+  enumerable: true,
+  get: function () {
+    return _monktree_bg.default;
+  }
+});
+Object.defineProperty(exports, "iosd", {
+  enumerable: true,
+  get: function () {
+    return _iosd_bg.default;
+  }
+});
+Object.defineProperty(exports, "pracifyLogo", {
+  enumerable: true,
+  get: function () {
+    return _pracify.default;
+  }
+});
+Object.defineProperty(exports, "hoohoopLogo", {
+  enumerable: true,
+  get: function () {
+    return _hoohoop.default;
+  }
+});
+Object.defineProperty(exports, "monktreeLogo", {
+  enumerable: true,
+  get: function () {
+    return _monktree.default;
+  }
+});
+Object.defineProperty(exports, "iosdLogo", {
+  enumerable: true,
+  get: function () {
+    return _iosd.default;
+  }
+});
+Object.defineProperty(exports, "dscLogo", {
+  enumerable: true,
+  get: function () {
+    return _dsc.default;
+  }
+});
+Object.defineProperty(exports, "roopam", {
+  enumerable: true,
+  get: function () {
+    return _roopam_sm.default;
+  }
+});
+Object.defineProperty(exports, "roopamImg2", {
+  enumerable: true,
+  get: function () {
+    return _roopam_3_sm.default;
+  }
+});
+Object.defineProperty(exports, "mongodbLogo", {
+  enumerable: true,
+  get: function () {
+    return _mongodb_.default;
+  }
+});
+Object.defineProperty(exports, "nodejsLogo", {
+  enumerable: true,
+  get: function () {
+    return _nodejs.default;
+  }
+});
+Object.defineProperty(exports, "reactjsLogo", {
+  enumerable: true,
+  get: function () {
+    return _react.default;
+  }
+});
+Object.defineProperty(exports, "reduxLogo", {
+  enumerable: true,
+  get: function () {
+    return _redux.default;
+  }
+});
+Object.defineProperty(exports, "firebaseLogo", {
+  enumerable: true,
+  get: function () {
+    return _firebase.default;
+  }
+});
+Object.defineProperty(exports, "awsLogo", {
+  enumerable: true,
+  get: function () {
+    return _aws.default;
+  }
+});
+Object.defineProperty(exports, "angularLogo", {
+  enumerable: true,
+  get: function () {
+    return _angular.default;
+  }
+});
+Object.defineProperty(exports, "nginxLogo", {
+  enumerable: true,
+  get: function () {
+    return _nginx.default;
+  }
+});
+Object.defineProperty(exports, "razorpayLogo", {
+  enumerable: true,
+  get: function () {
+    return _razorpay.default;
+  }
+});
+Object.defineProperty(exports, "egjsLogo", {
+  enumerable: true,
+  get: function () {
+    return _egjs.default;
+  }
+});
+Object.defineProperty(exports, "paypalLogo", {
+  enumerable: true,
+  get: function () {
+    return _paypal.default;
+  }
+});
+Object.defineProperty(exports, "materialLogo", {
+  enumerable: true,
+  get: function () {
+    return _materialUi.default;
+  }
+});
+Object.defineProperty(exports, "socketioLogo", {
+  enumerable: true,
+  get: function () {
+    return _socketIo.default;
+  }
+});
+Object.defineProperty(exports, "herokuLogo", {
+  enumerable: true,
+  get: function () {
+    return _heroku.default;
+  }
+});
+
+var _poll_bg = _interopRequireDefault(require("./images/poll_bg.jpg"));
+
+var _pracify_bg = _interopRequireDefault(require("./images/pracify_bg.jpg"));
+
+var _hoohoop_bg = _interopRequireDefault(require("./images/hoohoop_bg.jpg"));
+
+var _monktree_bg = _interopRequireDefault(require("./images/monktree_bg.jpg"));
+
+var _iosd_bg = _interopRequireDefault(require("./images/iosd_bg.jpg"));
+
+var _pracify = _interopRequireDefault(require("./images/pracify.png"));
+
+var _hoohoop = _interopRequireDefault(require("./images/hoohoop.png"));
+
+var _monktree = _interopRequireDefault(require("./images/monktree.png"));
+
+var _iosd = _interopRequireDefault(require("./images/iosd.png"));
+
+var _dsc = _interopRequireDefault(require("./images/dsc.png"));
+
+var _roopam_sm = _interopRequireDefault(require("./images/roopam_sm.jpg"));
+
+var _roopam_3_sm = _interopRequireDefault(require("./images/roopam_3_sm.jpg"));
+
+var _mongodb_ = _interopRequireDefault(require("./icons/mongodb_0.png"));
+
+var _nodejs = _interopRequireDefault(require("./icons/nodejs.svg"));
+
+var _react = _interopRequireDefault(require("./icons/react.svg"));
+
+var _redux = _interopRequireDefault(require("./icons/redux.svg"));
+
+var _firebase = _interopRequireDefault(require("./icons/firebase.svg"));
+
+var _aws = _interopRequireDefault(require("./icons/aws.svg"));
+
+var _angular = _interopRequireDefault(require("./icons/angular.svg"));
+
+var _nginx = _interopRequireDefault(require("./icons/nginx.svg"));
+
+var _razorpay = _interopRequireDefault(require("./icons/razorpay.svg"));
+
+var _egjs = _interopRequireDefault(require("./icons/egjs.svg"));
+
+var _paypal = _interopRequireDefault(require("./icons/paypal.svg"));
+
+var _materialUi = _interopRequireDefault(require("./icons/material-ui.svg"));
+
+var _socketIo = _interopRequireDefault(require("./icons/socket-io.svg"));
+
+var _heroku = _interopRequireDefault(require("./icons/heroku.svg"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+},{"./images/poll_bg.jpg":"Assets/images/poll_bg.jpg","./images/pracify_bg.jpg":"Assets/images/pracify_bg.jpg","./images/hoohoop_bg.jpg":"Assets/images/hoohoop_bg.jpg","./images/monktree_bg.jpg":"Assets/images/monktree_bg.jpg","./images/iosd_bg.jpg":"Assets/images/iosd_bg.jpg","./images/pracify.png":"Assets/images/pracify.png","./images/hoohoop.png":"Assets/images/hoohoop.png","./images/monktree.png":"Assets/images/monktree.png","./images/iosd.png":"Assets/images/iosd.png","./images/dsc.png":"Assets/images/dsc.png","./images/roopam_sm.jpg":"Assets/images/roopam_sm.jpg","./images/roopam_3_sm.jpg":"Assets/images/roopam_3_sm.jpg","./icons/mongodb_0.png":"Assets/icons/mongodb_0.png","./icons/nodejs.svg":"Assets/icons/nodejs.svg","./icons/react.svg":"Assets/icons/react.svg","./icons/redux.svg":"Assets/icons/redux.svg","./icons/firebase.svg":"Assets/icons/firebase.svg","./icons/aws.svg":"Assets/icons/aws.svg","./icons/angular.svg":"Assets/icons/angular.svg","./icons/nginx.svg":"Assets/icons/nginx.svg","./icons/razorpay.svg":"Assets/icons/razorpay.svg","./icons/egjs.svg":"Assets/icons/egjs.svg","./icons/paypal.svg":"Assets/icons/paypal.svg","./icons/material-ui.svg":"Assets/icons/material-ui.svg","./icons/socket-io.svg":"Assets/icons/socket-io.svg","./icons/heroku.svg":"Assets/icons/heroku.svg"}],"data.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -39346,59 +39614,191 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _react = _interopRequireDefault(require("react"));
+var _Assets = require("./Assets");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var data = [{
-  degree: "Bachelors In Technology",
-  duration: "2019 - 2022",
-  branch: "Information Technology",
-  college: "Maharaja Agrasen Institute of Technology"
-}, {
-  degree: "Diploma",
-  duration: "2016 - 2019",
-  branch: "Computer Science",
-  college: "Guru Nanak Dev Institute of Technology"
-}];
-
-function Education(props) {
-  return /*#__PURE__*/_react.default.createElement("div", {
-    className: "education"
-  }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", {
-    className: "heading-primary"
-  }, "Education")), /*#__PURE__*/_react.default.createElement("div", {
-    className: "education__container"
-  }, data.map(function (_ref) {
-    var degree = _ref.degree,
-        duration = _ref.duration,
-        branch = _ref.branch,
-        college = _ref.college;
-    return /*#__PURE__*/_react.default.createElement("div", {
-      className: "education__card"
-    }, /*#__PURE__*/_react.default.createElement("h3", {
-      className: "education__degree"
-    }, degree), /*#__PURE__*/_react.default.createElement("p", {
-      className: "education__info"
-    }, duration), /*#__PURE__*/_react.default.createElement("p", {
-      className: "education__info"
-    }, "In ", branch), /*#__PURE__*/_react.default.createElement("p", {
-      className: "education__info"
-    }, "From ", college));
-  })));
-}
-
-var _default = Education;
+var data = {
+  internships: [{
+    name: "HooHoop",
+    description: "HooHoop is the first company in NZ to offer this 360 virtual experience and by doing so saves plenty of time.",
+    image: _Assets.hoohoopLogo
+  }, {
+    name: "Pracify",
+    description: "Pracify helps companies scale on-demand by connecting them to a network of selected and trained gig workers for performing easily doable task-based jobs on a pay-per-performance system.",
+    image: _Assets.pracifyLogo
+  }, {
+    name: "IOSD",
+    description: "IOSD helps student's in improving there coding skills by building open source projects and teaching programming concepts",
+    image: _Assets.iosdLogo
+  }, {
+    name: "Monktree",
+    description: "Monktree improves student's education quality from stationary to learning, from internship to Placement.",
+    image: _Assets.monktreeLogo
+  }],
+  projects: [{
+    name: "Pracify",
+    points: ["Pracify helps companies scale on-demand by connecting them to a network of selected and trained gig workers for performing easily doable task-based jobs on a pay-per-performance system.", "Companies can directly monitor there tasks completion in real time.", "Users can redeem there earned rewards from there wallet anytime."],
+    image: _Assets.pracify,
+    techstack: [{
+      logo: _Assets.reactjsLogo,
+      alt: "React JS"
+    }, {
+      logo: _Assets.nodejsLogo,
+      alt: "Node JS"
+    }, {
+      logo: _Assets.mongodbLogo,
+      alt: "Mongo DB"
+    }, {
+      logo: _Assets.reduxLogo,
+      alt: "Redux"
+    }, {
+      logo: _Assets.firebaseLogo,
+      alt: "Firebase"
+    }, {
+      logo: _Assets.awsLogo,
+      alt: "aws"
+    }]
+  }, {
+    name: "HooHoop",
+    points: ["Hoohoop NZ is a New-Zealand-based Car Search & Deal Venture.", "Features like Gyroscope enabled 360° interior and 360° exterior view for cars.", "Anyone can add there car for selling after paying minimal amount for posting"],
+    image: _Assets.hoohoop,
+    techstack: [{
+      logo: _Assets.reactjsLogo,
+      alt: "React JS"
+    }, {
+      logo: _Assets.reduxLogo,
+      alt: "Redux"
+    }, {
+      logo: _Assets.egjsLogo,
+      alt: "egjs"
+    }, {
+      logo: _Assets.paypalLogo,
+      alt: "paypal"
+    }, {
+      logo: _Assets.materialLogo,
+      alt: "Material UI"
+    }]
+  }, {
+    name: "IOSD ",
+    points: ["IOSD helps student's in improving there coding skills by building open source projects and teaching programming concepts.", "Anyone can watch the recorded lectures or playlist after paying subscription fee", "Student's can get regular updates about what IOSD is planning in different colleges", "Every college activities were updated by their college IOSD council members"],
+    image: _Assets.iosd,
+    techstack: [{
+      logo: _Assets.angularLogo,
+      alt: "Angular JS"
+    }, {
+      logo: _Assets.nodejsLogo,
+      alt: "Node JS"
+    }, {
+      logo: _Assets.mongodbLogo,
+      alt: "Mongo DB"
+    }, {
+      logo: _Assets.razorpayLogo,
+      alt: "Razorpay"
+    }, {
+      logo: _Assets.awsLogo,
+      alt: "aws"
+    }]
+  }, {
+    name: "Monktree",
+    points: ["Monktree improves student's education quality from stationary to learning, from internship to Placement.", "Anyone can get access to all these features after paying the subscription fee"],
+    image: _Assets.monktree,
+    techstack: [{
+      logo: _Assets.reactjsLogo,
+      alt: "React JS"
+    }, {
+      logo: _Assets.nodejsLogo,
+      alt: "Node JS"
+    }, {
+      logo: _Assets.mongodbLogo,
+      alt: "Mongo DB"
+    }, {
+      logo: _Assets.reduxLogo,
+      alt: "Redux"
+    }, {
+      logo: _Assets.firebaseLogo,
+      alt: "Firebase"
+    }, {
+      logo: _Assets.awsLogo,
+      alt: "aws"
+    }]
+  }, {
+    name: "Real Time Poll",
+    points: ["Real Time Polling system build on top of web sockets.", "User's can create or vote on a poll anonymously.", "Anyone can see the poll results instantly."],
+    image: _Assets.poll,
+    techstack: [{
+      logo: _Assets.reactjsLogo,
+      alt: "React JS"
+    }, {
+      logo: _Assets.nodejsLogo,
+      alt: "Node JS"
+    }, {
+      logo: _Assets.mongodbLogo,
+      alt: "Mongo DB"
+    }, {
+      logo: _Assets.reduxLogo,
+      alt: "Redux"
+    }, {
+      logo: _Assets.socketioLogo,
+      alt: "Socket IO"
+    }, {
+      logo: _Assets.herokuLogo,
+      alt: "heroku"
+    }]
+  } // {
+  //   name: "Fourier Series Visualizer",
+  //   points: [
+  //     "Visualization of a mathematical concept fourier series",
+  //   ],
+  //   image: fourier,
+  // },
+  // {
+  //   name: "Git Forker",
+  //   points: [
+  //     "Real Time Polling system build on top of web sockets.",
+  //     "User's can create or vote on a poll anonymously.",
+  //     "Anyone can see the poll results instantly.",
+  //   ],
+  //   image: gitforker,
+  // },
+  // {
+  //   name: "Read Speak",
+  //   points: [
+  //     "Real Time Polling system build on top of web sockets.",
+  //     "User's can create or vote on a poll anonymously.",
+  //     "Anyone can see the poll results instantly.",
+  //   ],
+  //   image: poll,
+  // },
+  ],
+  education: [{
+    degree: "Bachelors In Technology",
+    duration: "2019 - 2022",
+    branch: "Information Technology",
+    college: "Maharaja Agrasen Institute of Technology"
+  }, {
+    degree: "Diploma",
+    duration: "2016 - 2019",
+    branch: "Computer Science",
+    college: "Guru Nanak Dev Institute of Technology"
+  }],
+  communities: [{
+    name: "Developer Student Clubs",
+    description: "Developer Student Clubs is university based community groups for students interested in Google developer and latest technologies.",
+    image: _Assets.dscLogo
+  }, {
+    name: "International Organization of Software Developers",
+    description: "IOSD helps student's in improving there coding skills by building open source projects and teaching programming concepts",
+    image: _Assets.iosdLogo
+  } // {
+  //   name: "Mini Troika",
+  //   description:
+  //     "IOSD helps student's in improving there coding skills by building open source projects and teaching programming concepts",
+  //   image: minitroika,
+  // },
+  ]
+};
+var _default = data;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js"}],"images/hoohoop.png":[function(require,module,exports) {
-module.exports = "hoohoop.b0ef021e.png";
-},{}],"images/pracify.png":[function(require,module,exports) {
-module.exports = "pracify.486b6fa3.png";
-},{}],"images/iosd.png":[function(require,module,exports) {
-module.exports = "iosd.8c71869c.png";
-},{}],"images/monktree.png":[function(require,module,exports) {
-module.exports = "monktree.e674c5cb.png";
-},{}],"../node_modules/react-lazy-load-image-component/build/index.js":[function(require,module,exports) {
+},{"./Assets":"Assets/index.js"}],"../node_modules/react-lazy-load-image-component/build/index.js":[function(require,module,exports) {
 module.exports = (function(e) {
 	var t = {};
 	function r(n) {
@@ -41008,39 +41408,17 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _hoohoop = _interopRequireDefault(require("../../images/hoohoop.png"));
+var _Assets = require("../../Assets");
 
-var _pracify = _interopRequireDefault(require("../../images/pracify.png"));
-
-var _iosd = _interopRequireDefault(require("../../images/iosd.png"));
-
-var _monktree = _interopRequireDefault(require("../../images/monktree.png"));
+var _data = _interopRequireDefault(require("../../data"));
 
 var _Card = _interopRequireDefault(require("../Card/Card"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var bg = [{
-  name: "HooHoop",
-  description: "HooHoop is the first company in NZ to offer this 360 virtual experience and by doing so saves plenty of time.",
-  image: _hoohoop.default
-}, {
-  name: "Pracify",
-  description: "Pracify helps companies scale on-demand by connecting them to a network of selected and trained gig workers for performing easily doable task-based jobs on a pay-per-performance system.",
-  image: _pracify.default
-}, {
-  name: "IOSD",
-  description: "IOSD helps student's in improving there coding skills by building open source projects and teaching programming concepts",
-  image: _iosd.default
-}, {
-  name: "Monktree",
-  description: "Monktree improves student's education quality from stationary to learning, from internship to Placement.",
-  image: _monktree.default
-}];
-
 function Internship(props) {
   var createSlides = function createSlides() {
-    return bg.map(function (cur, index) {
+    return _data.default.internships.map(function (cur, index) {
       return /*#__PURE__*/_react.default.createElement(_Card.default, {
         data: cur
       });
@@ -41058,9 +41436,7 @@ function Internship(props) {
 
 var _default = Internship;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","../../images/hoohoop.png":"images/hoohoop.png","../../images/pracify.png":"images/pracify.png","../../images/iosd.png":"images/iosd.png","../../images/monktree.png":"images/monktree.png","../Card/Card":"Components/Card/Card.jsx"}],"images/roopam_3_sm.jpg":[function(require,module,exports) {
-module.exports = "roopam_3_sm.5fe68fa3.jpg";
-},{}],"Components/Hamburger/Hamburger.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../../Assets":"Assets/index.js","../../data":"data.js","../Card/Card":"Components/Card/Card.jsx"}],"Components/Hamburger/Hamburger.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -41074,11 +41450,11 @@ var _reactRouterDom = require("react-router-dom");
 
 var _gsap = _interopRequireDefault(require("gsap"));
 
-var _roopam_3_sm = _interopRequireDefault(require("../../images/roopam_3_sm.jpg"));
-
 var _reactIs = require("react-is");
 
 var _LazyLoadImage = _interopRequireDefault(require("../LazyLoadImage"));
+
+var _Assets = require("../../Assets");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -41217,7 +41593,7 @@ var Hamburger = function Hamburger(_ref) {
     className: "hamburger-image"
   }, /*#__PURE__*/_react.default.createElement(_LazyLoadImage.default, {
     width: "100%",
-    src: _roopam_3_sm.default,
+    src: _Assets.roopamImg2,
     alt: "roopam"
   }))), /*#__PURE__*/_react.default.createElement("div", {
     className: "locations"
@@ -41226,7 +41602,7 @@ var Hamburger = function Hamburger(_ref) {
 
 var _default = Hamburger;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","gsap":"../node_modules/gsap/index.js","../../images/roopam_3_sm.jpg":"images/roopam_3_sm.jpg","react-is":"../node_modules/react-is/index.js","../LazyLoadImage":"Components/LazyLoadImage/index.jsx"}],"Hooks/useWindowSize.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","gsap":"../node_modules/gsap/index.js","react-is":"../node_modules/react-is/index.js","../LazyLoadImage":"Components/LazyLoadImage/index.jsx","../../Assets":"Assets/index.js"}],"Hooks/useWindowSize.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -41442,6 +41818,8 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
+var _Assets = require("../../Assets");
+
 var _LazyLoadImage = _interopRequireDefault(require("../LazyLoadImage"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -41454,7 +41832,8 @@ var ProjectCard = function ProjectCard(_ref) {
   var index = _ref.index,
       image = _ref.image,
       name = _ref.name,
-      points = _ref.points;
+      points = _ref.points,
+      techstack = _ref.techstack;
   var intersectionRef = (0, _react.useRef)(null);
   var container = (0, _react.useRef)(null);
 
@@ -41483,26 +41862,22 @@ var ProjectCard = function ProjectCard(_ref) {
     return /*#__PURE__*/_react.default.createElement("div", {
       className: "project__point"
     }, point);
-  })));
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: "project__icons"
+  }, techstack.map(function (_ref2) {
+    var logo = _ref2.logo,
+        alt = _ref2.alt;
+    return /*#__PURE__*/_react.default.createElement("img", {
+      src: logo,
+      className: "project__icon",
+      alt: alt
+    });
+  }))));
 };
 
 var _default = ProjectCard;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","../LazyLoadImage":"Components/LazyLoadImage/index.jsx"}],"images/poll_bg.jpg":[function(require,module,exports) {
-module.exports = "poll_bg.d70c1491.jpg";
-},{}],"images/pracify_bg.jpg":[function(require,module,exports) {
-module.exports = "pracify_bg.7ed6708e.jpg";
-},{}],"images/hoohoop_bg.jpg":[function(require,module,exports) {
-module.exports = "hoohoop_bg.2f1f8c26.jpg";
-},{}],"images/monktree_bg.jpg":[function(require,module,exports) {
-module.exports = "monktree_bg.66aa77d7.jpg";
-},{}],"images/iosd_bg.jpg":[function(require,module,exports) {
-module.exports = "iosd_bg.3f0ac244.jpg";
-},{}],"images/fourier.jpg":[function(require,module,exports) {
-module.exports = "fourier.bb108a8b.jpg";
-},{}],"images/gitforker.png":[function(require,module,exports) {
-module.exports = "gitforker.05617655.png";
-},{}],"Components/Projects/Projects.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../../Assets":"Assets/index.js","../LazyLoadImage":"Components/LazyLoadImage/index.jsx"}],"Components/Projects/Projects.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -41512,72 +41887,13 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
+var _Assets = require("../../Assets");
+
+var _data = _interopRequireDefault(require("../../data"));
+
 var _ProjectCard = _interopRequireDefault(require("../ProjectCard/ProjectCard"));
 
-var _poll_bg = _interopRequireDefault(require("../../images/poll_bg.jpg"));
-
-var _pracify_bg = _interopRequireDefault(require("../../images/pracify_bg.jpg"));
-
-var _hoohoop_bg = _interopRequireDefault(require("../../images/hoohoop_bg.jpg"));
-
-var _monktree_bg = _interopRequireDefault(require("../../images/monktree_bg.jpg"));
-
-var _iosd_bg = _interopRequireDefault(require("../../images/iosd_bg.jpg"));
-
-var _fourier = _interopRequireDefault(require("../../images/fourier.jpg"));
-
-var _gitforker = _interopRequireDefault(require("../../images/gitforker.png"));
-
-var _LazyLoadImage = _interopRequireDefault(require("../LazyLoadImage"));
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var data = [{
-  name: "Pracify",
-  points: ["Pracify helps companies scale on-demand by connecting them to a network of selected and trained gig workers for performing easily doable task-based jobs on a pay-per-performance system.", "Companies can directly monitor there tasks completion in real time.", "Users can redeem there earned rewards from there wallet anytime."],
-  image: _pracify_bg.default
-}, {
-  name: "HooHoop",
-  points: ["Hoohoop NZ is a New-Zealand-based Car Search & Deal Venture.", "Features like Gyroscope enabled 360° interior and 360° exterior view for cars.", "Anyone can add there car for selling after paying minimal amount for posting"],
-  image: _hoohoop_bg.default
-}, {
-  name: "IOSD ",
-  points: ["IOSD helps student's in improving there coding skills by building open source projects and teaching programming concepts.", "Anyone can watch the recorded lectures or playlist after paying subscription fee", "Student's can get regular updates about what IOSD is planning in different colleges", "Every college activities were updated by their college IOSD council members"],
-  image: _iosd_bg.default
-}, {
-  name: "Monktree",
-  points: ["Monktree improves student's education quality from stationary to learning, from internship to Placement.", "Anyone can get access to all these features after paying the subscription fee"],
-  image: _monktree_bg.default
-}, {
-  name: "Real Time Poll",
-  points: ["Real Time Polling system build on top of web sockets.", "User's can create or vote on a poll anonymously.", "Anyone can see the poll results instantly."],
-  image: _poll_bg.default
-} // {
-//   name: "Fourier Series Visualizer",
-//   points: [
-//     "Visualization of a mathematical concept fourier series",
-//   ],
-//   image: fourier,
-// },
-// {
-//   name: "Git Forker",
-//   points: [
-//     "Real Time Polling system build on top of web sockets.",
-//     "User's can create or vote on a poll anonymously.",
-//     "Anyone can see the poll results instantly.",
-//   ],
-//   image: gitforker,
-// },
-// {
-//   name: "Read Speak",
-//   points: [
-//     "Real Time Polling system build on top of web sockets.",
-//     "User's can create or vote on a poll anonymously.",
-//     "Anyone can see the poll results instantly.",
-//   ],
-//   image: poll,
-// },
-];
 
 function Projects(props) {
   return /*#__PURE__*/_react.default.createElement("div", {
@@ -41585,26 +41901,24 @@ function Projects(props) {
     id: "projects"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "heading-primary"
-  }, "Projects"), data.map(function (_ref, index) {
+  }, "Projects"), _data.default.projects.map(function (_ref, index) {
     var image = _ref.image,
         points = _ref.points,
-        name = _ref.name;
+        name = _ref.name,
+        techstack = _ref.techstack;
     return /*#__PURE__*/_react.default.createElement(_ProjectCard.default, {
       index: index,
       image: image,
       points: points,
-      name: name
+      name: name,
+      techstack: techstack
     });
   }));
 }
 
 var _default = Projects;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","../ProjectCard/ProjectCard":"Components/ProjectCard/ProjectCard.jsx","../../images/poll_bg.jpg":"images/poll_bg.jpg","../../images/pracify_bg.jpg":"images/pracify_bg.jpg","../../images/hoohoop_bg.jpg":"images/hoohoop_bg.jpg","../../images/monktree_bg.jpg":"images/monktree_bg.jpg","../../images/iosd_bg.jpg":"images/iosd_bg.jpg","../../images/fourier.jpg":"images/fourier.jpg","../../images/gitforker.png":"images/gitforker.png","../LazyLoadImage":"Components/LazyLoadImage/index.jsx"}],"images/dsc.png":[function(require,module,exports) {
-module.exports = "dsc.e882721c.png";
-},{}],"images/minitroika.png":[function(require,module,exports) {
-module.exports = "minitroika.3bea6131.png";
-},{}],"Components/Communities/Communities.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../../Assets":"Assets/index.js","../../data":"data.js","../ProjectCard/ProjectCard":"Components/ProjectCard/ProjectCard.jsx"}],"Components/Communities/Communities.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -41614,35 +41928,17 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _iosd = _interopRequireDefault(require("../../images/iosd.png"));
+var _Assets = require("../../Assets");
 
-var _dsc = _interopRequireDefault(require("../../images/dsc.png"));
-
-var _minitroika = _interopRequireDefault(require("../../images/minitroika.png"));
+var _data = _interopRequireDefault(require("../../data"));
 
 var _Card = _interopRequireDefault(require("../Card/Card"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var data = [{
-  name: "Developer Student Clubs",
-  description: "Developer Student Clubs is university based community groups for students interested in Google developer and latest technologies.",
-  image: _dsc.default
-}, {
-  name: "International Organization of Software Developers",
-  description: "IOSD helps student's in improving there coding skills by building open source projects and teaching programming concepts",
-  image: _iosd.default
-} // {
-//   name: "Mini Troika",
-//   description:
-//     "IOSD helps student's in improving there coding skills by building open source projects and teaching programming concepts",
-//   image: minitroika,
-// },
-];
-
 function Communities(props) {
   var createSlides = function createSlides() {
-    return data.map(function (cur, index) {
+    return _data.default.communities.map(function (cur, index) {
       return /*#__PURE__*/_react.default.createElement(_Card.default, {
         data: cur
       });
@@ -41660,7 +41956,49 @@ function Communities(props) {
 
 var _default = Communities;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","../../images/iosd.png":"images/iosd.png","../../images/dsc.png":"images/dsc.png","../../images/minitroika.png":"images/minitroika.png","../Card/Card":"Components/Card/Card.jsx"}],"Pages/Education.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../../Assets":"Assets/index.js","../../data":"data.js","../Card/Card":"Components/Card/Card.jsx"}],"Components/Education/Education.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _data = _interopRequireDefault(require("../../data"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function Education(props) {
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "education"
+  }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", {
+    className: "heading-primary"
+  }, "Education")), /*#__PURE__*/_react.default.createElement("div", {
+    className: "education__container"
+  }, _data.default.education.map(function (_ref) {
+    var degree = _ref.degree,
+        duration = _ref.duration,
+        branch = _ref.branch,
+        college = _ref.college;
+    return /*#__PURE__*/_react.default.createElement("div", {
+      className: "education__card"
+    }, /*#__PURE__*/_react.default.createElement("h3", {
+      className: "education__degree"
+    }, degree), /*#__PURE__*/_react.default.createElement("p", {
+      className: "education__info"
+    }, duration), /*#__PURE__*/_react.default.createElement("p", {
+      className: "education__info"
+    }, "In ", branch), /*#__PURE__*/_react.default.createElement("p", {
+      className: "education__info"
+    }, "From ", college));
+  })));
+}
+
+var _default = Education;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","../../data":"data.js"}],"Pages/Education.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -41824,8 +42162,6 @@ var CSSRulePlugin = {
 };
 exports.default = exports.CSSRulePlugin = CSSRulePlugin;
 _getGSAP() && gsap.registerPlugin(CSSRulePlugin);
-},{}],"images/roopam_sm.jpg":[function(require,module,exports) {
-module.exports = "roopam_sm.47ccea8d.jpg";
 },{}],"Components/Header/Header.jsx":[function(require,module,exports) {
 "use strict";
 
@@ -41840,7 +42176,7 @@ var _gsap = _interopRequireWildcard(require("gsap"));
 
 var _CSSRulePlugin = _interopRequireDefault(require("gsap/CSSRulePlugin"));
 
-var _roopam_sm = _interopRequireDefault(require("../../images/roopam_sm.jpg"));
+var _Assets = require("../../Assets");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -41891,13 +42227,13 @@ function Header(props) {
       return image = el;
     },
     width: "100%",
-    src: _roopam_sm.default
+    src: _Assets.roopam
   }))));
 }
 
 var _default = Header;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","gsap":"../node_modules/gsap/index.js","gsap/CSSRulePlugin":"../node_modules/gsap/CSSRulePlugin.js","../../images/roopam_sm.jpg":"images/roopam_sm.jpg"}],"Pages/Home.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","gsap":"../node_modules/gsap/index.js","gsap/CSSRulePlugin":"../node_modules/gsap/CSSRulePlugin.js","../../Assets":"Assets/index.js"}],"Pages/Home.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -41943,15 +42279,13 @@ var _reactDom = _interopRequireDefault(require("react-dom"));
 
 var _reactRouterDom = require("react-router-dom");
 
-var _Education = _interopRequireDefault(require("./Components/Education/Education"));
-
 var _Internship = _interopRequireDefault(require("./Components/internships/Internship"));
 
 var _Navbar = _interopRequireDefault(require("./Components/Navbar/Navbar"));
 
 var _Projects = _interopRequireDefault(require("./Components/Projects/Projects"));
 
-var _Education2 = _interopRequireDefault(require("./Pages/Education"));
+var _Education = _interopRequireDefault(require("./Pages/Education"));
 
 var _Home = _interopRequireDefault(require("./Pages/Home"));
 
@@ -41978,7 +42312,7 @@ function App() {
   }), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     exact: true,
     path: "/education",
-    component: _Education2.default
+    component: _Education.default
   }), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     exact: true,
     path: "/internship",
@@ -41987,7 +42321,7 @@ function App() {
 }
 
 _reactDom.default.render( /*#__PURE__*/_react.default.createElement(App, null), document.getElementById("root"));
-},{"gsap":"../node_modules/gsap/index.js","react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","./Components/Education/Education":"Components/Education/Education.jsx","./Components/internships/Internship":"Components/internships/Internship.jsx","./Components/Navbar/Navbar":"Components/Navbar/Navbar.jsx","./Components/Projects/Projects":"Components/Projects/Projects.jsx","./Pages/Education":"Pages/Education.jsx","./Pages/Home":"Pages/Home.jsx","./Styles/index.scss":"Styles/index.scss"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"gsap":"../node_modules/gsap/index.js","react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","./Components/internships/Internship":"Components/internships/Internship.jsx","./Components/Navbar/Navbar":"Components/Navbar/Navbar.jsx","./Components/Projects/Projects":"Components/Projects/Projects.jsx","./Pages/Education":"Pages/Education.jsx","./Pages/Home":"Pages/Home.jsx","./Styles/index.scss":"Styles/index.scss"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -42015,7 +42349,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56096" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58766" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -42192,4 +42526,4 @@ function hmrAcceptRun(bundle, id) {
   }
 }
 },{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","app.js"], null)
-//# sourceMappingURL=app.c328ef1a.js.map
+//# sourceMappingURL=/app.c328ef1a.js.map
