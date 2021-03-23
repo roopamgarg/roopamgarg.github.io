@@ -19,10 +19,13 @@ const Navbar = ({ children }) => {
     rounded: 0,
   };
   useEffect(() => {
-    document.body.style.height = `${
-      scrollContainer.current.getBoundingClientRect().height
-    }px`;
-  }, [size.height]);
+    
+    setInterval(() => {
+      document.body.style.height = `${
+        scrollContainer.current.getBoundingClientRect().height
+      }px`;
+    },1000)
+  }, []);
 
   useEffect(() => {
     requestAnimationFrame(() => skewScrolling());

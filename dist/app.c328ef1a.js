@@ -41697,8 +41697,10 @@ var Navbar = function Navbar(_ref) {
     rounded: 0
   };
   (0, _react.useEffect)(function () {
-    document.body.style.height = "".concat(scrollContainer.current.getBoundingClientRect().height, "px");
-  }, [size.height]);
+    setInterval(function () {
+      document.body.style.height = "".concat(scrollContainer.current.getBoundingClientRect().height, "px");
+    }, 1000);
+  }, []);
   (0, _react.useEffect)(function () {
     requestAnimationFrame(function () {
       return skewScrolling();
@@ -42349,7 +42351,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49628" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50150" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
