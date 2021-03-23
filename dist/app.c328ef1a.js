@@ -39339,57 +39339,57 @@ if ("development" !== "production") {
   });
 }
 },{"react-router":"../node_modules/react-router/esm/react-router.js","@babel/runtime/helpers/esm/inheritsLoose":"../node_modules/@babel/runtime/helpers/esm/inheritsLoose.js","react":"../node_modules/react/index.js","history":"../node_modules/history/esm/history.js","prop-types":"../node_modules/prop-types/index.js","tiny-warning":"../node_modules/tiny-warning/dist/tiny-warning.esm.js","@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","tiny-invariant":"../node_modules/tiny-invariant/dist/tiny-invariant.esm.js"}],"Assets/images/poll_bg.jpg":[function(require,module,exports) {
-module.exports = "/poll_bg.c223a3f1.jpg";
+module.exports = "poll_bg.c223a3f1.jpg";
 },{}],"Assets/images/pracify_bg.jpg":[function(require,module,exports) {
-module.exports = "/pracify_bg.837695a6.jpg";
+module.exports = "pracify_bg.837695a6.jpg";
 },{}],"Assets/images/hoohoop_bg.jpg":[function(require,module,exports) {
-module.exports = "/hoohoop_bg.e4550758.jpg";
+module.exports = "hoohoop_bg.e4550758.jpg";
 },{}],"Assets/images/monktree_bg.jpg":[function(require,module,exports) {
-module.exports = "/monktree_bg.f09f7cfe.jpg";
+module.exports = "monktree_bg.f09f7cfe.jpg";
 },{}],"Assets/images/iosd_bg.jpg":[function(require,module,exports) {
-module.exports = "/iosd_bg.7fec2ad1.jpg";
+module.exports = "iosd_bg.7fec2ad1.jpg";
 },{}],"Assets/images/pracify.png":[function(require,module,exports) {
-module.exports = "/pracify.1868e0b2.png";
+module.exports = "pracify.1868e0b2.png";
 },{}],"Assets/images/hoohoop.png":[function(require,module,exports) {
-module.exports = "/hoohoop.5ae79c85.png";
+module.exports = "hoohoop.5ae79c85.png";
 },{}],"Assets/images/monktree.png":[function(require,module,exports) {
-module.exports = "/monktree.4ee3bd46.png";
+module.exports = "monktree.4ee3bd46.png";
 },{}],"Assets/images/iosd.png":[function(require,module,exports) {
-module.exports = "/iosd.019c024d.png";
+module.exports = "iosd.019c024d.png";
 },{}],"Assets/images/dsc.png":[function(require,module,exports) {
-module.exports = "/dsc.e0fca5c5.png";
+module.exports = "dsc.e0fca5c5.png";
 },{}],"Assets/images/roopam_sm.jpg":[function(require,module,exports) {
-module.exports = "/roopam_sm.fe8c4fca.jpg";
+module.exports = "roopam_sm.fe8c4fca.jpg";
 },{}],"Assets/images/roopam_3_sm.jpg":[function(require,module,exports) {
-module.exports = "/roopam_3_sm.60cde2b0.jpg";
+module.exports = "roopam_3_sm.60cde2b0.jpg";
 },{}],"Assets/icons/mongodb_0.png":[function(require,module,exports) {
-module.exports = "/mongodb_0.2460fce0.png";
+module.exports = "mongodb_0.2460fce0.png";
 },{}],"Assets/icons/nodejs.svg":[function(require,module,exports) {
-module.exports = "/nodejs.be2a8c97.svg";
+module.exports = "nodejs.be2a8c97.svg";
 },{}],"Assets/icons/react.svg":[function(require,module,exports) {
-module.exports = "/react.93b56323.svg";
+module.exports = "react.93b56323.svg";
 },{}],"Assets/icons/redux.svg":[function(require,module,exports) {
-module.exports = "/redux.1657d36b.svg";
+module.exports = "redux.1657d36b.svg";
 },{}],"Assets/icons/firebase.svg":[function(require,module,exports) {
-module.exports = "/firebase.3f79716e.svg";
+module.exports = "firebase.3f79716e.svg";
 },{}],"Assets/icons/aws.svg":[function(require,module,exports) {
-module.exports = "/aws.be1aa642.svg";
+module.exports = "aws.be1aa642.svg";
 },{}],"Assets/icons/angular.svg":[function(require,module,exports) {
-module.exports = "/angular.1346805d.svg";
+module.exports = "angular.1346805d.svg";
 },{}],"Assets/icons/nginx.svg":[function(require,module,exports) {
-module.exports = "/nginx.01c8b4a5.svg";
+module.exports = "nginx.01c8b4a5.svg";
 },{}],"Assets/icons/razorpay.svg":[function(require,module,exports) {
-module.exports = "/razorpay.58839982.svg";
+module.exports = "razorpay.58839982.svg";
 },{}],"Assets/icons/egjs.svg":[function(require,module,exports) {
-module.exports = "/egjs.136acab0.svg";
+module.exports = "egjs.136acab0.svg";
 },{}],"Assets/icons/paypal.svg":[function(require,module,exports) {
-module.exports = "/paypal.455fe837.svg";
+module.exports = "paypal.455fe837.svg";
 },{}],"Assets/icons/material-ui.svg":[function(require,module,exports) {
-module.exports = "/material-ui.be45293e.svg";
+module.exports = "material-ui.be45293e.svg";
 },{}],"Assets/icons/socket-io.svg":[function(require,module,exports) {
-module.exports = "/socket-io.11df0150.svg";
+module.exports = "socket-io.11df0150.svg";
 },{}],"Assets/icons/heroku.svg":[function(require,module,exports) {
-module.exports = "/heroku.deb1bbe4.svg";
+module.exports = "heroku.deb1bbe4.svg";
 },{}],"Assets/index.js":[function(require,module,exports) {
 "use strict";
 
@@ -42349,7 +42349,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58766" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63833" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -42526,4 +42526,4 @@ function hmrAcceptRun(bundle, id) {
   }
 }
 },{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","app.js"], null)
-//# sourceMappingURL=/app.c328ef1a.js.map
+//# sourceMappingURL=app.c328ef1a.js.map
