@@ -1,6 +1,17 @@
-.projects{
+.projects {
   min-height: 100vh;
   //padding-top: 100px;
-  padding: 0 10%;
-  background-color: $white;
+  padding: 0 0%;
+  scroll-snap-type: y mandatory;
+  background-color: $black;
+  color: $white;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  flex: none;
+  & > div {
+    text-align: center;
+    scroll-snap-align: center;
+    flex: none;
+  }
 }

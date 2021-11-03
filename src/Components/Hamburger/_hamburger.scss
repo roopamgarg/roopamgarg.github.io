@@ -27,12 +27,12 @@
     height: 100%;
     width: 100%;
     z-index: -1;
-    background-color: $black;
+    background-color: $red;
   }
 
   .menu-layer {
     position: relative;
-    background: $red;
+    background: $black;
     height: 100%;
     overflow: hidden;
     .menu-city-background {
@@ -81,7 +81,7 @@
                 text-decoration: none;
                 transition: color 0.2s;
                 &:hover {
-                  color: $black;
+                  color: $red;
                 }
               }
             }
@@ -121,7 +121,7 @@
             margin: 0 10px;
             transition: 0.3s ease-in-out;
 
-            background: $black;
+            background: $red;
             padding: 8px 24px;
             border-radius: 4px;
             

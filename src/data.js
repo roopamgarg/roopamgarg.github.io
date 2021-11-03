@@ -60,6 +60,7 @@ const data = {
         "Companies can directly monitor there tasks completion in real time.",
         "Users can redeem there earned rewards from there wallet anytime.",
       ],
+      bgColor:"#FF2E63",
       image: pracify,
       techstack: [
         {
@@ -99,6 +100,7 @@ const data = {
         "Anyone can add there car for selling after paying minimal amount for posting",
       ],
       image: hoohoop,
+      bgColor:"#ED5A62",
       techstack: [
         {
           logo: reactjsLogo,
@@ -133,6 +135,7 @@ const data = {
         "Every college activities were updated by their college IOSD council members",
       ],
       image: iosd,
+      bgColor:"#49A9FF",
       techstack: [
         {
           logo: angularLogo,
@@ -165,6 +168,7 @@ const data = {
         "Anyone can get access to all these features after paying the subscription fee",
       ],
       image: monktree,
+      bgColor:"#ED5A62",
       techstack: [
         {
           logo: reactjsLogo,
@@ -203,6 +207,7 @@ const data = {
         "Anyone can see the poll results instantly.",
       ],
       image: poll,
+      bgColor:"#9976E9",
       techstack: [
         {
           logo: reactjsLogo,

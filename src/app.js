@@ -9,6 +9,7 @@ import Projects from "./Components/Projects/Projects";
 import EducationPage from "./Pages/Education";
 import Home from "./Pages/Home";
 import "./Styles/index.scss";
+import Navigation from "./Components/Navigation/Navigation";
 
 function App() {
   useEffect(() => {
@@ -23,9 +24,8 @@ function App() {
             <Route exact path="/projects" component={Projects} />
             <Route exact path="/education" component={EducationPage} />
             <Route exact path="/internship" component={Internship} />
-
           </Switch>
-        </Navbar>
+          </Navbar>
       </div>
     </BrowserRouter>
   );

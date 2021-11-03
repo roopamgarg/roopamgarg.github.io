@@ -18,6 +18,8 @@
 
 html,
 body {
+  padding: 0;
+  margin: 0;
   height: 100%;
   background: #f7f7f7;
 }
@@ -77,11 +79,11 @@ h2 .outline {
 
 .heading-primary {
   font-size: 3rem;
-  border-left: 1rem solid #DB4437;
+  border-left: 1rem solid #FF165D;
   text-align: left;
   padding: 0 1rem;
   text-transform: capitalize;
-  color: #000;
+  color: #f7f7f7;
 }
 
 .divider-4 {
@@ -170,15 +172,14 @@ h2 .outline {
 }
 .card__content {
   padding: 0 2rem;
-  border-left: 0.1rem solid #DB4437;
+  border-left: 0.1rem solid #FF165D;
   margin-left: 1rem;
   height: 100%;
-  color: #000;
+  color: #f7f7f7;
 }
 .card__image {
   height: 5rem;
   width: 5rem;
-  background: #f7f7f7;
   background-size: contain;
   border-radius: 200rem;
   display: flex;
@@ -230,8 +231,8 @@ h2 .outline {
 }
 .header {
   min-height: 100vh;
-  background-color: #f7f7f7;
-  color: #000;
+  background-color: #212121;
+  color: #f7f7f7;
   padding: 2rem 10%;
   display: flex;
   align-items: center;
@@ -257,26 +258,24 @@ h2 .outline {
   font-size: 1.8rem;
   font-weight: 500;
   padding-left: 1rem;
-  border-left: 0.5rem solid #DB4437;
+  border-left: 0.5rem solid #FF165D;
+  color: #FF165D;
 }
 .header__box {
-  height: 20rem;
-  width: 20rem;
-  border-radius: 200rem;
+  width: 30rem;
+  border-radius: 0.5rem;
   background-size: cover;
   overflow: hidden;
-  background-color: #f7f7f7;
   position: relative;
 }
 .header__box img {
-  border-radius: 200rem;
+  margin: 0;
 }
 .header__box:after {
   position: absolute;
   content: "";
   width: 100%;
   height: 100%;
-  background: #000;
   top: 0;
   right: 0;
 }
@@ -293,11 +292,10 @@ h2 .outline {
 }
 
 .internships {
-  margin: 2rem 0;
+  padding: 2rem 0;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr;
-  background-color: #f7f7f7;
 }
 @media (max-width: 720px) {
   .internships {
@@ -308,20 +306,32 @@ h2 .outline {
 .internships-section {
   padding: 0 10%;
   min-height: 100vh;
+  background: #212121;
 }
 
 .projects {
   min-height: 100vh;
-  padding: 0 10%;
-  background-color: #f7f7f7;
+  padding: 0 0%;
+  scroll-snap-type: y mandatory;
+  background-color: #212121;
+  color: #f7f7f7;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  flex: none;
+}
+.projects > div {
+  text-align: center;
+  scroll-snap-align: center;
+  flex: none;
 }
 
 .project {
-  padding: 2rem 0;
+  padding: 5rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #000;
+  width: 100%;
 }
 @media (max-width: 720px) {
   .project {
@@ -349,8 +359,12 @@ h2 .outline {
   }
 }
 .project__image {
-  max-width: 50%;
+  width: 50%;
   position: relative;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  transition: height 0.2s;
 }
 @media (max-width: 720px) {
   .project__image {
@@ -363,7 +377,7 @@ h2 .outline {
   height: 100%;
 }
 .project__image img {
-  box-shadow: 0.2rem 0.2rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0.2rem 0.2rem 1rem rgba(33, 33, 33, 0.2);
   width: 100%;
 }
 @media (max-width: 720px) {
@@ -375,16 +389,20 @@ h2 .outline {
   font-size: 2rem;
   font-weight: 700;
   text-transform: uppercase;
+  text-align: left;
 }
 .project__point {
   margin: 1rem 0;
   padding: 0.5rem 1rem;
-  border-left: 0.2rem solid #DB4437;
+  border-left: 0.2rem solid #FF165D;
+  font-size: 1rem;
+  text-align: left;
+  line-height: 1.8rem;
 }
 .project__icons {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  text-align: left;
 }
 .project__icon {
   height: 2.4rem;
@@ -409,7 +427,7 @@ h2 .outline {
   border-radius: 200rem;
   background-size: cover;
   overflow: hidden;
-  background-color: #000;
+  background-color: #212121;
 }
 .hamburger-menu .menu-secondary-background-color {
   top: 0;
@@ -420,11 +438,11 @@ h2 .outline {
   height: 100%;
   width: 100%;
   z-index: -1;
-  background-color: #000;
+  background-color: #FF165D;
 }
 .hamburger-menu .menu-layer {
   position: relative;
-  background: #DB4437;
+  background: #212121;
   height: 100%;
   overflow: hidden;
 }
@@ -478,7 +496,7 @@ h2 .outline {
   transition: color 0.2s;
 }
 .hamburger-menu .menu-layer .wrapper .menu-links nav ul li a:hover {
-  color: #000;
+  color: #FF165D;
 }
 .hamburger-menu .menu-layer .wrapper .menu-links .info {
   color: #fff;
@@ -511,7 +529,7 @@ h2 .outline {
   cursor: pointer;
   margin: 0 10px;
   transition: 0.3s ease-in-out;
-  background: #000;
+  background: #FF165D;
   padding: 8px 24px;
   border-radius: 4px;
 }
@@ -558,7 +576,7 @@ header .inner-header {
 header .inner-header .logo a {
   font-weight: 700;
   text-decoration: none;
-  color: #000;
+  color: #f7f7f7;
 }
 header .inner-header .menu button {
   border: none;
@@ -566,7 +584,7 @@ header .inner-header .menu button {
   outline: none;
   cursor: pointer;
   font-size: 0.8rem;
-  color: #000;
+  color: #f7f7f7;
 }
 
 .education {
@@ -575,7 +593,7 @@ header .inner-header .menu button {
 }
 .education__heading {
   font-size: 3rem;
-  border-left: 1rem solid #DB4437;
+  border-left: 1rem solid #FF165D;
   text-align: left;
   padding: 0 1rem;
 }
@@ -599,7 +617,7 @@ header .inner-header .menu button {
 }
 .education__info {
   padding: 0 0.5rem;
-  border-left: 0.1rem solid #DB4437;
+  border-left: 0.1rem solid #FF165D;
 }
 
 /*# sourceMappingURL=app.c328ef1a.css.map */

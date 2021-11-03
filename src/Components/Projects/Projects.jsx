@@ -6,9 +6,9 @@ import ProjectCard from "../ProjectCard/ProjectCard";
 function Projects(props) {
   return (
     <div className="projects" id="projects">
-      <div className="heading-primary">Projects</div>
-      {data.projects.map(({ image, points, name, techstack }, index) => (
-        <ProjectCard index={index} image={image} points={points} name={name} techstack={techstack} />
+      {/* <div className="heading-primary">Projects</div> */}
+      {data.projects.map(({ image, points, name, techstack, bgColor }, index) => (
+        <ProjectCard index={index} image={image} points={points} bgColor={bgColor} name={name} techstack={techstack} />
       ))}
     </div>
   );

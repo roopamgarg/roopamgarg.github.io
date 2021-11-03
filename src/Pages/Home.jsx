@@ -8,8 +8,8 @@ function Home(props) {
     <>
         <Header />
         <Projects />
-        <div style={{ padding: "4rem" }}></div>
         <Internship />
+
         <Communities />
     </>
   );

@@ -16,6 +16,7 @@ export {default as dscLogo} from "./images/dsc.png";
 /* roopam */
 export {default as roopam} from "./images/roopam_sm.jpg";
 export {default as roopamImg2} from "./images/roopam_3_sm.jpg"
+export {default as character} from "./images/character.png";
 
 /* languages and frameworks */
 export {default as mongodbLogo} from "./icons/mongodb_0.png";
