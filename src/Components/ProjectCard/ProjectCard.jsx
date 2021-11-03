@@ -1,15 +1,9 @@
-import React, { useRef } from "react";
-import {
-  mongodbLogo,
-  nodejsLogo,
-  reactjsLogo,
-  reduxLogo,
-  firebaseLogo,
-  awsLogo,
-  nginxLogo,
-} from "../../Assets";
+import React, { useRef,useState } from "react";
+
 import LazyImage from "../LazyLoadImage";
 import { motion, useAnimation } from "framer";
+import "regenerator-runtime/runtime";
+
 export const zoomInVariants = {
   hidden: {
     scale: 0,
@@ -29,16 +23,16 @@ const ProjectCard = ({ index, image, name, points, techstack, bgColor }) => {
   const container = useRef(null);
   const imageControls = useAnimation();
   const containerControls = useAnimation();
-
+  const [isAnimationDone, setAnimationStatus] = useState(false);
   function handleCardHover() {
-    console.log("hello")
+    if (isAnimationDone) return;
     containerControls.start({
-      opacity:1
-    })
+      opacity: 1,
+    });
     imageControls.start({
       x: 0,
       y: 0,
-      scale:1,
+      scale: 1,
       opacity: 1,
       transition: {
         duration: 0.2,
@@ -46,13 +40,15 @@ const ProjectCard = ({ index, image, name, points, techstack, bgColor }) => {
         stiffness: 100,
       },
     });
+    setAnimationStatus(true);
+
   }
 
-  function handleCardHoverEnds(isRight) {
-    // containerControls.start({
-    //   opacity:0
+  async function handleCardHoverEnds(isRight) {
+    // await containerControls.start({
+    //   opacity:0,
     // })
-    // imageControls.start({
+    // return await imageControls.start({
     //   y: 100,
     //   scale:0.8,
     //   opacity: 0,
@@ -68,7 +64,7 @@ const ProjectCard = ({ index, image, name, points, techstack, bgColor }) => {
     return (
       <motion.div
         animate={imageControls}
-        initial={{ scale:0.8,y: 100, opacity: 0 }}
+        initial={{ scale: 0.8, y: 100, opacity: 0 }}
       >
         <LazyImage style={{ width: "100%" }} src={image} alt="poll" />
       </motion.div>
@@ -80,7 +76,7 @@ const ProjectCard = ({ index, image, name, points, techstack, bgColor }) => {
         handleCardHover();
       }}
       onMouseLeave={() => {
-        handleCardHoverEnds(index % 2 === 0 );
+        handleCardHoverEnds(index % 2 === 0);
       }}
       onT={() => {
         handleCardHover();
@@ -91,7 +87,7 @@ const ProjectCard = ({ index, image, name, points, techstack, bgColor }) => {
     >
       <motion.div
         animate={containerControls}
-        initial={{opacity:0}}
+        initial={{ opacity: 0 }}
         ref={container}
         className="project__image"
         style={{ background: bgColor || "#FF0075" }}
@@ -106,7 +102,9 @@ const ProjectCard = ({ index, image, name, points, techstack, bgColor }) => {
         ))}
         <div className="project__icons">
           {techstack.map(({ logo, alt }) => (
-            <img src={logo} className="project__icon" alt={alt} />
+            <div className="project__icon__container">
+              <img src={logo} className="project__icon" alt={alt} />
+            </div>
           ))}
           {/* <img src={nodejsLogo} className="project__icon" alt="node js"/>
           <img src={mongodbLogo} className="project__icon" alt="mongo db"/>
