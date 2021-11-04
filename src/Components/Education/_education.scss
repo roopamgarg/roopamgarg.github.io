@@ -1,6 +1,7 @@
 .education{
   padding: 0 10%;
   padding-bottom: 5rem;
+  background-color: $black;
   //min-height: 20vh;
   &__heading{
     font-size: 3rem;
@@ -10,6 +11,7 @@
   }
   &__container{
     display: flex;
+    color: $white;
     & > div{
       flex : 1;
     }

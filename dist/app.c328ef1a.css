@@ -88,6 +88,7 @@ h2 .outline {
 
 .divider-4 {
   padding: 4rem;
+  background: #212121;
 }
 
 .slider {
@@ -416,7 +417,9 @@ h2 .outline {
 .project__icon__container {
   margin: 1rem;
   border-radius: 7px;
-  background: linear-gradient(145deg, #232323, #1e1e1e);
+  transition: all 1s;
+}
+.project__icon__container.outwards {
   box-shadow: 5px 5px 10px #181818, -5px -5px 10px #2a2a2a;
 }
 
@@ -432,8 +435,7 @@ h2 .outline {
   width: 100%;
 }
 .hamburger-menu .hamburger-image {
-  height: 20rem;
-  width: 20rem;
+  width: 25rem;
   border-radius: 200rem;
   background-size: cover;
   overflow: hidden;
@@ -549,6 +551,9 @@ h2 .outline {
   }
 }
 
+.container {
+  background: #212121;
+}
 .container .wrapper {
   padding: 0 10%;
 }
@@ -600,6 +605,7 @@ header .inner-header .menu button {
 .education {
   padding: 0 10%;
   padding-bottom: 5rem;
+  background-color: #212121;
 }
 .education__heading {
   font-size: 3rem;
@@ -609,6 +615,7 @@ header .inner-header .menu button {
 }
 .education__container {
   display: flex;
+  color: #f7f7f7;
 }
 .education__container > div {
   flex: 1;

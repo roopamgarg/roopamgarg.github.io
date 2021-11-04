@@ -32,7 +32,7 @@
     //height: 20rem;
     width: 50%;
     position: relative;
-    min-height:50vh;
+    min-height: 50vh;
     padding: 2rem;
     display: flex;
     align-items: center;
@@ -85,9 +85,10 @@
     &__container {
       margin: 1rem;
       border-radius: 7px;
-background: linear-gradient(145deg, #232323, #1e1e1e);
-box-shadow:  5px 5px 10px #181818,
-             -5px -5px 10px #2a2a2a;
+      transition: all 1s;
+      &.outwards{
+        box-shadow: 5px 5px 10px #181818, -5px -5px 10px #2a2a2a;
+      }
     }
   }
 }

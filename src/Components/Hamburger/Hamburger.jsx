@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import gsap from 'gsap';
 import { Lazy } from "react-is";
 import LazyImage from "../LazyLoadImage";
-import { roopamImg2 } from "../../Assets";
+import { character2, roopamImg2 } from "../../Assets";
 const Hamburger = ({state}) => {
   
   let menu = useRef(null);
@@ -13,7 +13,7 @@ const Hamburger = ({state}) => {
   let line1 = useRef(null);
   let line2 = useRef(null);
   let line3 = useRef(null);
-  let info = useRef(null);
+  //let info = useRef(null);
 
   useEffect(() => {
     if(state.clicked === false){
@@ -43,7 +43,7 @@ const Hamburger = ({state}) => {
         height:"100%"
       })
       staggerReveal(revealMenuBackground,revealMenu);
-      fadeInUp(info)
+      // fadeInUp(info)
       staggerText(line1,line2,line3);
     }
   },[state])
@@ -100,10 +100,10 @@ const Hamburger = ({state}) => {
               </ul>
             </nav>
 
-            <div ref={el => info = el} className="info">
+            <div className="info">
                   
               <div className="hamburger-image">
-                <LazyImage width="100%"  src={roopamImg2} alt="roopam"/>
+                <LazyImage width="100%"  src={character2} alt="roopam"/>
 
               </div>       
             </div>
