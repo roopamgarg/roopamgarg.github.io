@@ -3,6 +3,7 @@ import gsap, { Power2 } from "gsap";
 import CSSRulePlugin from "gsap/CSSRulePlugin";
 import { character } from "../../Assets";
 import { motion } from "framer";
+import LazyImage from "../LazyLoadImage";
 function Header(props) {
   let image = useRef(null);
   let container = useRef(null);
@@ -28,21 +29,21 @@ function Header(props) {
         </div>
       </div>
       <div className="header__right">
-        <div ref={(el) => (container = el)} className="header__box">
-          <motion.img
-            initial={{ scale: 0.2 }}
-            animate={{ scale: 1 ,
-              transition: {
-                duration:1,
-                type: "spring",
-                stiffness: 100,
-              }
-              }}
-            ref={(el) => (image = el)}
-            width="100%"
-            src={character}
-          />
-        </div>
+        <motion.div
+          initial={{ scale: 0.2 }}
+          animate={{
+            scale: 1,
+            transition: {
+              duration: 1,
+              type: "spring",
+              stiffness: 100,
+            },
+          }}
+          ref={(el) => (container = el)}
+          className="header__box"
+        >
+          <LazyImage ref={(el) => (image = el)} width="100%" src={character} />
+        </motion.div>
       </div>
     </div>
   );

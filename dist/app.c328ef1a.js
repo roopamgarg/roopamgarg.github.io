@@ -43612,6 +43612,8 @@ var _Assets = require("../../Assets");
 
 var _framer = require("framer");
 
+var _LazyLoadImage = _interopRequireDefault(require("../LazyLoadImage"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
@@ -43644,12 +43646,7 @@ function Header(props) {
     className: "heading"
   }, "Roopam ", /*#__PURE__*/_react.default.createElement("br", null), "Garg")), /*#__PURE__*/_react.default.createElement("div", {
     className: "header__right"
-  }, /*#__PURE__*/_react.default.createElement("div", {
-    ref: function ref(el) {
-      return container = el;
-    },
-    className: "header__box"
-  }, /*#__PURE__*/_react.default.createElement(_framer.motion.img, {
+  }, /*#__PURE__*/_react.default.createElement(_framer.motion.div, {
     initial: {
       scale: 0.2
     },
@@ -43662,6 +43659,11 @@ function Header(props) {
       }
     },
     ref: function ref(el) {
+      return container = el;
+    },
+    className: "header__box"
+  }, /*#__PURE__*/_react.default.createElement(_LazyLoadImage.default, {
+    ref: function ref(el) {
       return image = el;
     },
     width: "100%",
@@ -43671,7 +43673,7 @@ function Header(props) {
 
 var _default = Header;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","gsap":"../node_modules/gsap/index.js","gsap/CSSRulePlugin":"../node_modules/gsap/CSSRulePlugin.js","../../Assets":"Assets/index.js","framer":"../node_modules/framer/build/framer.js"}],"Pages/Home.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","gsap":"../node_modules/gsap/index.js","gsap/CSSRulePlugin":"../node_modules/gsap/CSSRulePlugin.js","../../Assets":"Assets/index.js","framer":"../node_modules/framer/build/framer.js","../LazyLoadImage":"Components/LazyLoadImage/index.jsx"}],"Pages/Home.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -45650,7 +45652,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "35199" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "37583" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
