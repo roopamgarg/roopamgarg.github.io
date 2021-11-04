@@ -5679,7 +5679,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
   return to;
 };
 },{}],"../node_modules/react/cjs/react.development.js":[function(require,module,exports) {
-/** @license React v17.0.1
+/** @license React v17.0.2
  * react.development.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -5696,7 +5696,7 @@ if ("development" !== "production") {
     var _assign = require('object-assign'); // TODO: this is special because it gets imported during build.
 
 
-    var ReactVersion = '17.0.1'; // ATTENTION
+    var ReactVersion = '17.0.2'; // ATTENTION
     // When adding new symbols to this file,
     // Please consider also adding to 'react-devtools-shared/src/backend/ReactSymbols'
     // The Symbol used to tag the ReactElement-like types. If there is no native Symbol
@@ -7971,7 +7971,7 @@ if ("development" === 'production') {
   module.exports = require('./cjs/react.development.js');
 }
 },{"./cjs/react.development.js":"../node_modules/react/cjs/react.development.js"}],"../node_modules/scheduler/cjs/scheduler.development.js":[function(require,module,exports) {
-/** @license React v0.20.1
+/** @license React v0.20.2
  * scheduler.development.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -7986,7 +7986,7 @@ if ("development" !== "production") {
     'use strict';
 
     var enableSchedulerDebugging = false;
-    var enableProfiling = true;
+    var enableProfiling = false;
     var requestHostCallback;
     var requestHostTimeout;
     var cancelHostTimeout;
@@ -8258,179 +8258,13 @@ if ("development" !== "production") {
     } // TODO: Use symbols?
 
 
-    var NoPriority = 0;
     var ImmediatePriority = 1;
     var UserBlockingPriority = 2;
     var NormalPriority = 3;
     var LowPriority = 4;
     var IdlePriority = 5;
-    var runIdCounter = 0;
-    var mainThreadIdCounter = 0;
-    var profilingStateSize = 4;
-    var sharedProfilingBuffer = // $FlowFixMe Flow doesn't know about SharedArrayBuffer
-    typeof SharedArrayBuffer === 'function' ? new SharedArrayBuffer(profilingStateSize * Int32Array.BYTES_PER_ELEMENT) : // $FlowFixMe Flow doesn't know about ArrayBuffer
-    typeof ArrayBuffer === 'function' ? new ArrayBuffer(profilingStateSize * Int32Array.BYTES_PER_ELEMENT) : null // Don't crash the init path on IE9
-    ;
-    var profilingState = sharedProfilingBuffer !== null ? new Int32Array(sharedProfilingBuffer) : []; // We can't read this but it helps save bytes for null checks
 
-    var PRIORITY = 0;
-    var CURRENT_TASK_ID = 1;
-    var CURRENT_RUN_ID = 2;
-    var QUEUE_SIZE = 3;
-    {
-      profilingState[PRIORITY] = NoPriority; // This is maintained with a counter, because the size of the priority queue
-      // array might include canceled tasks.
-
-      profilingState[QUEUE_SIZE] = 0;
-      profilingState[CURRENT_TASK_ID] = 0;
-    } // Bytes per element is 4
-
-    var INITIAL_EVENT_LOG_SIZE = 131072;
-    var MAX_EVENT_LOG_SIZE = 524288; // Equivalent to 2 megabytes
-
-    var eventLogSize = 0;
-    var eventLogBuffer = null;
-    var eventLog = null;
-    var eventLogIndex = 0;
-    var TaskStartEvent = 1;
-    var TaskCompleteEvent = 2;
-    var TaskErrorEvent = 3;
-    var TaskCancelEvent = 4;
-    var TaskRunEvent = 5;
-    var TaskYieldEvent = 6;
-    var SchedulerSuspendEvent = 7;
-    var SchedulerResumeEvent = 8;
-
-    function logEvent(entries) {
-      if (eventLog !== null) {
-        var offset = eventLogIndex;
-        eventLogIndex += entries.length;
-
-        if (eventLogIndex + 1 > eventLogSize) {
-          eventLogSize *= 2;
-
-          if (eventLogSize > MAX_EVENT_LOG_SIZE) {
-            // Using console['error'] to evade Babel and ESLint
-            console['error']("Scheduler Profiling: Event log exceeded maximum size. Don't " + 'forget to call `stopLoggingProfilingEvents()`.');
-            stopLoggingProfilingEvents();
-            return;
-          }
-
-          var newEventLog = new Int32Array(eventLogSize * 4);
-          newEventLog.set(eventLog);
-          eventLogBuffer = newEventLog.buffer;
-          eventLog = newEventLog;
-        }
-
-        eventLog.set(entries, offset);
-      }
-    }
-
-    function startLoggingProfilingEvents() {
-      eventLogSize = INITIAL_EVENT_LOG_SIZE;
-      eventLogBuffer = new ArrayBuffer(eventLogSize * 4);
-      eventLog = new Int32Array(eventLogBuffer);
-      eventLogIndex = 0;
-    }
-
-    function stopLoggingProfilingEvents() {
-      var buffer = eventLogBuffer;
-      eventLogSize = 0;
-      eventLogBuffer = null;
-      eventLog = null;
-      eventLogIndex = 0;
-      return buffer;
-    }
-
-    function markTaskStart(task, ms) {
-      {
-        profilingState[QUEUE_SIZE]++;
-
-        if (eventLog !== null) {
-          // performance.now returns a float, representing milliseconds. When the
-          // event is logged, it's coerced to an int. Convert to microseconds to
-          // maintain extra degrees of precision.
-          logEvent([TaskStartEvent, ms * 1000, task.id, task.priorityLevel]);
-        }
-      }
-    }
-
-    function markTaskCompleted(task, ms) {
-      {
-        profilingState[PRIORITY] = NoPriority;
-        profilingState[CURRENT_TASK_ID] = 0;
-        profilingState[QUEUE_SIZE]--;
-
-        if (eventLog !== null) {
-          logEvent([TaskCompleteEvent, ms * 1000, task.id]);
-        }
-      }
-    }
-
-    function markTaskCanceled(task, ms) {
-      {
-        profilingState[QUEUE_SIZE]--;
-
-        if (eventLog !== null) {
-          logEvent([TaskCancelEvent, ms * 1000, task.id]);
-        }
-      }
-    }
-
-    function markTaskErrored(task, ms) {
-      {
-        profilingState[PRIORITY] = NoPriority;
-        profilingState[CURRENT_TASK_ID] = 0;
-        profilingState[QUEUE_SIZE]--;
-
-        if (eventLog !== null) {
-          logEvent([TaskErrorEvent, ms * 1000, task.id]);
-        }
-      }
-    }
-
-    function markTaskRun(task, ms) {
-      {
-        runIdCounter++;
-        profilingState[PRIORITY] = task.priorityLevel;
-        profilingState[CURRENT_TASK_ID] = task.id;
-        profilingState[CURRENT_RUN_ID] = runIdCounter;
-
-        if (eventLog !== null) {
-          logEvent([TaskRunEvent, ms * 1000, task.id, runIdCounter]);
-        }
-      }
-    }
-
-    function markTaskYield(task, ms) {
-      {
-        profilingState[PRIORITY] = NoPriority;
-        profilingState[CURRENT_TASK_ID] = 0;
-        profilingState[CURRENT_RUN_ID] = 0;
-
-        if (eventLog !== null) {
-          logEvent([TaskYieldEvent, ms * 1000, task.id, runIdCounter]);
-        }
-      }
-    }
-
-    function markSchedulerSuspended(ms) {
-      {
-        mainThreadIdCounter++;
-
-        if (eventLog !== null) {
-          logEvent([SchedulerSuspendEvent, ms * 1000, mainThreadIdCounter]);
-        }
-      }
-    }
-
-    function markSchedulerUnsuspended(ms) {
-      {
-        if (eventLog !== null) {
-          logEvent([SchedulerResumeEvent, ms * 1000, mainThreadIdCounter]);
-        }
-      }
-    }
+    function markTaskErrored(task, ms) {}
     /* eslint-disable no-var */
     // Math.pow(2, 30) - 1
     // 0b111111111111111111111111111111
@@ -8471,10 +8305,6 @@ if ("development" !== "production") {
           pop(timerQueue);
           timer.sortIndex = timer.expirationTime;
           push(taskQueue, timer);
-          {
-            markTaskStart(timer, currentTime);
-            timer.isQueued = true;
-          }
         } else {
           // Remaining timers are pending.
           return;
@@ -8503,10 +8333,6 @@ if ("development" !== "production") {
     }
 
     function flushWork(hasTimeRemaining, initialTime) {
-      {
-        markSchedulerUnsuspended(initialTime);
-      } // We'll need a host callback the next time work is scheduled.
-
       isHostCallbackScheduled = false;
 
       if (isHostTimeoutScheduled) {
@@ -8539,11 +8365,6 @@ if ("development" !== "production") {
         currentTask = null;
         currentPriorityLevel = previousPriorityLevel;
         isPerformingWork = false;
-        {
-          var _currentTime = exports.unstable_now();
-
-          markSchedulerSuspended(_currentTime);
-        }
       }
     }
 
@@ -8564,19 +8385,12 @@ if ("development" !== "production") {
           currentTask.callback = null;
           currentPriorityLevel = currentTask.priorityLevel;
           var didUserCallbackTimeout = currentTask.expirationTime <= currentTime;
-          markTaskRun(currentTask, currentTime);
           var continuationCallback = callback(didUserCallbackTimeout);
           currentTime = exports.unstable_now();
 
           if (typeof continuationCallback === 'function') {
             currentTask.callback = continuationCallback;
-            markTaskYield(currentTask, currentTime);
           } else {
-            {
-              markTaskCompleted(currentTask, currentTime);
-              currentTask.isQueued = false;
-            }
-
             if (currentTask === peek(taskQueue)) {
               pop(taskQueue);
             }
@@ -8719,9 +8533,6 @@ if ("development" !== "production") {
         expirationTime: expirationTime,
         sortIndex: -1
       };
-      {
-        newTask.isQueued = false;
-      }
 
       if (startTime > currentTime) {
         // This is a delayed task.
@@ -8742,12 +8553,7 @@ if ("development" !== "production") {
         }
       } else {
         newTask.sortIndex = expirationTime;
-        push(taskQueue, newTask);
-        {
-          markTaskStart(newTask, currentTime);
-          newTask.isQueued = true;
-        } // Schedule a host callback, if needed. If we're already performing work,
-        // wait until the next time we yield.
+        push(taskQueue, newTask); // wait until the next time we yield.
 
         if (!isHostCallbackScheduled && !isPerformingWork) {
           isHostCallbackScheduled = true;
@@ -8772,16 +8578,8 @@ if ("development" !== "production") {
     }
 
     function unstable_cancelCallback(task) {
-      {
-        if (task.isQueued) {
-          var currentTime = exports.unstable_now();
-          markTaskCanceled(task, currentTime);
-          task.isQueued = false;
-        }
-      } // Null out the callback to indicate the task has been canceled. (Can't
       // remove from the queue because you can't remove arbitrary nodes from an
       // array based heap, only the first one.)
-
       task.callback = null;
     }
 
@@ -8790,11 +8588,7 @@ if ("development" !== "production") {
     }
 
     var unstable_requestPaint = requestPaint;
-    var unstable_Profiling = {
-      startLoggingProfilingEvents: startLoggingProfilingEvents,
-      stopLoggingProfilingEvents: stopLoggingProfilingEvents,
-      sharedProfilingBuffer: sharedProfilingBuffer
-    };
+    var unstable_Profiling = null;
     exports.unstable_IdlePriority = IdlePriority;
     exports.unstable_ImmediatePriority = ImmediatePriority;
     exports.unstable_LowPriority = LowPriority;
@@ -8822,7 +8616,7 @@ if ("development" === 'production') {
   module.exports = require('./cjs/scheduler.development.js');
 }
 },{"./cjs/scheduler.development.js":"../node_modules/scheduler/cjs/scheduler.development.js"}],"../node_modules/scheduler/cjs/scheduler-tracing.development.js":[function(require,module,exports) {
-/** @license React v0.20.1
+/** @license React v0.20.2
  * scheduler-tracing.development.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -9178,7 +8972,7 @@ if ("development" === 'production') {
   module.exports = require('./cjs/scheduler-tracing.development.js');
 }
 },{"./cjs/scheduler-tracing.development.js":"../node_modules/scheduler/cjs/scheduler-tracing.development.js"}],"../node_modules/react-dom/cjs/react-dom.development.js":[function(require,module,exports) {
-/** @license React v17.0.1
+/** @license React v17.0.2
  * react-dom.development.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -20578,7 +20372,7 @@ if ("development" !== "production") {
     } // TODO: this is special because it gets imported during build.
 
 
-    var ReactVersion = '17.0.1';
+    var ReactVersion = '17.0.2';
     var NoMode = 0;
     var StrictMode = 1; // TODO: Remove BlockingMode and ConcurrentMode by reading from the root
     // tag instead
@@ -39364,6 +39158,10 @@ module.exports = "roopam_sm.fe8c4fca.jpg";
 module.exports = "roopam_3_sm.60cde2b0.jpg";
 },{}],"Assets/images/character.png":[function(require,module,exports) {
 module.exports = "character.13257cfa.png";
+},{}],"Assets/images/character_2.png":[function(require,module,exports) {
+module.exports = "character_2.fc6b3998.png";
+},{}],"Assets/images/shape.png":[function(require,module,exports) {
+module.exports = "shape.7ba6110d.png";
 },{}],"Assets/icons/mongodb_0.png":[function(require,module,exports) {
 module.exports = "mongodb_0.2460fce0.png";
 },{}],"Assets/icons/nodejs.svg":[function(require,module,exports) {
@@ -39474,6 +39272,18 @@ Object.defineProperty(exports, "character", {
   enumerable: true,
   get: function () {
     return _character.default;
+  }
+});
+Object.defineProperty(exports, "character2", {
+  enumerable: true,
+  get: function () {
+    return _character_.default;
+  }
+});
+Object.defineProperty(exports, "shape", {
+  enumerable: true,
+  get: function () {
+    return _shape.default;
   }
 });
 Object.defineProperty(exports, "mongodbLogo", {
@@ -39587,6 +39397,10 @@ var _roopam_3_sm = _interopRequireDefault(require("./images/roopam_3_sm.jpg"));
 
 var _character = _interopRequireDefault(require("./images/character.png"));
 
+var _character_ = _interopRequireDefault(require("./images/character_2.png"));
+
+var _shape = _interopRequireDefault(require("./images/shape.png"));
+
 var _mongodb_ = _interopRequireDefault(require("./icons/mongodb_0.png"));
 
 var _nodejs = _interopRequireDefault(require("./icons/nodejs.svg"));
@@ -39616,7 +39430,7 @@ var _socketIo = _interopRequireDefault(require("./icons/socket-io.svg"));
 var _heroku = _interopRequireDefault(require("./icons/heroku.svg"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./images/poll_bg.jpg":"Assets/images/poll_bg.jpg","./images/pracify_bg.jpg":"Assets/images/pracify_bg.jpg","./images/hoohoop_bg.jpg":"Assets/images/hoohoop_bg.jpg","./images/monktree_bg.jpg":"Assets/images/monktree_bg.jpg","./images/iosd_bg.jpg":"Assets/images/iosd_bg.jpg","./images/pracify.png":"Assets/images/pracify.png","./images/hoohoop.png":"Assets/images/hoohoop.png","./images/monktree.png":"Assets/images/monktree.png","./images/iosd.png":"Assets/images/iosd.png","./images/dsc.png":"Assets/images/dsc.png","./images/roopam_sm.jpg":"Assets/images/roopam_sm.jpg","./images/roopam_3_sm.jpg":"Assets/images/roopam_3_sm.jpg","./images/character.png":"Assets/images/character.png","./icons/mongodb_0.png":"Assets/icons/mongodb_0.png","./icons/nodejs.svg":"Assets/icons/nodejs.svg","./icons/react.svg":"Assets/icons/react.svg","./icons/redux.svg":"Assets/icons/redux.svg","./icons/firebase.svg":"Assets/icons/firebase.svg","./icons/aws.svg":"Assets/icons/aws.svg","./icons/angular.svg":"Assets/icons/angular.svg","./icons/nginx.svg":"Assets/icons/nginx.svg","./icons/razorpay.svg":"Assets/icons/razorpay.svg","./icons/egjs.svg":"Assets/icons/egjs.svg","./icons/paypal.svg":"Assets/icons/paypal.svg","./icons/material-ui.svg":"Assets/icons/material-ui.svg","./icons/socket-io.svg":"Assets/icons/socket-io.svg","./icons/heroku.svg":"Assets/icons/heroku.svg"}],"data.js":[function(require,module,exports) {
+},{"./images/poll_bg.jpg":"Assets/images/poll_bg.jpg","./images/pracify_bg.jpg":"Assets/images/pracify_bg.jpg","./images/hoohoop_bg.jpg":"Assets/images/hoohoop_bg.jpg","./images/monktree_bg.jpg":"Assets/images/monktree_bg.jpg","./images/iosd_bg.jpg":"Assets/images/iosd_bg.jpg","./images/pracify.png":"Assets/images/pracify.png","./images/hoohoop.png":"Assets/images/hoohoop.png","./images/monktree.png":"Assets/images/monktree.png","./images/iosd.png":"Assets/images/iosd.png","./images/dsc.png":"Assets/images/dsc.png","./images/roopam_sm.jpg":"Assets/images/roopam_sm.jpg","./images/roopam_3_sm.jpg":"Assets/images/roopam_3_sm.jpg","./images/character.png":"Assets/images/character.png","./images/character_2.png":"Assets/images/character_2.png","./images/shape.png":"Assets/images/shape.png","./icons/mongodb_0.png":"Assets/icons/mongodb_0.png","./icons/nodejs.svg":"Assets/icons/nodejs.svg","./icons/react.svg":"Assets/icons/react.svg","./icons/redux.svg":"Assets/icons/redux.svg","./icons/firebase.svg":"Assets/icons/firebase.svg","./icons/aws.svg":"Assets/icons/aws.svg","./icons/angular.svg":"Assets/icons/angular.svg","./icons/nginx.svg":"Assets/icons/nginx.svg","./icons/razorpay.svg":"Assets/icons/razorpay.svg","./icons/egjs.svg":"Assets/icons/egjs.svg","./icons/paypal.svg":"Assets/icons/paypal.svg","./icons/material-ui.svg":"Assets/icons/material-ui.svg","./icons/socket-io.svg":"Assets/icons/socket-io.svg","./icons/heroku.svg":"Assets/icons/heroku.svg"}],"data.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -41485,8 +41299,8 @@ var Hamburger = function Hamburger(_ref) {
   var cityBackground = (0, _react.useRef)(null);
   var line1 = (0, _react.useRef)(null);
   var line2 = (0, _react.useRef)(null);
-  var line3 = (0, _react.useRef)(null);
-  var info = (0, _react.useRef)(null);
+  var line3 = (0, _react.useRef)(null); //let info = useRef(null);
+
   (0, _react.useEffect)(function () {
     if (state.clicked === false) {
       // close our menu
@@ -41520,8 +41334,8 @@ var Hamburger = function Hamburger(_ref) {
         height: "100%"
       });
 
-      staggerReveal(revealMenuBackground, revealMenu);
-      fadeInUp(info);
+      staggerReveal(revealMenuBackground, revealMenu); // fadeInUp(info)
+
       staggerText(line1, line2, line3);
     }
   }, [state]);
@@ -41600,15 +41414,12 @@ var Hamburger = function Hamburger(_ref) {
     },
     to: "/education"
   }, "Education &", /*#__PURE__*/_react.default.createElement("br", null), " Communities")))), /*#__PURE__*/_react.default.createElement("div", {
-    ref: function ref(el) {
-      return info = el;
-    },
     className: "info"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "hamburger-image"
   }, /*#__PURE__*/_react.default.createElement(_LazyLoadImage.default, {
     width: "100%",
-    src: _Assets.roopamImg2,
+    src: _Assets.character2,
     alt: "roopam"
   }))), /*#__PURE__*/_react.default.createElement("div", {
     className: "locations"
@@ -42790,7 +42601,515 @@ try {
   Function("r", "regeneratorRuntime = r")(runtime);
 }
 
-},{}],"Components/ProjectCard/ProjectCard.jsx":[function(require,module,exports) {
+},{}],"../node_modules/react-intersection-observer/react-intersection-observer.m.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.observe = observe;
+exports.useInView = useInView;
+exports.InView = exports.default = void 0;
+
+var _react = require("react");
+
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+function _inheritsLoose(subClass, superClass) {
+  subClass.prototype = Object.create(superClass.prototype);
+  subClass.prototype.constructor = subClass;
+  subClass.__proto__ = superClass;
+}
+
+function _objectWithoutPropertiesLoose(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+
+  return target;
+}
+
+var ObserverMap = new Map();
+var RootIds = new WeakMap();
+var rootId = 0;
+/**
+ * Generate a unique ID for the root element
+ * @param root
+ */
+
+function getRootId(root) {
+  if (!root) return '0';
+  if (RootIds.has(root)) return RootIds.get(root);
+  rootId += 1;
+  RootIds.set(root, rootId.toString());
+  return RootIds.get(root);
+}
+/**
+ * Convert the options to a string Id, based on the values.
+ * Ensures we can reuse the same observer when observing elements with the same options.
+ * @param options
+ */
+
+
+function optionsToId(options) {
+  return Object.keys(options).sort().filter(function (key) {
+    return options[key] !== undefined;
+  }).map(function (key) {
+    return key + "_" + (key === 'root' ? getRootId(options.root) : options[key]);
+  }).toString();
+}
+
+function createObserver(options) {
+  // Create a unique ID for this observer instance, based on the root, root margin and threshold.
+  var id = optionsToId(options);
+  var instance = ObserverMap.get(id);
+
+  if (!instance) {
+    // Create a map of elements this observer is going to observe. Each element has a list of callbacks that should be triggered, once it comes into view.
+    var elements = new Map();
+    var thresholds;
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var _elements$get; // While it would be nice if you could just look at isIntersecting to determine if the component is inside the viewport, browsers can't agree on how to use it.
+        // -Firefox ignores `threshold` when considering `isIntersecting`, so it will never be false again if `threshold` is > 0
+
+
+        var inView = entry.isIntersecting && thresholds.some(function (threshold) {
+          return entry.intersectionRatio >= threshold;
+        }); // @ts-ignore support IntersectionObserver v2
+
+        if (options.trackVisibility && typeof entry.isVisible === 'undefined') {
+          // The browser doesn't support Intersection Observer v2, falling back to v1 behavior.
+          // @ts-ignore
+          entry.isVisible = inView;
+        }
+
+        (_elements$get = elements.get(entry.target)) == null ? void 0 : _elements$get.forEach(function (callback) {
+          callback(inView, entry);
+        });
+      });
+    }, options); // Ensure we have a valid thresholds array. If not, use the threshold from the options
+
+    thresholds = observer.thresholds || (Array.isArray(options.threshold) ? options.threshold : [options.threshold || 0]);
+    instance = {
+      id: id,
+      observer: observer,
+      elements: elements
+    };
+    ObserverMap.set(id, instance);
+  }
+
+  return instance;
+}
+/**
+ * @param element - DOM Element to observe
+ * @param callback - Callback function to trigger when intersection status changes
+ * @param options - Intersection Observer options
+ * @return Function - Cleanup function that should be triggered to unregister the observer
+ */
+
+
+function observe(element, callback, options) {
+  if (options === void 0) {
+    options = {};
+  }
+
+  if (!element) return function () {}; // An observer with the same options can be reused, so lets use this fact
+
+  var _createObserver = createObserver(options),
+      id = _createObserver.id,
+      observer = _createObserver.observer,
+      elements = _createObserver.elements; // Register the callback listener for this element
+
+
+  var callbacks = elements.get(element) || [];
+
+  if (!elements.has(element)) {
+    elements.set(element, callbacks);
+  }
+
+  callbacks.push(callback);
+  observer.observe(element);
+  return function unobserve() {
+    // Remove the callback from the callback list
+    callbacks.splice(callbacks.indexOf(callback), 1);
+
+    if (callbacks.length === 0) {
+      // No more callback exists for element, so destroy it
+      elements["delete"](element);
+      observer.unobserve(element);
+    }
+
+    if (elements.size === 0) {
+      // No more elements are being observer by this instance, so destroy it
+      observer.disconnect();
+      ObserverMap["delete"](id);
+    }
+  };
+}
+
+function isPlainChildren(props) {
+  return typeof props.children !== 'function';
+}
+/**
+ ## Render props
+
+ To use the `<InView>` component, you pass it a function. It will be called
+ whenever the state changes, with the new value of `inView`. In addition to the
+ `inView` prop, children also receive a `ref` that should be set on the
+ containing DOM element. This is the element that the IntersectionObserver will
+ monitor.
+
+ If you need it, you can also access the
+ [`IntersectionObserverEntry`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserverEntry)
+ on `entry`, giving you access to all the details about the current intersection
+ state.
+
+ ```jsx
+ import { InView } from 'react-intersection-observer';
+
+ const Component = () => (
+ <InView>
+ {({ inView, ref, entry }) => (
+      <div ref={ref}>
+        <h2>{`Header inside viewport ${inView}.`}</h2>
+      </div>
+    )}
+ </InView>
+ );
+
+ export default Component;
+ ```
+
+ ## Plain children
+
+ You can pass any element to the `<InView />`, and it will handle creating the
+ wrapping DOM element. Add a handler to the `onChange` method, and control the
+ state in your own component. Any extra props you add to `<InView>` will be
+ passed to the HTML element, allowing you set the `className`, `style`, etc.
+
+ ```jsx
+ import { InView } from 'react-intersection-observer';
+
+ const Component = () => (
+ <InView as="div" onChange={(inView, entry) => console.log('Inview:', inView)}>
+ <h2>Plain children are always rendered. Use onChange to monitor state.</h2>
+ </InView>
+ );
+
+ export default Component;
+ ```
+ */
+
+
+var InView = /*#__PURE__*/function (_React$Component) {
+  _inheritsLoose(InView, _React$Component);
+
+  function InView(props) {
+    var _this;
+
+    _this = _React$Component.call(this, props) || this;
+    _this.node = null;
+    _this._unobserveCb = null;
+
+    _this.handleNode = function (node) {
+      if (_this.node) {
+        // Clear the old observer, before we start observing a new element
+        _this.unobserve();
+
+        if (!node && !_this.props.triggerOnce && !_this.props.skip) {
+          // Reset the state if we get a new node, and we aren't ignoring updates
+          _this.setState({
+            inView: !!_this.props.initialInView,
+            entry: undefined
+          });
+        }
+      }
+
+      _this.node = node ? node : null;
+
+      _this.observeNode();
+    };
+
+    _this.handleChange = function (inView, entry) {
+      if (inView && _this.props.triggerOnce) {
+        // If `triggerOnce` is true, we should stop observing the element.
+        _this.unobserve();
+      }
+
+      if (!isPlainChildren(_this.props)) {
+        // Store the current State, so we can pass it to the children in the next render update
+        // There's no reason to update the state for plain children, since it's not used in the rendering.
+        _this.setState({
+          inView: inView,
+          entry: entry
+        });
+      }
+
+      if (_this.props.onChange) {
+        // If the user is actively listening for onChange, always trigger it
+        _this.props.onChange(inView, entry);
+      }
+    };
+
+    _this.state = {
+      inView: !!props.initialInView,
+      entry: undefined
+    };
+    return _this;
+  }
+
+  var _proto = InView.prototype;
+
+  _proto.componentDidUpdate = function componentDidUpdate(prevProps) {
+    // If a IntersectionObserver option changed, reinit the observer
+    if (prevProps.rootMargin !== this.props.rootMargin || prevProps.root !== this.props.root || prevProps.threshold !== this.props.threshold || prevProps.skip !== this.props.skip || prevProps.trackVisibility !== this.props.trackVisibility || prevProps.delay !== this.props.delay) {
+      this.unobserve();
+      this.observeNode();
+    }
+  };
+
+  _proto.componentWillUnmount = function componentWillUnmount() {
+    this.unobserve();
+    this.node = null;
+  };
+
+  _proto.observeNode = function observeNode() {
+    if (!this.node || this.props.skip) return;
+    var _this$props = this.props,
+        threshold = _this$props.threshold,
+        root = _this$props.root,
+        rootMargin = _this$props.rootMargin,
+        trackVisibility = _this$props.trackVisibility,
+        delay = _this$props.delay;
+    this._unobserveCb = observe(this.node, this.handleChange, {
+      threshold: threshold,
+      root: root,
+      rootMargin: rootMargin,
+      // @ts-ignore
+      trackVisibility: trackVisibility,
+      // @ts-ignore
+      delay: delay
+    });
+  };
+
+  _proto.unobserve = function unobserve() {
+    if (this._unobserveCb) {
+      this._unobserveCb();
+
+      this._unobserveCb = null;
+    }
+  };
+
+  _proto.render = function render() {
+    if (!isPlainChildren(this.props)) {
+      var _this$state = this.state,
+          inView = _this$state.inView,
+          entry = _this$state.entry;
+      return this.props.children({
+        inView: inView,
+        entry: entry,
+        ref: this.handleNode
+      });
+    }
+
+    var _this$props2 = this.props,
+        children = _this$props2.children,
+        as = _this$props2.as,
+        tag = _this$props2.tag,
+        props = _objectWithoutPropertiesLoose(_this$props2, ["children", "as", "tag", "triggerOnce", "threshold", "root", "rootMargin", "onChange", "skip", "trackVisibility", "delay", "initialInView"]);
+
+    return /*#__PURE__*/(0, _react.createElement)(as || tag || 'div', _extends({
+      ref: this.handleNode
+    }, props), children);
+  };
+
+  return InView;
+}(_react.Component);
+
+exports.InView = InView;
+InView.displayName = 'InView';
+InView.defaultProps = {
+  threshold: 0,
+  triggerOnce: false,
+  initialInView: false
+};
+/**
+ * React Hooks make it easy to monitor the `inView` state of your components. Call
+ * the `useInView` hook with the (optional) [options](#options) you need. It will
+ * return an array containing a `ref`, the `inView` status and the current
+ * [`entry`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserverEntry).
+ * Assign the `ref` to the DOM element you want to monitor, and the hook will
+ * report the status.
+ *
+ * @example
+ * ```jsx
+ * import React from 'react';
+ * import { useInView } from 'react-intersection-observer';
+ *
+ * const Component = () => {
+ *   const { ref, inView, entry } = useInView({
+ *       threshold: 0,
+ *   });
+ *
+ *   return (
+ *     <div ref={ref}>
+ *       <h2>{`Header inside viewport ${inView}.`}</h2>
+ *     </div>
+ *   );
+ * };
+ * ```
+ */
+
+function useInView(_temp) {
+  var _ref = _temp === void 0 ? {} : _temp,
+      threshold = _ref.threshold,
+      delay = _ref.delay,
+      trackVisibility = _ref.trackVisibility,
+      rootMargin = _ref.rootMargin,
+      root = _ref.root,
+      triggerOnce = _ref.triggerOnce,
+      skip = _ref.skip,
+      initialInView = _ref.initialInView;
+
+  var unobserve = (0, _react.useRef)();
+
+  var _React$useState = (0, _react.useState)({
+    inView: !!initialInView
+  }),
+      state = _React$useState[0],
+      setState = _React$useState[1];
+
+  var setRef = (0, _react.useCallback)(function (node) {
+    if (unobserve.current !== undefined) {
+      unobserve.current();
+      unobserve.current = undefined;
+    } // Skip creating the observer
+
+
+    if (skip) return;
+
+    if (node) {
+      unobserve.current = observe(node, function (inView, entry) {
+        setState({
+          inView: inView,
+          entry: entry
+        });
+
+        if (entry.isIntersecting && triggerOnce && unobserve.current) {
+          // If it should only trigger once, unobserve the element after it's inView
+          unobserve.current();
+          unobserve.current = undefined;
+        }
+      }, {
+        root: root,
+        rootMargin: rootMargin,
+        threshold: threshold,
+        // @ts-ignore
+        trackVisibility: trackVisibility,
+        // @ts-ignore
+        delay: delay
+      });
+    }
+  }, // We break the rule here, because we aren't including the actual `threshold` variable
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  [// If the threshold is an array, convert it to a string so it won't change between renders.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  Array.isArray(threshold) ? threshold.toString() : threshold, root, rootMargin, triggerOnce, skip, trackVisibility, delay]);
+  /* eslint-disable-next-line */
+
+  (0, _react.useEffect)(function () {
+    if (!unobserve.current && state.entry && !triggerOnce && !skip) {
+      // If we don't have a ref, then reset the state (unless the hook is set to only `triggerOnce` or `skip`)
+      // This ensures we correctly reflect the current state - If you aren't observing anything, then nothing is inView
+      setState({
+        inView: !!initialInView
+      });
+    }
+  });
+  var result = [setRef, state.inView, state.entry]; // Support object destructuring, by adding the specific values.
+
+  result.ref = result[0];
+  result.inView = result[1];
+  result.entry = result[2];
+  return result;
+}
+
+var _default = InView;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js"}],"Components/ProjectCard/TechLogo.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactIntersectionObserver = require("react-intersection-observer");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function TechLogo(_ref) {
+  var logo = _ref.logo,
+      alt = _ref.alt;
+
+  var _useInView = (0, _reactIntersectionObserver.useInView)({
+    threshold: 0.5
+  }),
+      _useInView2 = _slicedToArray(_useInView, 2),
+      logoRef = _useInView2[0],
+      logoInView = _useInView2[1];
+
+  return /*#__PURE__*/_react.default.createElement("div", {
+    ref: logoRef,
+    className: "project__icon__container ".concat(logoInView ? "outwards" : "")
+  }, /*#__PURE__*/_react.default.createElement("img", {
+    src: logo,
+    className: "project__icon",
+    alt: alt
+  }));
+}
+
+var _default = TechLogo;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","react-intersection-observer":"../node_modules/react-intersection-observer/react-intersection-observer.m.js"}],"Components/ProjectCard/ProjectCard.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -42805,6 +43124,10 @@ var _LazyLoadImage = _interopRequireDefault(require("../LazyLoadImage"));
 var _framer = require("framer");
 
 require("regenerator-runtime/runtime");
+
+var _reactIntersectionObserver = require("react-intersection-observer");
+
+var _TechLogo = _interopRequireDefault(require("./TechLogo"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -42844,14 +43167,13 @@ var zoomInVariants = {
 exports.zoomInVariants = zoomInVariants;
 
 var ProjectCard = function ProjectCard(_ref) {
-  var index = _ref.index,
+  var key = _ref.key,
+      index = _ref.index,
       image = _ref.image,
       name = _ref.name,
       points = _ref.points,
       techstack = _ref.techstack,
       bgColor = _ref.bgColor;
-  var intersectionRef = (0, _react.useRef)(null);
-  var container = (0, _react.useRef)(null);
   var imageControls = (0, _framer.useAnimation)();
   var containerControls = (0, _framer.useAnimation)();
 
@@ -42859,6 +43181,13 @@ var ProjectCard = function ProjectCard(_ref) {
       _useState2 = _slicedToArray(_useState, 2),
       isAnimationDone = _useState2[0],
       setAnimationStatus = _useState2[1];
+
+  var _useInView = (0, _reactIntersectionObserver.useInView)({
+    threshold: 0.5
+  }),
+      _useInView2 = _slicedToArray(_useInView, 2),
+      intersectionRef = _useInView2[0],
+      inView = _useInView2[1];
 
   function handleCardHover() {
     if (isAnimationDone) return;
@@ -42889,6 +43218,28 @@ var ProjectCard = function ProjectCard(_ref) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
+              _context.next = 2;
+              return containerControls.start({
+                opacity: 0
+              });
+
+            case 2:
+              _context.next = 4;
+              return imageControls.start({
+                y: 100,
+                scale: 0.8,
+                opacity: 0,
+                transition: {
+                  duration: 0.2,
+                  type: "spring",
+                  stiffness: 100
+                }
+              });
+
+            case 4:
+              return _context.abrupt("return", _context.sent);
+
+            case 5:
             case "end":
               return _context.stop();
           }
@@ -42915,25 +43266,22 @@ var ProjectCard = function ProjectCard(_ref) {
     }));
   };
 
+  (0, _react.useEffect)(function () {
+    console.log(index, inView);
+
+    if (inView) {
+      handleCardHover();
+    }
+  }, [inView]);
   return /*#__PURE__*/_react.default.createElement(_framer.motion.div, {
-    onMouseEnter: function onMouseEnter() {
-      handleCardHover();
-    },
-    onMouseLeave: function onMouseLeave() {
-      handleCardHoverEnds(index % 2 === 0);
-    },
-    onT: function onT() {
-      handleCardHover();
-    },
-    ref: intersectionRef,
     id: "project-".concat(index),
     className: "project ".concat(index % 2 === 0 ? "left" : "right")
   }, /*#__PURE__*/_react.default.createElement(_framer.motion.div, {
     animate: containerControls,
+    ref: intersectionRef,
     initial: {
       opacity: 0
     },
-    ref: container,
     className: "project__image",
     style: {
       background: bgColor || "#FF0075"
@@ -42951,19 +43299,16 @@ var ProjectCard = function ProjectCard(_ref) {
   }, techstack.map(function (_ref2) {
     var logo = _ref2.logo,
         alt = _ref2.alt;
-    return /*#__PURE__*/_react.default.createElement("div", {
-      className: "project__icon__container"
-    }, /*#__PURE__*/_react.default.createElement("img", {
-      src: logo,
-      className: "project__icon",
+    return /*#__PURE__*/_react.default.createElement(_TechLogo.default, {
+      logo: logo,
       alt: alt
-    }));
+    });
   }))));
 };
 
 var _default = ProjectCard;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","../LazyLoadImage":"Components/LazyLoadImage/index.jsx","framer":"../node_modules/framer/build/framer.js","regenerator-runtime/runtime":"../node_modules/regenerator-runtime/runtime.js"}],"Components/Projects/Projects.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../LazyLoadImage":"Components/LazyLoadImage/index.jsx","framer":"../node_modules/framer/build/framer.js","regenerator-runtime/runtime":"../node_modules/regenerator-runtime/runtime.js","react-intersection-observer":"../node_modules/react-intersection-observer/react-intersection-observer.m.js","./TechLogo":"Components/ProjectCard/TechLogo.jsx"}],"Components/Projects/Projects.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -42992,6 +43337,7 @@ function Projects(props) {
         techstack = _ref.techstack,
         bgColor = _ref.bgColor;
     return /*#__PURE__*/_react.default.createElement(_ProjectCard.default, {
+      key: index,
       index: index,
       image: image,
       points: points,
@@ -45304,7 +45650,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "34761" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "35199" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
