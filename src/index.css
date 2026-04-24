@@ -1,0 +1,96 @@
+@import "./styles/themes.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-padding-top: 5rem;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  html.theme-ready body {
+    transition:
+      background-color 200ms ease,
+      color 200ms ease;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html.theme-ready body {
+      transition: none;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  body {
+    @apply bg-bg text-text font-sans antialiased;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-bg;
+  }
+
+  section[id] {
+    scroll-margin-top: 6rem;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-border/10 bg-surface/60 p-6 backdrop-blur-sm;
+  }
+
+  .flow-line {
+    fill: none;
+    stroke: rgb(var(--color-border) / 0.18);
+    stroke-width: 1;
+  }
+
+  .flow-overlay {
+    fill: none;
+    stroke: rgb(var(--color-accent));
+    stroke-width: 1.75;
+    stroke-linecap: round;
+    stroke-dasharray: 3 57;
+    animation: flow-dash 2.4s linear infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .flow-overlay {
+      animation: none;
+      stroke-dasharray: none;
+      opacity: 0.45;
+    }
+  }
+
+  .pill {
+    @apply inline-flex items-center rounded-md border border-border/10 bg-surface-2/80 px-2.5 py-1 text-xs font-medium text-muted;
+  }
+
+  .section-number {
+    @apply font-mono text-xs tracking-widest text-muted;
+  }
+
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-accent focus:px-4 focus:py-2 focus:font-semibold focus:text-accent-fg;
+  }
+}
+
+@keyframes flow-dash {
+  to {
+    stroke-dashoffset: -60;
+  }
+}
