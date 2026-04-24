@@ -48,7 +48,7 @@ export function Contact({ navItem, contact }: ContactProps) {
         </div>
 
         <div className="card flex items-center justify-center p-4">
-          <WorldMap highlights={[{ x: 0.76, y: 0.55 }]} />
+          <WorldMap highlights={[{ x: 0.331, y: 0.801 }]} />
         </div>
 
         <div className="card space-y-5">

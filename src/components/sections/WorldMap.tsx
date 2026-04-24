@@ -1,76 +1,79 @@
-const COLS = 60;
-const ROWS = 24;
-const DOT_R = 1;
-const CELL = 8;
+// Stylized outline of India rendered with a dotted interior. Coordinates use
+// a 290x300 viewBox where longitude 68E..97E maps to x 0..290 and latitude
+// 37N..7N maps to y 0..300, so relative highlight coords can be passed as
+// fractions of width/height.
+const INDIA_PATH =
+  "M 60,25 L 95,10 L 125,28 L 135,55 L 165,95 L 215,100 L 245,95 L 275,78 L 290,92 L 262,128 L 245,152 L 213,160 L 185,172 L 165,193 L 128,215 L 120,243 L 108,268 L 92,290 L 80,263 L 65,238 L 58,212 L 48,185 L 45,160 L 27,165 L 12,148 L 3,135 L 18,127 L 32,120 L 26,97 L 56,68 L 68,48 L 68,35 Z";
 
-function shouldRender(col: number, row: number): boolean {
-  // Rough continent mask approximated with ellipses so we avoid shipping real geo data.
-  const x = col / COLS;
-  const y = row / ROWS;
-  const regions: Array<[number, number, number, number]> = [
-    [0.22, 0.38, 0.1, 0.18],   // N America
-    [0.3, 0.75, 0.07, 0.12],   // S America
-    [0.48, 0.42, 0.09, 0.17],  // Europe
-    [0.55, 0.72, 0.11, 0.2],   // Africa
-    [0.72, 0.48, 0.17, 0.23],  // Asia
-    [0.83, 0.82, 0.07, 0.1],   // Oceania
-  ];
-  for (const [cx, cy, rx, ry] of regions) {
-    const dx = (x - cx) / rx;
-    const dy = (y - cy) / ry;
-    if (dx * dx + dy * dy <= 1) return true;
-  }
-  return false;
-}
+const MAP_WIDTH = 290;
+const MAP_HEIGHT = 300;
+const DOT_SPACING = 8;
+const DOT_R = 1;
 
 interface WorldMapProps {
   highlights?: Array<{ x: number; y: number; label?: string }>;
 }
 
 export function WorldMap({ highlights = [] }: WorldMapProps) {
-  const width = COLS * CELL;
-  const height = ROWS * CELL;
-
   const dots: Array<{ cx: number; cy: number }> = [];
-  for (let r = 0; r < ROWS; r++) {
-    for (let c = 0; c < COLS; c++) {
-      if (shouldRender(c, r)) {
-        dots.push({ cx: c * CELL + CELL / 2, cy: r * CELL + CELL / 2 });
-      }
+  for (let y = DOT_SPACING / 2; y < MAP_HEIGHT; y += DOT_SPACING) {
+    for (let x = DOT_SPACING / 2; x < MAP_WIDTH; x += DOT_SPACING) {
+      dots.push({ cx: x, cy: y });
     }
   }
 
   return (
     <svg
-      viewBox={`0 0 ${width} ${height}`}
-      className="h-auto w-full"
+      viewBox={`0 0 ${MAP_WIDTH} ${MAP_HEIGHT}`}
+      className="mx-auto h-auto w-full max-w-[110px]"
       aria-hidden="true"
     >
-      {dots.map((d, i) => (
-        <circle
-          key={i}
-          cx={d.cx}
-          cy={d.cy}
-          r={DOT_R}
-          fill="rgb(var(--color-border) / 0.25)"
-        />
-      ))}
-      {highlights.map((h, i) => (
-        <g key={`h-${i}`}>
+      <defs>
+        <clipPath id="india-clip">
+          <path d={INDIA_PATH} />
+        </clipPath>
+      </defs>
+
+      <g clipPath="url(#india-clip)">
+        {dots.map((d, i) => (
           <circle
-            cx={h.x * width}
-            cy={h.y * height}
-            r={4}
-            fill="rgb(var(--color-accent) / 0.8)"
+            key={i}
+            cx={d.cx}
+            cy={d.cy}
+            r={DOT_R}
+            fill="rgb(var(--color-border) / 0.45)"
           />
-          <circle
-            cx={h.x * width}
-            cy={h.y * height}
-            r={10}
-            fill="rgb(var(--color-accent) / 0.2)"
-          />
-        </g>
-      ))}
+        ))}
+      </g>
+
+      {highlights.map((h, i) => {
+        const cx = h.x * MAP_WIDTH;
+        const cy = h.y * MAP_HEIGHT;
+        return (
+          <g key={`h-${i}`}>
+            <circle
+              cx={cx}
+              cy={cy}
+              r={10}
+              fill="rgb(var(--color-accent) / 0.25)"
+            >
+              <animate
+                attributeName="r"
+                values="6;16;6"
+                dur="2.4s"
+                repeatCount="indefinite"
+              />
+              <animate
+                attributeName="opacity"
+                values="0.6;0;0.6"
+                dur="2.4s"
+                repeatCount="indefinite"
+              />
+            </circle>
+            <circle cx={cx} cy={cy} r={4} fill="rgb(var(--color-accent))" />
+          </g>
+        );
+      })}
     </svg>
   );
 }
