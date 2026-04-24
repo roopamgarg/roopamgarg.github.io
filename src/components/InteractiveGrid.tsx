@@ -10,13 +10,13 @@ export function InteractiveGrid() {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
     if (reduce.matches) {
       el.style.setProperty("--grid-mx", "50%");
-      el.style.setProperty("--grid-my", "40%");
+      el.style.setProperty("--grid-my", "0px");
       return;
     }
 
     let rafId = 0;
     let nextX = window.innerWidth / 2;
-    let nextY = window.innerHeight / 2;
+    let nextY = 0;
 
     const apply = () => {
       el.style.setProperty("--grid-mx", `${nextX}px`);
@@ -44,7 +44,7 @@ export function InteractiveGrid() {
       className="pointer-events-none fixed inset-0 z-0 overflow-hidden"
       style={{
         ["--grid-mx" as string]: "50%",
-        ["--grid-my" as string]: "40%",
+        ["--grid-my" as string]: "0px",
       }}
     >
       <div
@@ -63,8 +63,13 @@ export function InteractiveGrid() {
       <div
         className="absolute inset-0"
         style={{
-          background:
-            "radial-gradient(260px circle at var(--grid-mx) var(--grid-my), rgb(var(--color-accent) / 0.13), transparent 60%)",
+          backgroundImage:
+            "linear-gradient(to right, rgb(var(--color-accent) / 0.3) 1px, transparent 1px), linear-gradient(to bottom, rgb(var(--color-accent) / 0.3) 1px, transparent 1px)",
+          backgroundSize: "48px 48px",
+          maskImage:
+            "radial-gradient(220px circle at var(--grid-mx) var(--grid-my), rgb(0 0 0 / 0.7) 0%, rgb(0 0 0 / 0.35) 45%, transparent 80%)",
+          WebkitMaskImage:
+            "radial-gradient(220px circle at var(--grid-mx) var(--grid-my), rgb(0 0 0 / 0.7) 0%, rgb(0 0 0 / 0.35) 45%, transparent 80%)",
         }}
       />
     </div>
