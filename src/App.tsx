@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import { InteractiveGrid } from "@/components/InteractiveGrid";
 import { Sidebar } from "@/components/Sidebar";
 import { TopNav } from "@/components/TopNav";
 import { About } from "@/components/sections/About";
@@ -8,6 +9,7 @@ import { Hero } from "@/components/sections/Hero";
 import { Projects } from "@/components/sections/Projects";
 import { portfolio } from "@/data/portfolio";
 import { useActiveSection } from "@/hooks/useActiveSection";
+import { useSidebarVisible } from "@/hooks/useSidebarVisible";
 import type { NavItem } from "@/types/portfolio";
 
 function byId(nav: NavItem[]): Record<string, NavItem> {
@@ -21,22 +23,33 @@ export default function App() {
   );
   const activeId = useActiveSection(navIds);
   const navMap = useMemo(() => byId(portfolio.nav), []);
+  const { visible: sidebarVisible, toggle: toggleSidebar } =
+    useSidebarVisible();
 
   return (
-    <div className="min-h-screen bg-bg text-text">
+    <div className="relative min-h-screen text-text">
+      <InteractiveGrid />
+
       <a href="#home" className="skip-link">
         Skip to content
       </a>
 
-      <div className="flex">
-        <Sidebar
-          brand={portfolio.brand}
-          nav={portfolio.nav}
-          activeId={activeId}
-        />
+      <div className="relative z-10 flex">
+        {sidebarVisible && (
+          <Sidebar
+            brand={portfolio.brand}
+            nav={portfolio.nav}
+            activeId={activeId}
+          />
+        )}
 
         <div className="min-w-0 flex-1">
-          <TopNav brand={portfolio.brand} nav={portfolio.nav} />
+          <TopNav
+            brand={portfolio.brand}
+            nav={portfolio.nav}
+            sidebarVisible={sidebarVisible}
+            onToggleSidebar={toggleSidebar}
+          />
 
           <main>
             <Hero

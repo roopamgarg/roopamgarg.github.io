@@ -149,14 +149,14 @@ export const portfolio: Portfolio = {
 
   about: {
     whoami: [
-      "arjun@dev:~$ whoami",
+      "roopam@dev:~$ whoami",
       "Software Engineer",
       "Passionate about building reliable systems",
       "that solve real problems.",
       "",
       "I enjoy turning ideas into products and",
       "constantly learning new things.",
-      "arjun@dev:~$ _",
+      "roopam@dev:~$ _",
     ],
     traits: [
       {
@@ -190,7 +190,7 @@ export const portfolio: Portfolio = {
     headline: "Let's connect",
     description:
       "I'm open to new opportunities and interesting projects.",
-    email: "hello@arjun.dev",
+    email: "hello@roopam.dev",
     linkedin: "#",
     status: "Open to work",
     location: { label: "India", flag: "🇮🇳" },

@@ -13,7 +13,9 @@ export type IconName =
   | "Brain"
   | "Boxes"
   | "BookOpen"
-  | "Target";
+  | "Target"
+  | "PanelLeft"
+  | "PanelLeftClose";
 
 export interface NavItem {
   id: string;

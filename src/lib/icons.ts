@@ -12,6 +12,8 @@ import {
   Mail,
   Monitor,
   Moon,
+  PanelLeft,
+  PanelLeftClose,
   Sun,
   Target,
   type LucideIcon,
@@ -34,6 +36,8 @@ export const icons: Record<IconName, LucideIcon> = {
   Boxes,
   BookOpen,
   Target,
+  PanelLeft,
+  PanelLeftClose,
 };
 
 export function getIcon(name: IconName): LucideIcon {
