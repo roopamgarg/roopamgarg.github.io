@@ -275,7 +275,20 @@ That's it — every component will inherit the new palette.
 
 ## Deployment
 
-The output of `npm run build` is a static bundle in `dist/`. Deploy it to any static host (Netlify, Vercel, GitHub Pages, Cloudflare Pages, S3 + CloudFront, …). Because there's no router, you don't need any SPA fallback configuration.
+This project now includes a GitHub Pages workflow at [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml).
+
+### GitHub Pages
+
+1. Push to the `main` branch.
+2. In your repository settings, ensure **Pages → Source** is set to **GitHub Actions**.
+3. The workflow installs dependencies, builds the app, and deploys `dist/` automatically.
+
+The Vite `base` path is auto-detected during GitHub Actions builds:
+
+- `/<repo-name>/` for project repositories (for example, `username/my-portfolio`)
+- `/` for user/organization site repos ending in `.github.io`
+
+### Manual sanity check
 
 ```bash
 npm run build
