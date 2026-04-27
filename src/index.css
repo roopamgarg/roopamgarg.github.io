@@ -65,7 +65,45 @@
     stroke-width: 1.75;
     stroke-linecap: round;
     stroke-dasharray: 3 57;
-    animation: flow-dash 2.4s linear infinite;
+    opacity: 0;
+    animation:
+      flow-overlay-enter 360ms ease forwards,
+      flow-dash 2.4s linear infinite;
+    animation-delay: var(--flow-delay, 0s), var(--flow-delay, 0s);
+  }
+
+  .architecture-build-item {
+    --build-delay: 0s;
+    opacity: 0;
+    animation: architecture-item-enter 500ms ease-out forwards;
+    animation-delay: var(--build-delay);
+  }
+
+  .architecture-build-node {
+    transform: translateY(6px);
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+
+  .architecture-build-group {
+    transform: translateY(4px);
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+
+  .architecture-build-dot {
+    animation-duration: 420ms;
+    animation-name: architecture-dot-enter;
+  }
+
+  .architecture-build-line {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    opacity: 0.35;
+    animation:
+      architecture-line-draw 700ms cubic-bezier(0.2, 0.65, 0.25, 1) forwards,
+      architecture-line-glow 1.2s ease-out forwards;
+    animation-delay: var(--build-delay), calc(var(--build-delay) + 180ms);
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -73,6 +111,15 @@
       animation: none;
       stroke-dasharray: none;
       opacity: 0.45;
+    }
+
+    .architecture-build-item,
+    .architecture-build-line {
+      animation: none;
+      opacity: 1;
+      transform: none;
+      stroke-dasharray: none;
+      stroke-dashoffset: 0;
     }
   }
 
@@ -92,5 +139,50 @@
 @keyframes flow-dash {
   to {
     stroke-dashoffset: -60;
+  }
+}
+
+@keyframes flow-overlay-enter {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes architecture-item-enter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes architecture-dot-enter {
+  0% {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes architecture-line-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes architecture-line-glow {
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.65;
+  }
+  100% {
+    opacity: 0.35;
   }
 }

@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import type { ArchitectureSpec } from "@/types/portfolio";
 
 interface ArchitectureDiagramProps {
@@ -49,15 +50,20 @@ function Node({
   w,
   label,
   accent = false,
+  delay = 0,
 }: {
   x: number;
   y: number;
   w: number;
   label: string;
   accent?: boolean;
+  delay?: number;
 }) {
   return (
-    <g>
+    <g
+      className="architecture-build-item architecture-build-node"
+      style={{ "--build-delay": `${delay}s` } as CSSProperties}
+    >
       <rect
         x={x}
         y={y - NODE_H / 2}
@@ -90,21 +96,34 @@ function Node({
 
 function Dot({ x, y }: { x: number; y: number }) {
   return (
-    <g>
+    <g className="architecture-build-item architecture-build-dot">
       <circle cx={x} cy={y} r={5} className="fill-accent/15" />
       <circle cx={x} cy={y} r={2.5} className="fill-accent" />
     </g>
   );
 }
 
-function FlowPath({ d, delay = 0 }: { d: string; delay?: number }) {
+function FlowPath({
+  d,
+  delay = 0,
+  overlayDelay = 0,
+}: {
+  d: string;
+  delay?: number;
+  overlayDelay?: number;
+}) {
   return (
     <>
-      <path d={d} className="flow-line" />
+      <path
+        d={d}
+        pathLength={1}
+        className="flow-line architecture-build-line"
+        style={{ "--build-delay": `${delay}s` } as CSSProperties}
+      />
       <path
         d={d}
         className="flow-overlay"
-        style={{ animationDelay: `${delay}s` }}
+        style={{ "--flow-delay": `${overlayDelay}s` } as CSSProperties}
       />
     </>
   );
@@ -138,7 +157,7 @@ export function ArchitectureDiagram({ spec }: ArchitectureDiagramProps) {
   return (
     <svg
       viewBox={`0 0 ${V_W} ${V_H}`}
-      className="h-auto w-full"
+      className="architecture-diagram h-auto w-full"
       role="img"
       aria-label="System architecture diagram"
     >
@@ -151,29 +170,46 @@ export function ArchitectureDiagram({ spec }: ArchitectureDiagramProps) {
             height={g.h}
             rx={10}
             fill="transparent"
-            className="stroke-border/15"
+            className="architecture-build-item architecture-build-group stroke-border/15"
             strokeWidth={1}
             strokeDasharray="3 4"
+            style={{ "--build-delay": `${i * 0.14}s` } as CSSProperties}
           />
         ))}
 
         {CLIENT_YS.map((y, i) => (
-          <FlowPath key={`cp-${i}`} d={clientPath(y)} delay={i * 0.3} />
+          <FlowPath
+            key={`cp-${i}`}
+            d={clientPath(y)}
+            delay={0.2 + i * 0.12}
+            overlayDelay={1.2 + i * 0.3}
+          />
         ))}
 
         {SERVICE_YS.map((y, i) => (
-          <FlowPath key={`sp-${i}`} d={servicePath(y)} delay={0.4 + i * 0.25} />
+          <FlowPath
+            key={`sp-${i}`}
+            d={servicePath(y)}
+            delay={0.5 + i * 0.1}
+            overlayDelay={1.7 + i * 0.25}
+          />
         ))}
 
         {STORE_YS.map((y, i) => (
-          <FlowPath key={`dp-${i}`} d={storePath(y)} delay={0.6 + i * 0.2} />
+          <FlowPath
+            key={`dp-${i}`}
+            d={storePath(y)}
+            delay={0.9 + i * 0.08}
+            overlayDelay={2 + i * 0.2}
+          />
         ))}
 
         {groupBottoms.map((g, i) => (
           <FlowPath
             key={`mvp-${i}`}
             d={`M ${g.x} ${g.y} L ${g.x} ${RAIL_Y} L ${monitorCenterX} ${RAIL_Y} L ${monitorCenterX} ${monitorTopY}`}
-            delay={0.9 + i * 0.3}
+            delay={1.05 + i * 0.12}
+            overlayDelay={2.2 + i * 0.3}
           />
         ))}
 
@@ -202,6 +238,7 @@ export function ArchitectureDiagram({ spec }: ArchitectureDiagramProps) {
             y={CLIENT_YS[i]}
             w={CLIENTS_W}
             label={label}
+            delay={0.2 + i * 0.1}
           />
         ))}
 
@@ -211,6 +248,7 @@ export function ArchitectureDiagram({ spec }: ArchitectureDiagramProps) {
           w={GATEWAY_W}
           label={spec.gateway}
           accent
+          delay={0.6}
         />
 
         {services.map((label, i) => (
@@ -220,6 +258,7 @@ export function ArchitectureDiagram({ spec }: ArchitectureDiagramProps) {
             y={SERVICE_YS[i]}
             w={SERVICES_W}
             label={label}
+            delay={0.8 + i * 0.08}
           />
         ))}
 
@@ -230,6 +269,7 @@ export function ArchitectureDiagram({ spec }: ArchitectureDiagramProps) {
             y={STORE_YS[i]}
             w={STORES_W}
             label={label}
+            delay={1 + i * 0.08}
           />
         ))}
 
@@ -239,15 +279,17 @@ export function ArchitectureDiagram({ spec }: ArchitectureDiagramProps) {
           width={MONITOR.w}
           height={MONITOR.h}
           rx={R}
-          className="fill-surface-2 stroke-border/15"
+          className="architecture-build-item architecture-build-node fill-surface-2 stroke-border/15"
           strokeWidth={1}
+          style={{ "--build-delay": "1.3s" } as CSSProperties}
         />
         <text
           x={MONITOR.x + MONITOR.w / 2}
           y={MONITOR.y + MONITOR.h / 2 + 4}
           textAnchor="middle"
-          className="fill-text text-[11px]"
-          style={{ fontFamily: "inherit" }}
+          className="architecture-build-item architecture-build-node fill-text text-[11px]"
+          // Slightly later than the monitor container for a typed-in feel.
+          style={{ "--build-delay": "1.4s", fontFamily: "inherit" } as CSSProperties}
         >
           {spec.footer}
         </text>
