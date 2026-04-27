@@ -49,12 +49,18 @@ export const portfolio: Portfolio = {
     gateway: "API Gateway",
     services: [
       "Auth Service",
-      "Order Service",
-      "Payment Service",
-      "Notification Service",
+      "Core API Service",
+      "AI Orchestrator",
+      "Embedding Worker",
     ],
-    stores: ["PostgreSQL", "Redis", "S3 Storage", "Message Queue"],
-    footer: "Monitoring & Logging",
+    stores: ["PostgreSQL", "Redis Cache", "Vector DB", "Object Storage"],
+    connections: [
+      { service: "Auth Service", stores: ["PostgreSQL", "Redis Cache"] },
+      { service: "Core API Service", stores: ["PostgreSQL", "Redis Cache"] },
+      { service: "AI Orchestrator", stores: ["Redis Cache", "Vector DB", "Object Storage"] },
+      { service: "Embedding Worker", stores: ["Vector DB", "Object Storage"] },
+    ],
+    footer: "Monitoring, Logging, Tracing & Model Observability",
   },
 
   projects: [

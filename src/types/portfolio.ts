@@ -52,6 +52,10 @@ export interface ArchitectureSpec {
   gateway: string;
   services: string[];
   stores: string[];
+  connections?: Array<{
+    service: string;
+    stores: string[];
+  }>;
   footer: string;
 }
 

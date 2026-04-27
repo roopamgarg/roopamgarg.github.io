@@ -24,7 +24,7 @@ export function TerminalWindow({ lines, title = "bash" }: TerminalWindowProps) {
       <pre className="overflow-x-auto px-4 py-4 font-mono text-xs leading-relaxed text-text">
         <code>
           {lines.map((line, idx) => {
-            const isPrompt = line.startsWith("arjun@dev:~$");
+            const isPrompt = line.startsWith("roopam@dev:~$");
             return (
               <div
                 key={idx}

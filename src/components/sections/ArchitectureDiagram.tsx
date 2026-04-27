@@ -137,14 +137,43 @@ function servicePath(y: number) {
   return `M ${GATEWAY_RIGHT} ${GATEWAY_Y} L ${BUS_R} ${GATEWAY_Y} L ${BUS_R} ${y} L ${SERVICES_LEFT} ${y}`;
 }
 
-function storePath(y: number) {
-  return `M ${SERVICES_RIGHT} ${y} L ${STORES_LEFT} ${y}`;
+function storePath(fromY: number, toY: number) {
+  if (fromY === toY) {
+    return `M ${SERVICES_RIGHT} ${fromY} L ${STORES_LEFT} ${toY}`;
+  }
+
+  const midX = (SERVICES_RIGHT + STORES_LEFT) / 2;
+  return `M ${SERVICES_RIGHT} ${fromY} L ${midX} ${fromY} L ${midX} ${toY} L ${STORES_LEFT} ${toY}`;
 }
 
 export function ArchitectureDiagram({ spec }: ArchitectureDiagramProps) {
   const clients = spec.clients.slice(0, CLIENT_YS.length);
   const services = spec.services.slice(0, SERVICE_YS.length);
   const stores = spec.stores.slice(0, STORE_YS.length);
+  const serviceYByLabel = new Map(services.map((label, i) => [label, SERVICE_YS[i]]));
+  const storeYByLabel = new Map(stores.map((label, i) => [label, STORE_YS[i]]));
+
+  const serviceStorePaths =
+    spec.connections && spec.connections.length > 0
+      ? spec.connections.flatMap((connection) => {
+          const fromY = serviceYByLabel.get(connection.service);
+          if (fromY === undefined) {
+            return [];
+          }
+
+          return connection.stores.flatMap((storeLabel) => {
+            const toY = storeYByLabel.get(storeLabel);
+            if (toY === undefined) {
+              return [];
+            }
+
+            return [{ key: `${connection.service}->${storeLabel}`, d: storePath(fromY, toY) }];
+          });
+        })
+      : STORE_YS.map((toY, i) => ({
+          key: `default-store-path-${i}`,
+          d: storePath(SERVICE_YS[i], toY),
+        }));
 
   const monitorCenterX = MONITOR.x + MONITOR.w / 2;
   const monitorTopY = MONITOR.y;
@@ -195,10 +224,10 @@ export function ArchitectureDiagram({ spec }: ArchitectureDiagramProps) {
           />
         ))}
 
-        {STORE_YS.map((y, i) => (
+        {serviceStorePaths.map((path, i) => (
           <FlowPath
-            key={`dp-${i}`}
-            d={storePath(y)}
+            key={path.key}
+            d={path.d}
             delay={0.9 + i * 0.08}
             overlayDelay={2 + i * 0.2}
           />
