@@ -18,11 +18,11 @@
   --color-surface: 248 250 252;
   --color-surface-2: 241 245 249;
   --color-border: 15 23 42;
-  --color-ring: 22 163 74;
+  --color-ring: 59 130 246;
   --color-text: 15 23 42;
   --color-text-muted: 71 85 105;
-  --color-accent: 22 163 74;
+  --color-accent: 37 99 235;
   --color-accent-fg: 255 255 255;
-  --color-success: 22 163 74;
+  --color-success: 37 99 235;
   --color-danger: 220 38 38;
 }
