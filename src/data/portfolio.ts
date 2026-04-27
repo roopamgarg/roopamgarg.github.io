@@ -65,13 +65,13 @@ export const portfolio: Portfolio = {
 
   projects: [
     {
-      name: "DevFlow",
+      name: "StoryLens",
       icon: "Code2",
       description:
-        "Collaborative development platform with real-time code execution and deployments.",
-      stack: ["Next.js", "Node.js", "PostgreSQL"],
-      live: "#",
-      github: "#",
+        "A system that converts stories into graphs to detect plot holes, inconsistencies, and logical gaps",
+      stack: ["Next.js", "Node.js", "LLMs", "wink-nlp"],
+      live: "https://storylens.viralengine.in/",
+      github: "https://github.com/roopamgarg/StoryLens",
     },
     {
       name: "AuthHub",
