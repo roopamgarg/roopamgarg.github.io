@@ -46,11 +46,7 @@ export function Hero({ navItem, hero, architecture }: HeroProps) {
       </div>
 
       <div className="min-w-0">
-        <div className="-mx-4 overflow-x-auto px-4 md:mx-0 md:overflow-visible md:px-0">
-          <div className="min-w-[560px] md:min-w-0">
-            <ArchitectureDiagram spec={architecture} />
-          </div>
-        </div>
+        <ArchitectureDiagram spec={architecture} />
       </div>
     </section>
   );

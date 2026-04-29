@@ -27,12 +27,12 @@ export function Experience({
         <SectionLabel item={navItem} targetHref={`#${navItem.id}`} />
       </div>
 
-      <div className="grid gap-8 md:grid-cols-2 md:gap-10">
-        <div className="card">
+      <div className="grid min-w-0 gap-8 md:grid-cols-2 md:gap-10">
+        <div className="card min-w-0 overflow-hidden">
           <Timeline items={experience} />
         </div>
-        <div className="flex flex-col gap-6">
-          <div className="card">
+        <div className="min-w-0 flex flex-col gap-6">
+          <div className="card min-w-0">
             <TechStack items={techStack} />
           </div>
           <CodeWindow code={codeSnippet} />

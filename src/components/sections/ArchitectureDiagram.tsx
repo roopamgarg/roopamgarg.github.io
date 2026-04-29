@@ -186,7 +186,7 @@ export function ArchitectureDiagram({ spec }: ArchitectureDiagramProps) {
   return (
     <svg
       viewBox={`0 0 ${V_W} ${V_H}`}
-      className="architecture-diagram h-auto w-full"
+      className="architecture-diagram block h-auto w-full max-w-full"
       role="img"
       aria-label="System architecture diagram"
     >

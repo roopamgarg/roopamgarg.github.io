@@ -35,13 +35,12 @@ export default function App() {
       </a>
 
       <div className="relative z-10 flex">
-        {sidebarVisible && (
-          <Sidebar
-            brand={portfolio.brand}
-            nav={portfolio.nav}
-            activeId={activeId}
-          />
-        )}
+        <Sidebar
+          brand={portfolio.brand}
+          nav={portfolio.nav}
+          activeId={activeId}
+          visible={sidebarVisible}
+        />
 
         <div className="min-w-0 flex-1">
           <TopNav

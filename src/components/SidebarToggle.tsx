@@ -16,7 +16,7 @@ export function SidebarToggle({ visible, onToggle }: SidebarToggleProps) {
       aria-label={nextLabel}
       aria-pressed={!visible}
       title={nextLabel}
-      className="hidden h-9 w-9 items-center justify-center rounded-full border border-border/10 bg-surface/80 text-muted transition-colors hover:border-border/20 hover:text-text md:inline-flex"
+      className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/10 bg-surface/80 text-muted transition-colors hover:border-border/20 hover:text-text"
     >
       <Icon className="h-4 w-4" aria-hidden="true" />
     </button>
