@@ -104,25 +104,25 @@ export const portfolio: Portfolio = {
 
   experience: [
     {
-      period: "2023 - Present",
+      period: "2024 - Present",
+      role: "Software Engineer 2",
+      company: "Observe.AI",
+      description:
+        "Scaled frontend systems and performance infrastructure for high-traffic products, cutting load times and improving UX at scale.",
+    },
+    {
+      period: "2022 - 2024",
       role: "Software Engineer",
-      company: "BuildFast Inc.",
+      company: "Juspay",
       description:
-        "Building scalable SaaS products used by thousands of developers. Focused on backend architecture, performance and reliability.",
+        "Built and optimized critical payment flows and cross-platform systems to improve transaction success and onboarding efficiency."
     },
     {
-      period: "2021 - 2023",
-      role: "Backend Developer",
-      company: "CodeScale Solutions",
-      description:
-        "Developed and maintained microservices powering internal platforms and customer-facing applications.",
-    },
-    {
-      period: "2019 - 2021",
+      period: "2021 - 2022",
       role: "Software Developer Intern",
-      company: "TechNova",
+      company: "Appdesk",
       description:
-        "Worked on backend services, APIs and database design.",
+        "Developed scalable frontend and end-to-end wallet systems, boosting development speed and improving payment reliability.",
     },
   ],
 
@@ -196,8 +196,8 @@ export const portfolio: Portfolio = {
     headline: "Let's connect",
     description:
       "I'm open to new opportunities and interesting projects.",
-    email: "hello@roopam.dev",
-    linkedin: "#",
+    email: "hello@roopamgarg.in",
+    linkedin: "https://www.linkedin.com/in/roopamgarg1",
     status: "Open to work",
     location: { label: "India", flag: "🇮🇳" },
   },
