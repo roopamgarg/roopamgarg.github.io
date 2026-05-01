@@ -74,13 +74,13 @@ export const portfolio: Portfolio = {
       github: "https://github.com/roopamgarg/StoryLens",
     },
     {
-      name: "AuthHub",
+      name: "Webcam Tracker",
       icon: "Lock",
       description:
-        "Secure authentication system with OAuth, JWT and role-based access control.",
-      stack: ["TypeScript", "Express", "Redis"],
-      live: "#",
-      github: "#",
+        "A tiny app that quietly tells you which apps are using your webcam, for how long, without ever touching your camera feed.",
+      stack: ["Rust", "Tauri", "React"],
+      live: "https://roopamgarg.in/webcam-usage-tracker/",
+      github: "https://github.com/roopamgarg/webcam-usage-tracker",
     },
     {
       name: "PayStream",
