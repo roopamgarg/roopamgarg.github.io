@@ -2,6 +2,12 @@ type AnalyticsTarget = "live" | "github";
 
 let initialized = false;
 let gaEnabled = false;
+const ANALYTICS_DEBUG = true;
+
+function debug(message: string, details?: unknown): void {
+  if (!ANALYTICS_DEBUG) return;
+  console.info(`[analytics] ${message}`, details ?? "");
+}
 
 function injectScript(src: string): Promise<void> {
   return new Promise((resolve, reject) => {
@@ -48,6 +54,11 @@ function warn(message: string, error?: unknown): void {
 
 export function initAnalytics(): void {
   if (!import.meta.env.PROD || initialized || !hasAnyTrackingId()) {
+    debug("Init skipped.", {
+      isProd: import.meta.env.PROD,
+      initialized,
+      hasAnyTrackingId: hasAnyTrackingId(),
+    });
     return;
   }
 
@@ -56,16 +67,23 @@ export function initAnalytics(): void {
 
   const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID;
   const clarityId = import.meta.env.VITE_CLARITY_PROJECT_ID;
+  debug("Init started.", { measurementId, clarityId });
 
   withIdleCallback(() => {
+    debug("Idle callback fired.");
     if (measurementId) {
       void injectScript(`https://www.googletagmanager.com/gtag/js?id=${measurementId}`)
         .then(() => {
+          debug("GA script loaded.", {
+            hasGoogleTagManager: Boolean((window as Window & { google_tag_manager?: unknown }).google_tag_manager),
+          });
           window.gtag?.("js", new Date());
+          debug("gtag js event pushed.", { dataLayerSize: window.dataLayer?.length });
           window.gtag?.("config", measurementId, {
             allow_google_signals: false,
             allow_ad_personalization_signals: false,
           });
+          debug("gtag config pushed.", { dataLayerSize: window.dataLayer?.length });
           // Force one first-hit event to make GA network verification straightforward.
           window.gtag?.("event", "page_view", {
             send_to: measurementId,
@@ -73,6 +91,7 @@ export function initAnalytics(): void {
             page_path: window.location.pathname,
             page_title: document.title,
           });
+          debug("page_view pushed.", { dataLayerSize: window.dataLayer?.length });
           gaEnabled = true;
         })
         .catch((error) => {
@@ -97,7 +116,11 @@ export function initAnalytics(): void {
 }
 
 function track(eventName: string, params: Record<string, string>): void {
-  if (!gaEnabled) return;
+  if (!gaEnabled) {
+    debug(`Track skipped before GA enabled: ${eventName}`, params);
+    return;
+  }
+  debug(`Track event: ${eventName}`, params);
   window.gtag?.("event", eventName, params);
 }
 
