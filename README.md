@@ -25,7 +25,8 @@ Key features:
 6. [Editing content](#editing-content)
 7. [Theming](#theming)
 8. [Accessibility](#accessibility)
-9. [Deployment](#deployment)
+9. [Analytics](#analytics)
+10. [Deployment](#deployment)
 
 ---
 
@@ -272,6 +273,43 @@ That's it — every component will inherit the new palette.
 - **`prefers-reduced-motion: reduce`** respected for smooth scroll, theme transitions, and the diagram's flow animation
 - **Logical heading order**: one `h1` in the hero, `h2` per section
 - **`scroll-margin-top`** on every `section[id]` so hash-linked anchors aren't hidden under the sticky nav
+
+## Analytics
+
+This site supports:
+
+- **GA4** for page visits, geo/source/device reporting, and custom interaction events
+- **Microsoft Clarity** for heatmaps and session recordings
+- **Automatic tracking in production** when analytics IDs are configured
+
+### Required environment variables
+
+Create local `.env`/`.env.local` values from [`.env.example`](.env.example):
+
+```bash
+VITE_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+VITE_CLARITY_PROJECT_ID=your_clarity_project_id
+```
+
+For GitHub Pages, configure repository **Actions Variables** (not Secrets) with the same names:
+
+- `VITE_GA_MEASUREMENT_ID`
+- `VITE_CLARITY_PROJECT_ID`
+
+The deploy workflow passes these into the build step in [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml), so Vite can embed them at build time.
+
+### Tracked custom events
+
+- `section_view` (`section_id`)
+- `cta_click` (`cta_name`, `location`)
+- `project_click` (`project_name`, `target`)
+- `resume_download` (`location`)
+
+### Validation checklist
+
+1. Open GA4 Realtime/DebugView and verify `page_view` plus custom events.
+2. Open Clarity and confirm incoming sessions + heatmaps.
+3. Confirm no analytics errors in local dev when IDs are missing.
 
 ## Deployment
 

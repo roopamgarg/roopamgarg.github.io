@@ -1,5 +1,7 @@
 import { Linkedin, Mail } from "lucide-react";
 import { SectionLabel } from "../SectionLabel";
+import { useSectionView } from "@/hooks/useSectionView";
+import { trackCtaClick } from "@/lib/analytics";
 import { WorldMap } from "./WorldMap";
 import type { ContactSpec, NavItem } from "@/types/portfolio";
 
@@ -9,6 +11,8 @@ interface ContactProps {
 }
 
 export function Contact({ navItem, contact }: ContactProps) {
+  useSectionView(navItem.id);
+
   return (
     <section
       id={navItem.id}
@@ -30,6 +34,7 @@ export function Contact({ navItem, contact }: ContactProps) {
           <div className="flex flex-wrap gap-3">
             <a
               href={`mailto:${contact.email}`}
+              onClick={() => trackCtaClick("email", "contact")}
               className="inline-flex items-center gap-2 rounded-md border border-border/15 bg-surface-2/70 px-3 py-2 text-sm text-text transition-colors hover:border-border/25"
             >
               <Mail className="h-4 w-4 text-accent" aria-hidden="true" />
@@ -39,6 +44,7 @@ export function Contact({ navItem, contact }: ContactProps) {
               href={contact.linkedin}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackCtaClick("linkedin", "contact")}
               className="inline-flex items-center gap-2 rounded-md border border-border/15 bg-surface-2/70 px-3 py-2 text-sm text-text transition-colors hover:border-border/25"
             >
               <Linkedin className="h-4 w-4 text-accent" aria-hidden="true" />

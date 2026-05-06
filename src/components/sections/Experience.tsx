@@ -1,4 +1,5 @@
 import { SectionLabel } from "../SectionLabel";
+import { useSectionView } from "@/hooks/useSectionView";
 import { CodeWindow } from "./CodeWindow";
 import { TechStack } from "./TechStack";
 import { Timeline } from "./Timeline";
@@ -17,6 +18,8 @@ export function Experience({
   techStack,
   codeSnippet,
 }: ExperienceProps) {
+  useSectionView(navItem.id);
+
   return (
     <section
       id={navItem.id}

@@ -1,4 +1,5 @@
 import { SectionLabel } from "../SectionLabel";
+import { useSectionView } from "@/hooks/useSectionView";
 import { TerminalWindow } from "./TerminalWindow";
 import { TraitCard } from "./TraitCard";
 import type { AboutSpec, NavItem } from "@/types/portfolio";
@@ -9,6 +10,8 @@ interface AboutProps {
 }
 
 export function About({ navItem, about }: AboutProps) {
+  useSectionView(navItem.id);
+
   return (
     <section
       id={navItem.id}

@@ -1,5 +1,6 @@
 import { SectionLabel } from "../SectionLabel";
 import { ProjectCard } from "./ProjectCard";
+import { useSectionView } from "@/hooks/useSectionView";
 import type { NavItem, Project } from "@/types/portfolio";
 
 interface ProjectsProps {
@@ -8,6 +9,8 @@ interface ProjectsProps {
 }
 
 export function Projects({ navItem, projects }: ProjectsProps) {
+  useSectionView(navItem.id);
+
   return (
     <section
       id={navItem.id}

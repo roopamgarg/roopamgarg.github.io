@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import { getIcon } from "@/lib/icons";
+import { trackProjectClick } from "@/lib/analytics";
 import type { Project } from "@/types/portfolio";
 
 interface ProjectCardProps {
@@ -35,6 +36,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           href={project.live}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackProjectClick(project.name, "live")}
           className="inline-flex items-center gap-1 font-medium text-accent hover:underline"
         >
           Live
@@ -44,6 +46,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           href={project.github}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackProjectClick(project.name, "github")}
           className="inline-flex items-center gap-1 font-medium text-muted hover:text-text"
         >
           GitHub

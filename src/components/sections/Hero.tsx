@@ -1,4 +1,6 @@
 import { ArrowUpRight, Download } from "lucide-react";
+import { useSectionView } from "@/hooks/useSectionView";
+import { trackCtaClick, trackResumeDownload } from "@/lib/analytics";
 import type { ArchitectureSpec, HeroSpec, NavItem } from "@/types/portfolio";
 import { ArchitectureDiagram } from "./ArchitectureDiagram";
 
@@ -9,6 +11,8 @@ interface HeroProps {
 }
 
 export function Hero({ navItem, hero, architecture }: HeroProps) {
+  useSectionView(navItem.id);
+
   return (
     <section
       id={navItem.id}
@@ -30,6 +34,7 @@ export function Hero({ navItem, hero, architecture }: HeroProps) {
         <div className="mt-2 flex flex-wrap items-center gap-3">
           <a
             href="#projects"
+            onClick={() => trackCtaClick("view_projects", "hero")}
             className="inline-flex items-center gap-2 rounded-md bg-accent px-4 py-2 text-sm font-semibold text-accent-fg transition-colors hover:brightness-110"
           >
             {hero.primaryCta}
@@ -38,6 +43,8 @@ export function Hero({ navItem, hero, architecture }: HeroProps) {
           <a
             href="https://drive.google.com/file/d/1lwOmAjjsoOb-1j1m7jlbLwTnwVcDyS9F/view?usp=sharing"
             target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackResumeDownload("hero")}
             className="inline-flex items-center gap-2 rounded-md border border-border/15 bg-surface/60 px-4 py-2 text-sm font-medium text-text transition-colors hover:border-border/25"
           >
             {hero.secondaryCta}
