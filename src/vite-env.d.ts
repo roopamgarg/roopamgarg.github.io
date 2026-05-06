@@ -12,5 +12,6 @@ interface ImportMeta {
 interface Window {
   dataLayer?: unknown[];
   gtag?: (...args: unknown[]) => void;
-  clarity?: (...args: unknown[]) => void;
+  /** Clarity queue stub or full SDK; stub exposes `.q` until the tag script replaces behavior. */
+  clarity?: ((...args: unknown[]) => void) & { q?: unknown[] };
 }

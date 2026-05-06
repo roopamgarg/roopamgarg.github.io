@@ -43,10 +43,23 @@ function setupNoopStubs(): void {
   window.gtag ??= function gtag(...args: unknown[]) {
     window.dataLayer?.push(args);
   };
-  // Do not stub window.clarity. Clarity's tag uses `window.clarity = window.clarity || factory`;
-  // a noop function is truthy and prevents the real implementation (with `.q`) from loading,
-  // which causes: Cannot read properties of undefined (reading 'unshift').
 }
+
+/** Same queue stub as Microsoft's inline snippet; required before loading `clarity.ms/tag/...`. */
+function ensureClarityQueueStub(): void {
+  const w = window as Window & {
+    clarity?: ClarityQueueFn;
+  };
+  if (typeof w.clarity === "function") {
+    return;
+  }
+  const clarity = function (...args: unknown[]) {
+    (clarity.q ??= []).push(args);
+  } as ClarityQueueFn;
+  w.clarity = clarity;
+}
+
+type ClarityQueueFn = ((...args: unknown[]) => void) & { q?: unknown[] };
 
 function hasAnyTrackingId(): boolean {
   return Boolean(
@@ -122,6 +135,7 @@ export function initAnalytics(): void {
     }
 
     if (clarityId) {
+      ensureClarityQueueStub();
       void injectScript("https://www.clarity.ms/tag/" + clarityId).catch((error) => {
         warn("Clarity script load failed.", error);
       });
