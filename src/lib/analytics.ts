@@ -66,11 +66,20 @@ export function initAnalytics(): void {
             allow_google_signals: false,
             allow_ad_personalization_signals: false,
           });
+          // Force one first-hit event to make GA network verification straightforward.
+          window.gtag?.("event", "page_view", {
+            send_to: measurementId,
+            page_location: window.location.href,
+            page_path: window.location.pathname,
+            page_title: document.title,
+          });
           gaEnabled = true;
         })
         .catch((error) => {
           warn("GA4 script load failed.", error);
         });
+    } else {
+      warn("GA4 measurement ID missing; GA4 is disabled.");
     }
 
     if (clarityId) {
@@ -81,6 +90,8 @@ export function initAnalytics(): void {
         .catch((error) => {
           warn("Clarity script load failed.", error);
         });
+    } else {
+      warn("Clarity project ID missing; Clarity is disabled.");
     }
   });
 }
