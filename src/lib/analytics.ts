@@ -6,7 +6,7 @@ type QueuedEvent = {
 
 let initialized = false;
 let gaEnabled = false;
-const ANALYTICS_DEBUG = true;
+const ANALYTICS_DEBUG = false;
 const pendingEvents: QueuedEvent[] = [];
 
 function debug(message: string, details?: unknown): void {
@@ -43,7 +43,9 @@ function setupNoopStubs(): void {
   window.gtag ??= function gtag(...args: unknown[]) {
     window.dataLayer?.push(args);
   };
-  window.clarity ??= () => {};
+  // Do not stub window.clarity. Clarity's tag uses `window.clarity = window.clarity || factory`;
+  // a noop function is truthy and prevents the real implementation (with `.q`) from loading,
+  // which causes: Cannot read properties of undefined (reading 'unshift').
 }
 
 function hasAnyTrackingId(): boolean {
@@ -120,13 +122,9 @@ export function initAnalytics(): void {
     }
 
     if (clarityId) {
-      void injectScript("https://www.clarity.ms/tag/" + clarityId)
-        .then(() => {
-          window.clarity?.("start");
-        })
-        .catch((error) => {
-          warn("Clarity script load failed.", error);
-        });
+      void injectScript("https://www.clarity.ms/tag/" + clarityId).catch((error) => {
+        warn("Clarity script load failed.", error);
+      });
     } else {
       warn("Clarity project ID missing; Clarity is disabled.");
     }
