@@ -1,8 +1,13 @@
 type AnalyticsTarget = "live" | "github";
+type QueuedEvent = {
+  eventName: string;
+  params: Record<string, string>;
+};
 
 let initialized = false;
 let gaEnabled = false;
 const ANALYTICS_DEBUG = true;
+const pendingEvents: QueuedEvent[] = [];
 
 function debug(message: string, details?: unknown): void {
   if (!ANALYTICS_DEBUG) return;
@@ -52,6 +57,18 @@ function warn(message: string, error?: unknown): void {
   console.warn(`[analytics] ${message}`, error ?? "");
 }
 
+function flushPendingEvents(): void {
+  if (!gaEnabled || pendingEvents.length === 0) {
+    return;
+  }
+
+  debug("Flushing queued events.", { count: pendingEvents.length });
+  const queued = pendingEvents.splice(0, pendingEvents.length);
+  queued.forEach(({ eventName, params }) => {
+    window.gtag?.("event", eventName, params);
+  });
+}
+
 export function initAnalytics(): void {
   if (!import.meta.env.PROD || initialized || !hasAnyTrackingId()) {
     debug("Init skipped.", {
@@ -93,6 +110,7 @@ export function initAnalytics(): void {
           });
           debug("page_view pushed.", { dataLayerSize: window.dataLayer?.length });
           gaEnabled = true;
+          flushPendingEvents();
         })
         .catch((error) => {
           warn("GA4 script load failed.", error);
@@ -117,7 +135,11 @@ export function initAnalytics(): void {
 
 function track(eventName: string, params: Record<string, string>): void {
   if (!gaEnabled) {
-    debug(`Track skipped before GA enabled: ${eventName}`, params);
+    pendingEvents.push({ eventName, params });
+    debug(`Track queued before GA enabled: ${eventName}`, {
+      ...params,
+      queuedCount: pendingEvents.length,
+    });
     return;
   }
   debug(`Track event: ${eventName}`, params);
