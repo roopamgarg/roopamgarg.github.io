@@ -1,7 +1,7 @@
 type AnalyticsTarget = "live" | "github";
 
 let initialized = false;
-let enabled = false;
+let gaEnabled = false;
 
 function injectScript(src: string): Promise<void> {
   return new Promise((resolve, reject) => {
@@ -29,15 +29,15 @@ function withIdleCallback(fn: () => void): void {
 
 function setupNoopStubs(): void {
   window.dataLayer ??= [];
-  window.gtag ??= (...args: unknown[]) => {
+  window.gtag ??= function gtag(...args: unknown[]) {
     window.dataLayer?.push(args);
   };
   window.clarity ??= () => {};
 }
 
-function hasTrackingIds(): boolean {
+function hasAnyTrackingId(): boolean {
   return Boolean(
-    import.meta.env.VITE_GA_MEASUREMENT_ID &&
+    import.meta.env.VITE_GA_MEASUREMENT_ID ||
       import.meta.env.VITE_CLARITY_PROJECT_ID,
   );
 }
@@ -47,42 +47,46 @@ function warn(message: string, error?: unknown): void {
 }
 
 export function initAnalytics(): void {
-  if (!import.meta.env.PROD || initialized || !hasTrackingIds()) {
+  if (!import.meta.env.PROD || initialized || !hasAnyTrackingId()) {
     return;
   }
 
   initialized = true;
-  enabled = true;
   setupNoopStubs();
 
-  const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID!;
-  const clarityId = import.meta.env.VITE_CLARITY_PROJECT_ID!;
+  const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID;
+  const clarityId = import.meta.env.VITE_CLARITY_PROJECT_ID;
 
   withIdleCallback(() => {
-    void injectScript(`https://www.googletagmanager.com/gtag/js?id=${measurementId}`)
-      .then(() => {
-        window.gtag?.("js", new Date());
-        window.gtag?.("config", measurementId, {
-          allow_google_signals: false,
-          allow_ad_personalization_signals: false,
+    if (measurementId) {
+      void injectScript(`https://www.googletagmanager.com/gtag/js?id=${measurementId}`)
+        .then(() => {
+          window.gtag?.("js", new Date());
+          window.gtag?.("config", measurementId, {
+            allow_google_signals: false,
+            allow_ad_personalization_signals: false,
+          });
+          gaEnabled = true;
+        })
+        .catch((error) => {
+          warn("GA4 script load failed.", error);
         });
-      })
-      .catch((error) => {
-        warn("GA4 script load failed.", error);
-      });
+    }
 
-    void injectScript("https://www.clarity.ms/tag/" + clarityId)
-      .then(() => {
-        window.clarity?.("start");
-      })
-      .catch((error) => {
-        warn("Clarity script load failed.", error);
-      });
+    if (clarityId) {
+      void injectScript("https://www.clarity.ms/tag/" + clarityId)
+        .then(() => {
+          window.clarity?.("start");
+        })
+        .catch((error) => {
+          warn("Clarity script load failed.", error);
+        });
+    }
   });
 }
 
 function track(eventName: string, params: Record<string, string>): void {
-  if (!enabled) return;
+  if (!gaEnabled) return;
   window.gtag?.("event", eventName, params);
 }
 
