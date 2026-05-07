@@ -6,7 +6,7 @@ type QueuedEvent = {
 
 let initialized = false;
 let gaEnabled = false;
-const ANALYTICS_DEBUG = true;
+const ANALYTICS_DEBUG = false;
 const pendingEvents: QueuedEvent[] = [];
 
 function debug(message: string, details?: unknown): void {
@@ -111,19 +111,17 @@ export function initAnalytics(): void {
           });
           window.gtag?.("js", new Date());
           debug("gtag js event pushed.", { dataLayerSize: window.dataLayer?.length });
+          const gaDebug = import.meta.env.VITE_GA_DEBUG === "true";
           window.gtag?.("config", measurementId, {
+            send_page_view: true,
             allow_google_signals: false,
             allow_ad_personalization_signals: false,
+            ...(gaDebug ? { debug_mode: true } : {}),
           });
-          debug("gtag config pushed.", { dataLayerSize: window.dataLayer?.length });
-          // Force one first-hit event to make GA network verification straightforward.
-          window.gtag?.("event", "page_view", {
-            send_to: measurementId,
-            page_location: window.location.href,
-            page_path: window.location.pathname,
-            page_title: document.title,
+          debug("gtag config pushed.", {
+            dataLayerSize: window.dataLayer?.length,
+            gaDebug,
           });
-          debug("page_view pushed.", { dataLayerSize: window.dataLayer?.length });
           gaEnabled = true;
           flushPendingEvents();
         })

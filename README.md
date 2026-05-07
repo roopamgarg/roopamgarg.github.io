@@ -289,12 +289,15 @@ Create local `.env`/`.env.local` values from [`.env.example`](.env.example):
 ```bash
 VITE_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 VITE_CLARITY_PROJECT_ID=your_clarity_project_id
+# Optional: GA4 Admin → DebugView (set Actions Variable to true while testing, then remove)
+# VITE_GA_DEBUG=true
 ```
 
 For GitHub Pages, configure repository **Actions Variables** (not Secrets) with the same names:
 
 - `VITE_GA_MEASUREMENT_ID`
 - `VITE_CLARITY_PROJECT_ID`
+- (optional) `VITE_GA_DEBUG` — set to `true` only while verifying events in GA4 **DebugView**
 
 The deploy workflow passes these into the build step in [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml), so Vite can embed them at build time.
 
@@ -307,9 +310,10 @@ The deploy workflow passes these into the build step in [`.github/workflows/depl
 
 ### Validation checklist
 
-1. Open GA4 Realtime/DebugView and verify `page_view` plus custom events.
-2. Open Clarity and confirm incoming sessions + heatmaps.
-3. Confirm no analytics errors in local dev when IDs are missing.
+1. In GA4, open the property whose **Web data stream** shows the same **Measurement ID** as `VITE_GA_MEASUREMENT_ID`, then check **Reports → Realtime** (or **Admin → DebugView** if you set `VITE_GA_DEBUG=true` in the build).
+2. In DevTools → Network, filter `collect` or `google-analytics` — ad blockers and some privacy extensions block these requests even when `dataLayer` updates.
+3. Open Clarity and confirm incoming sessions + heatmaps.
+4. Confirm no analytics errors in local dev when IDs are missing.
 
 ## Deployment
 

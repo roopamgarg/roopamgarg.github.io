@@ -3,6 +3,8 @@
 interface ImportMetaEnv {
   readonly VITE_GA_MEASUREMENT_ID?: string;
   readonly VITE_CLARITY_PROJECT_ID?: string;
+  /** When `"true"`, GA4 sends with debug_mode so events show in Admin → DebugView */
+  readonly VITE_GA_DEBUG?: string;
 }
 
 interface ImportMeta {
