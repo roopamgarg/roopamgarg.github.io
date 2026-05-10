@@ -6,7 +6,7 @@ type QueuedEvent = {
 
 let initialized = false;
 let gaEnabled = false;
-const ANALYTICS_DEBUG = false;
+const ANALYTICS_DEBUG = true;
 const pendingEvents: QueuedEvent[] = [];
 
 function debug(message: string, details?: unknown): void {
@@ -40,8 +40,9 @@ function withIdleCallback(fn: () => void): void {
 
 function setupNoopStubs(): void {
   window.dataLayer ??= [];
-  window.gtag ??= function gtag(...args: unknown[]) {
-    window.dataLayer?.push(args);
+  // Match Google's inline snippet: push the real `arguments` object, not a rest array.
+  window.gtag ??= function gtag() {
+    window.dataLayer!.push(arguments as unknown as never);
   };
 }
 
