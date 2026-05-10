@@ -6,7 +6,7 @@ type QueuedEvent = {
 
 let initialized = false;
 let gaEnabled = false;
-const ANALYTICS_DEBUG = true;
+const ANALYTICS_DEBUG = false;
 const pendingEvents: QueuedEvent[] = [];
 
 function debug(message: string, details?: unknown): void {
