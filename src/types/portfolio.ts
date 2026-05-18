@@ -30,7 +30,7 @@ export interface Project {
   icon: IconName;
   description: string;
   stack: string[];
-  live: string;
+  live?: string;
   github: string;
 }
 

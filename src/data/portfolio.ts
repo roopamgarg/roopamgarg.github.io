@@ -83,13 +83,12 @@ export const portfolio: Portfolio = {
       github: "https://github.com/roopamgarg/webcam-usage-tracker",
     },
     {
-      name: "PayStream",
+      name: "DPP Protocol",
       icon: "CreditCard",
       description:
-        "Payment processing service handling transactions, refunds and webhooks.",
-      stack: ["Node.js", "PostgreSQL", "Kafka"],
-      live: "#",
-      github: "#",
+        "Enables AI agents to perform financial transactions on behalf of users while preserving user control, merchant trust, and full auditability",
+      stack: ["Node.js", "Typescript", "DPP SDK's"],
+      github: "https://github.com/roopamgarg/delegated-payments-protocol",
     },
     {
       name: "FileStore",
@@ -97,7 +96,6 @@ export const portfolio: Portfolio = {
       description:
         "Scalable file storage service with S3 integration, signed URLs and access control.",
       stack: ["AWS S3", "Node.js", "Redis"],
-      live: "#",
       github: "#",
     },
   ],

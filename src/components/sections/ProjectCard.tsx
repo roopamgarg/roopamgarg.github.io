@@ -31,17 +31,21 @@ export function ProjectCard({ project }: ProjectCardProps) {
         ))}
       </ul>
 
-      <footer className="mt-auto flex items-center justify-between pt-4 text-sm">
-        <a
-          href={project.live}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={() => trackProjectClick(project.name, "live")}
-          className="inline-flex items-center gap-1 font-medium text-accent hover:underline"
-        >
-          Live
-          <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
-        </a>
+      <footer
+        className={`mt-auto flex items-center pt-4 text-sm ${project.live ? "justify-between" : "justify-end"}`}
+      >
+        {project.live ? (
+          <a
+            href={project.live}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackProjectClick(project.name, "live")}
+            className="inline-flex items-center gap-1 font-medium text-accent hover:underline"
+          >
+            Live
+            <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+          </a>
+        ) : null}
         <a
           href={project.github}
           target="_blank"
