@@ -88,6 +88,7 @@ export const portfolio: Portfolio = {
       description:
         "Enables AI agents to perform financial transactions on behalf of users while preserving user control, merchant trust, and full auditability",
       stack: ["Node.js", "Typescript", "DPP SDK's"],
+      live: "https://roopamgarg.in/delegated-payments-protocol/",
       github: "https://github.com/roopamgarg/delegated-payments-protocol",
     },
     {
