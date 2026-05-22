@@ -65,6 +65,15 @@ export const portfolio: Portfolio = {
 
   projects: [
     {
+      name: "DPP Protocol",
+      icon: "CreditCard",
+      description:
+        "Lets AI agents make payments on users behalf with control, merchant trust, and audit trails.",
+      stack: ["Node.js", "Typescript", "DPP SDK's"],
+      live: "https://roopamgarg.in/delegated-payments-protocol/",
+      github: "https://github.com/roopamgarg/delegated-payments-protocol",
+    },
+    {
       name: "StoryLens",
       icon: "Code2",
       description:
@@ -82,15 +91,7 @@ export const portfolio: Portfolio = {
       live: "https://roopamgarg.in/webcam-usage-tracker/",
       github: "https://github.com/roopamgarg/webcam-usage-tracker",
     },
-    {
-      name: "DPP Protocol",
-      icon: "CreditCard",
-      description:
-        "Lets AI agents make payments on users behalf with control, merchant trust, and audit trails.",
-      stack: ["Node.js", "Typescript", "DPP SDK's"],
-      live: "https://roopamgarg.in/delegated-payments-protocol/",
-      github: "https://github.com/roopamgarg/delegated-payments-protocol",
-    },
+
     {
       name: "FileStore",
       icon: "Folder",
