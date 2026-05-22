@@ -86,7 +86,7 @@ export const portfolio: Portfolio = {
       name: "DPP Protocol",
       icon: "CreditCard",
       description:
-        "Enables AI agents to perform financial transactions on behalf of users while preserving user control, merchant trust, and full auditability",
+        "Lets AI agents make payments on users behalf with control, merchant trust, and audit trails.",
       stack: ["Node.js", "Typescript", "DPP SDK's"],
       live: "https://roopamgarg.in/delegated-payments-protocol/",
       github: "https://github.com/roopamgarg/delegated-payments-protocol",
