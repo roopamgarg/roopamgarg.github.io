@@ -31,7 +31,7 @@ export function Hero({ navItem, hero, architecture }: HeroProps) {
 
         <h1
           id="hero-heading"
-          className="text-5xl font-black leading-[1.05] tracking-tight text-text sm:text-6xl md:text-7xl normal-case md:uppercase font-sans"
+          className="text-4xl font-black leading-[1.05] tracking-tight text-text sm:text-6xl md:text-7xl normal-case md:uppercase font-sans"
         >
           {hero.titleLead}{" "}
           <span className="text-accent font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-accent via-accent to-accent/90 block mt-1">
