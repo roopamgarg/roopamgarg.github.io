@@ -37,12 +37,10 @@
         try {
           var p = localStorage.getItem("theme-preference");
           var resolved;
-          if (p === "dark" || p === "light") {
-            resolved = p;
+          if (p === "light") {
+            resolved = "light";
           } else {
-            resolved = window.matchMedia("(prefers-color-scheme: dark)").matches
-              ? "dark"
-              : "light";
+            resolved = "dark";
           }
           document.documentElement.dataset.theme = resolved;
         } catch (e) {

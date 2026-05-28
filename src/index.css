@@ -50,7 +50,11 @@
 
 @layer components {
   .card {
-    @apply rounded-2xl border border-border/10 bg-surface/60 p-6 backdrop-blur-sm;
+    @apply rounded-2xl border border-border/5 bg-surface p-6 transition-all duration-500 ease-out;
+  }
+
+  .card-interactive {
+    @apply hover:-translate-y-1 hover:border-accent/80 hover:bg-surface-2 hover:shadow-lg;
   }
 
   .flow-line {
@@ -124,7 +128,7 @@
   }
 
   .pill {
-    @apply inline-flex items-center rounded-md border border-border/10 bg-surface-2/80 px-2.5 py-1 text-xs font-medium text-muted;
+    @apply inline-flex items-center rounded-md border border-border/10 bg-surface-2/80 px-2.5 py-1 text-xs font-medium text-muted transition-all duration-200 hover:scale-[1.04] hover:border-accent/25 hover:bg-surface-2 hover:text-text;
   }
 
   .section-number {
@@ -133,6 +137,54 @@
 
   .skip-link {
     @apply sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-accent focus:px-4 focus:py-2 focus:font-semibold focus:text-accent-fg;
+  }
+
+  /* Scroll Reveal & Progress Indicator */
+  .scroll-progress-container {
+    @apply absolute bottom-0 left-0 h-[2px] w-full bg-border/5 overflow-hidden;
+  }
+
+  .scroll-progress-bar {
+    @apply h-full bg-accent transition-all duration-75 ease-out;
+    width: var(--scroll-progress, 0%);
+  }
+
+  .reveal-on-scroll {
+    will-change: transform, opacity;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    @supports ((animation-timeline: view()) and (animation-range: entry)) {
+      @keyframes fade-in-up {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .reveal-on-scroll {
+        animation: fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+        animation-timeline: view();
+        animation-range: entry 10% cover 30%;
+      }
+    }
+
+    @supports not ((animation-timeline: view()) and (animation-range: entry)) {
+      .reveal-on-scroll {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 800ms cubic-bezier(0.16, 1, 0.3, 1), transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .reveal-on-scroll.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   }
 }
 
@@ -186,3 +238,24 @@
     opacity: 0.35;
   }
 }
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+}
+
+
+.sliding-text-banner {
+  @apply select-none overflow-hidden py-10 bg-gradient-to-r from-accent via-accent/90 to-accent text-accent-fg font-black text-4xl sm:text-6xl md:text-8xl tracking-tight uppercase flex whitespace-nowrap;
+}
+

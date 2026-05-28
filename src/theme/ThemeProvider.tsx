@@ -26,13 +26,6 @@ interface ThemeContextValue {
 
 export const ThemeContext = createContext<ThemeContextValue | null>(null);
 
-const SYSTEM_QUERY = "(prefers-color-scheme: dark)";
-
-function readSystemTheme(): ThemeName {
-  if (typeof window === "undefined") return "dark";
-  return window.matchMedia(SYSTEM_QUERY).matches ? "dark" : "light";
-}
-
 function readStoredPreference(): ThemePreference {
   if (typeof window === "undefined") return DEFAULT_PREFERENCE;
   try {
@@ -43,8 +36,8 @@ function readStoredPreference(): ThemePreference {
   }
 }
 
-function resolve(preference: ThemePreference, system: ThemeName): ThemeName {
-  return preference === "system" ? system : preference;
+function resolve(preference: ThemePreference): ThemeName {
+  return preference === "light" ? "light" : "dark";
 }
 
 const CYCLE: ThemePreference[] = ["dark", "light", "system"];
@@ -53,24 +46,8 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const [preference, setPreferenceState] = useState<ThemePreference>(() =>
     readStoredPreference(),
   );
-  const [systemTheme, setSystemTheme] = useState<ThemeName>(() =>
-    readSystemTheme(),
-  );
 
-  const resolvedTheme = useMemo(
-    () => resolve(preference, systemTheme),
-    [preference, systemTheme],
-  );
-
-  useEffect(() => {
-    if (preference !== "system") return;
-    const mq = window.matchMedia(SYSTEM_QUERY);
-    const onChange = (event: MediaQueryListEvent) => {
-      setSystemTheme(event.matches ? "dark" : "light");
-    };
-    mq.addEventListener("change", onChange);
-    return () => mq.removeEventListener("change", onChange);
-  }, [preference]);
+  const resolvedTheme = useMemo(() => resolve(preference), [preference]);
 
   useEffect(() => {
     document.documentElement.dataset.theme = resolvedTheme;

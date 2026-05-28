@@ -1,3 +1,4 @@
+import { useEffect, useState, type CSSProperties } from "react";
 import { SidebarToggle } from "./SidebarToggle";
 import { ThemeToggle } from "./ThemeToggle";
 import type { NavItem } from "@/types/portfolio";
@@ -17,24 +18,40 @@ export function TopNav({
   sidebarVisible,
   onToggleSidebar,
 }: TopNavProps) {
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (totalHeight > 0) {
+        setProgress((window.scrollY / totalHeight) * 100);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const desktopItems = DESKTOP_LINKS.map(
     (id) => nav.find((n) => n.id === id)!,
   ).filter(Boolean);
 
   return (
-    <header className="sticky top-0 z-30 border-b border-border/10 bg-bg/70 backdrop-blur-md">
+    <header className="sticky top-0 z-30 border-b border-border/5 bg-bg/75 backdrop-blur-lg">
       <div className="flex items-center justify-between gap-4 px-4 py-4 md:px-8">
         <div className="flex items-center gap-3">
           <SidebarToggle visible={sidebarVisible} onToggle={onToggleSidebar} />
           <a
             href="#home"
             className={[
-              "flex items-center gap-2 text-sm font-semibold",
+              "flex items-center gap-2 text-sm font-black uppercase tracking-[0.15em] text-text",
               sidebarVisible ? "md:hidden" : "",
             ].join(" ")}
           >
             <span
-              className="h-2 w-2 rounded-full bg-accent"
+              className="h-2 w-2 rotate-45 bg-accent"
               aria-hidden="true"
             />
             {brand}
@@ -42,12 +59,12 @@ export function TopNav({
         </div>
 
         <nav aria-label="Top">
-          <ul className="flex items-center gap-1 text-sm">
+          <ul className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider">
             {desktopItems.map((item) => (
               <li key={item.id}>
                 <a
                   href={`#${item.id}`}
-                  className="hidden rounded-md px-3 py-1.5 text-muted transition-colors hover:text-text md:inline-flex"
+                  className="hidden rounded-md px-3 py-2 text-muted transition-colors hover:bg-surface/40 hover:text-accent md:inline-flex"
                 >
                   {item.label}
                 </a>
@@ -58,6 +75,13 @@ export function TopNav({
             </li>
           </ul>
         </nav>
+      </div>
+
+      <div className="scroll-progress-container" aria-hidden="true">
+        <div
+          className="scroll-progress-bar"
+          style={{ "--scroll-progress": `${progress}%` } as CSSProperties}
+        />
       </div>
     </header>
   );

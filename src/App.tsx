@@ -7,9 +7,11 @@ import { Contact } from "@/components/sections/Contact";
 import { Experience } from "@/components/sections/Experience";
 import { Hero } from "@/components/sections/Hero";
 import { Projects } from "@/components/sections/Projects";
+import { SkillsMarquee } from "@/components/SkillsMarquee";
 import { portfolio } from "@/data/portfolio";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import { useSidebarVisible } from "@/hooks/useSidebarVisible";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 import type { NavItem } from "@/types/portfolio";
 
 function byId(nav: NavItem[]): Record<string, NavItem> {
@@ -17,6 +19,8 @@ function byId(nav: NavItem[]): Record<string, NavItem> {
 }
 
 export default function App() {
+  useScrollReveal();
+
   const navIds = useMemo(
     () => portfolio.nav.map((n) => n.id),
     [],
@@ -51,26 +55,40 @@ export default function App() {
           />
 
           <main>
-            <Hero
-              navItem={navMap.home}
-              hero={portfolio.hero}
-              architecture={portfolio.architecture}
-            />
-            <Projects
-              navItem={navMap.projects}
-              projects={portfolio.projects}
-            />
-            <Experience
-              navItem={navMap.experience}
-              experience={portfolio.experience}
-              techStack={portfolio.techStack}
-              codeSnippet={portfolio.codeSnippet}
-            />
-            <About navItem={navMap.about} about={portfolio.about} />
-            <Contact navItem={navMap.contact} contact={portfolio.contact} />
+            <div className="reveal-on-scroll">
+              <Hero
+                navItem={navMap.home}
+                hero={portfolio.hero}
+                architecture={portfolio.architecture}
+              />
+            </div>
+            <div className="reveal-on-scroll">
+              <Projects
+                navItem={navMap.projects}
+                projects={portfolio.projects}
+              />
+            </div>
+
+            <SkillsMarquee />
+
+            <div className="reveal-on-scroll">
+              <Experience
+                navItem={navMap.experience}
+                experience={portfolio.experience}
+                techStack={portfolio.techStack}
+                codeSnippet={portfolio.codeSnippet}
+              />
+            </div>
+            <div className="reveal-on-scroll">
+              <About navItem={navMap.about} about={portfolio.about} />
+            </div>
+            <div className="reveal-on-scroll">
+              <Contact navItem={navMap.contact} contact={portfolio.contact} />
+            </div>
           </main>
         </div>
       </div>
     </div>
   );
 }
+

@@ -16,7 +16,7 @@ export const preferences: Record<ThemePreference, PreferenceMeta> = {
   system: { name: "system", label: "System", icon: "Monitor" },
 };
 
-export const DEFAULT_PREFERENCE: ThemePreference = "system";
+export const DEFAULT_PREFERENCE: ThemePreference = "dark";
 export const STORAGE_KEY = "theme-preference";
 
 export function isThemeName(value: unknown): value is ThemeName {

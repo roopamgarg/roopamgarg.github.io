@@ -11,21 +11,23 @@ export function ProjectCard({ project }: ProjectCardProps) {
   const Icon = getIcon(project.icon);
 
   return (
-    <article className="card flex h-full flex-col gap-4">
-      <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-accent/10 text-accent">
-        <Icon className="h-5 w-5" aria-hidden="true" />
+    <article className="card card-interactive group flex h-full flex-col gap-4">
+      <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-accent/10 text-accent transition-colors duration-300 group-hover:bg-accent/20">
+        <Icon className="h-5 w-5 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6" aria-hidden="true" />
       </div>
 
       <header className="space-y-2">
-        <h3 className="text-lg font-semibold text-text">{project.name}</h3>
-        <p className="text-sm leading-relaxed text-muted">
+        <h3 className="text-lg font-semibold text-text transition-colors duration-300 group-hover:text-accent">
+          {project.name}
+        </h3>
+        <p className="text-sm leading-relaxed text-muted transition-colors duration-300 group-hover:text-muted/80">
           {project.description}
         </p>
       </header>
 
       <ul className="flex flex-wrap gap-1.5" aria-label="Tech stack">
         {project.stack.map((tech) => (
-          <li key={tech} className="pill">
+          <li key={tech} className="pill transition-colors duration-300 group-hover:bg-accent/15 group-hover:text-accent">
             {tech}
           </li>
         ))}
@@ -40,10 +42,10 @@ export function ProjectCard({ project }: ProjectCardProps) {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackProjectClick(project.name, "live")}
-            className="inline-flex items-center gap-1 font-medium text-accent hover:underline"
+            className="group/link inline-flex items-center gap-1 font-medium text-accent hover:brightness-110"
           >
             Live
-            <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+            <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" aria-hidden="true" />
           </a>
         ) : null}
         <a
@@ -51,10 +53,10 @@ export function ProjectCard({ project }: ProjectCardProps) {
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => trackProjectClick(project.name, "github")}
-          className="inline-flex items-center gap-1 font-medium text-muted hover:text-text"
+          className="group/link inline-flex items-center gap-1 font-medium text-muted transition-colors hover:text-text"
         >
           GitHub
-          <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+          <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" aria-hidden="true" />
         </a>
       </footer>
     </article>

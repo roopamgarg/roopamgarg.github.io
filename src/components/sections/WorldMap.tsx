@@ -50,7 +50,7 @@ export function WorldMap({ highlights = [] }: WorldMapProps) {
         const cx = h.x * MAP_WIDTH;
         const cy = h.y * MAP_HEIGHT;
         return (
-          <g key={`h-${i}`}>
+          <g key={`h-${i}`} className="group cursor-pointer">
             <circle
               cx={cx}
               cy={cy}
@@ -71,6 +71,28 @@ export function WorldMap({ highlights = [] }: WorldMapProps) {
               />
             </circle>
             <circle cx={cx} cy={cy} r={4} fill="rgb(var(--color-accent))" />
+            
+            {h.label && (
+              <g className="opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <rect
+                  x={cx - 75}
+                  y={cy - 50}
+                  width={150}
+                  height={36}
+                  rx={10}
+                  fill="rgb(var(--color-surface-2))"
+                  stroke="rgb(var(--color-border) / 0.2)"
+                />
+                <text
+                  x={cx}
+                  y={cy - 25}
+                  textAnchor="middle"
+                  className="fill-text text-[18px] font-bold uppercase tracking-wider"
+                >
+                  {h.label}
+                </text>
+              </g>
+            )}
           </g>
         );
       })}

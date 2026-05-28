@@ -7,9 +7,12 @@ interface SectionLabelProps {
 
 export function SectionLabel({ item, targetHref }: SectionLabelProps) {
   return (
-    <div className="space-y-3 md:sticky md:top-24">
-      <div className="section-number">{item.num}</div>
-      <h2 className="text-2xl font-semibold tracking-tight text-text">
+    <div className="space-y-4 md:sticky md:top-24 select-none">
+      <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-accent font-semibold">
+        <span>{item.num}</span>
+        <span className="h-[1.5px] w-10 bg-accent/50" aria-hidden="true" />
+      </div>
+      <h2 className="text-3xl font-black tracking-tight text-text uppercase sm:text-4xl">
         {item.label}
       </h2>
       {item.blurb && (
@@ -20,10 +23,10 @@ export function SectionLabel({ item, targetHref }: SectionLabelProps) {
       {item.ctaLabel && targetHref && (
         <a
           href={targetHref}
-          className="inline-flex items-center gap-1 text-sm font-medium text-accent hover:underline"
+          className="group inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-accent hover:brightness-110"
         >
           {item.ctaLabel}
-          <span aria-hidden="true">{"\u2192"}</span>
+          <span className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">{"\u2192"}</span>
         </a>
       )}
     </div>

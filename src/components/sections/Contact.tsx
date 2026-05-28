@@ -22,15 +22,14 @@ export function Contact({ navItem, contact }: ContactProps) {
       <div id={`${navItem.id}-heading`}>
         <SectionLabel item={navItem} />
       </div>
-
       <div className="grid gap-6 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)_minmax(0,0.8fr)]">
         <div className="card space-y-5">
-          <div className="space-y-2">
-            <h3 className="text-2xl font-semibold text-text">
-              {contact.headline}
-            </h3>
-            <p className="text-sm text-muted">{contact.description}</p>
-          </div>
+            <div className="space-y-2">
+              <h3 className="text-2xl font-black uppercase tracking-wide text-text">
+                {contact.headline}
+              </h3>
+              <p className="text-sm leading-relaxed text-muted">{contact.description}</p>
+            </div>
           <div className="flex flex-wrap gap-3">
             <a
               href={`mailto:${contact.email}`}
@@ -54,7 +53,7 @@ export function Contact({ navItem, contact }: ContactProps) {
         </div>
 
         <div className="card flex items-center justify-center p-4">
-          <WorldMap highlights={[{ x: 0.331, y: 0.801 }]} />
+          <WorldMap highlights={[{ x: 0.331, y: 0.801, label: "Bangalore" }]} />
         </div>
 
         <div className="card space-y-5">
