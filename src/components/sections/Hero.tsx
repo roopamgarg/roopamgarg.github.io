@@ -24,14 +24,14 @@ export function Hero({ navItem, hero, architecture }: HeroProps) {
       <div className="absolute right-10 bottom-10 -z-10 h-80 w-80 rounded-full bg-accent/[0.04] blur-[140px]" />
 
       <div className="flex flex-col gap-6 relative z-10">
-        <div className="inline-flex max-w-fit items-center gap-2 rounded-full border border-accent/20 bg-accent/[0.03] px-3.5 py-1 font-mono text-[10px] font-bold normal-case lg:uppercase tracking-[0.2em] text-accent select-none">
+        <div className="inline-flex max-w-fit items-center gap-2 rounded-full border border-accent/20 bg-accent/[0.03] px-3.5 py-1 font-mono text-[10px] font-bold normal-case xl:uppercase tracking-[0.2em] text-accent select-none">
           <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
           {hero.greeting} 👋
         </div>
 
         <h1
           id="hero-heading"
-          className="text-4xl font-black leading-[1.05] tracking-tight text-text sm:text-5xl md:text-6xl lg:text-7xl normal-case lg:uppercase font-sans"
+          className="text-4xl font-black leading-[1.05] tracking-tight text-text sm:text-5xl md:text-6xl lg:text-7xl normal-case xl:uppercase font-sans"
         >
           {hero.titleLead}{" "}
           <span className="text-accent font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-accent via-accent to-accent/90 block mt-1">
@@ -47,7 +47,7 @@ export function Hero({ navItem, hero, architecture }: HeroProps) {
           <a
             href="#projects"
             onClick={() => trackCtaClick("view_projects", "hero")}
-            className="inline-flex items-center justify-center gap-2 rounded-lg bg-accent px-5 py-3 text-xs font-bold normal-case lg:uppercase tracking-wider text-accent-fg transition-all hover:scale-[1.02]"
+            className="inline-flex items-center justify-center gap-2 rounded-lg bg-accent px-5 py-3 text-xs font-bold normal-case xl:uppercase tracking-wider text-accent-fg transition-all hover:scale-[1.02]"
           >
             {hero.primaryCta}
             <ArrowUpRight className="h-4 w-4 stroke-[2.5]" aria-hidden="true" />
@@ -58,7 +58,7 @@ export function Hero({ navItem, hero, architecture }: HeroProps) {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackResumeDownload("hero")}
-            className="inline-flex items-center justify-center gap-2 rounded-lg border border-border/10 bg-surface/30 px-5 py-3 text-xs font-bold normal-case lg:uppercase tracking-wider text-text transition-all hover:bg-surface/50 hover:border-border/20 hover:scale-[1.02]"
+            className="inline-flex items-center justify-center gap-2 rounded-lg border border-border/10 bg-surface/30 px-5 py-3 text-xs font-bold normal-case xl:uppercase tracking-wider text-text transition-all hover:bg-surface/50 hover:border-border/20 hover:scale-[1.02]"
           >
             {hero.secondaryCta}
             <Download className="h-4 w-4 stroke-[2.5]" aria-hidden="true" />

@@ -87,7 +87,7 @@ export function WorldMap({ highlights = [] }: WorldMapProps) {
                   x={cx}
                   y={cy - 25}
                   textAnchor="middle"
-                  className="fill-text text-[18px] font-bold normal-case lg:uppercase tracking-wider"
+                  className="fill-text text-[18px] font-bold normal-case xl:uppercase tracking-wider"
                 >
                   {h.label}
                 </text>

@@ -26,7 +26,7 @@ export function SkillsMarquee({ items = DEFAULT_SKILLS }: SkillsMarqueeProps) {
         {itemsDouble.map((skill, index) => (
           <div
             key={`${skill}-${index}`}
-            className="flex items-center gap-6 font-black text-xs sm:text-sm tracking-[0.25em] normal-case lg:uppercase text-accent/80 transition-colors hover:text-accent duration-300"
+            className="flex items-center gap-6 font-black text-xs sm:text-sm tracking-[0.25em] normal-case xl:uppercase text-accent/80 transition-colors hover:text-accent duration-300"
           >
             <span>{skill}</span>
             <span className="text-[10px] text-accent/40 font-normal">

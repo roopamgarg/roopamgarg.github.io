@@ -25,7 +25,7 @@ export function Contact({ navItem, contact }: ContactProps) {
       <div className="grid gap-6 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)_minmax(0,0.8fr)]">
         <div className="card space-y-5">
             <div className="space-y-2">
-              <h3 className="text-2xl font-black normal-case lg:uppercase tracking-wide text-text">
+              <h3 className="text-2xl font-black normal-case xl:uppercase tracking-wide text-text">
                 {contact.headline}
               </h3>
               <p className="text-sm leading-relaxed text-muted">{contact.description}</p>
@@ -58,7 +58,7 @@ export function Contact({ navItem, contact }: ContactProps) {
 
         <div className="card space-y-5">
           <div className="space-y-1">
-            <div className="text-xs normal-case lg:uppercase tracking-widest text-muted">
+            <div className="text-xs normal-case xl:uppercase tracking-widest text-muted">
               Currently
             </div>
             <div className="text-sm font-semibold text-accent">
@@ -66,7 +66,7 @@ export function Contact({ navItem, contact }: ContactProps) {
             </div>
           </div>
           <div className="space-y-1">
-            <div className="text-xs normal-case lg:uppercase tracking-widest text-muted">
+            <div className="text-xs normal-case xl:uppercase tracking-widest text-muted">
               Location
             </div>
             <div className="flex items-center gap-2 text-sm font-semibold text-text">

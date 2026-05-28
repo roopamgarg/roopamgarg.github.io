@@ -26,8 +26,8 @@ export function Timeline({ items }: TimelineProps) {
               ].join(" ")}
               aria-hidden="true"
             />
-            <div className="text-sm font-black normal-case lg:uppercase tracking-wider text-text transition-colors duration-300 group-hover:text-accent">{item.role}</div>
-            <div className="text-xs font-bold normal-case lg:uppercase tracking-wider text-accent/80 transition-colors duration-300 group-hover:text-accent">{item.company}</div>
+            <div className="text-sm font-black normal-case xl:uppercase tracking-wider text-text transition-colors duration-300 group-hover:text-accent">{item.role}</div>
+            <div className="text-xs font-bold normal-case xl:uppercase tracking-wider text-accent/80 transition-colors duration-300 group-hover:text-accent">{item.company}</div>
             <p className="text-sm leading-relaxed text-muted pt-1">
               {item.description}
             </p>
