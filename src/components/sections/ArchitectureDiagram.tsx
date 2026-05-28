@@ -69,7 +69,7 @@ function Node({
 }) {
   return (
     <g
-      className={`architecture-build-item architecture-build-node cursor-pointer transition-all duration-300 ${
+      className={`architecture-build-item architecture-build-node cursor-pointer transition-all duration-500 ease-out ${
         active ? "scale-[1.03]" : dimmed ? "opacity-35" : ""
       }`}
       style={{
@@ -88,7 +88,7 @@ function Node({
           height={NODE_H + 8}
           rx={R + 2}
           fill="rgb(var(--color-accent) / 0.15)"
-          className="blur-[6px] transition-all duration-300"
+          className="blur-[6px] transition-all duration-500 ease-out"
         />
       )}
       <rect
@@ -106,14 +106,29 @@ function Node({
         }
         strokeWidth={active ? 1.5 : 1}
       />
+      {active && (
+        <rect
+          x={x}
+          y={y - NODE_H / 2}
+          width={w}
+          height={NODE_H}
+          rx={R}
+          fill="transparent"
+          stroke="rgb(var(--color-accent))"
+          strokeWidth={2.5}
+          pathLength="100"
+          strokeDasharray="40 60"
+          className="border-trace"
+        />
+      )}
       <text
         x={x + w / 2}
         y={y + 3.5}
         textAnchor="middle"
         className={
           active || accent
-            ? "fill-accent text-[11px] font-semibold transition-colors duration-300"
-            : "fill-text text-[11px] transition-colors duration-300"
+            ? "fill-accent text-[11px] font-semibold transition-colors duration-500 ease-out"
+            : "fill-text text-[11px] transition-colors duration-500 ease-out"
         }
         style={{ fontFamily: "inherit" }}
       >
@@ -125,7 +140,7 @@ function Node({
 
 function Dot({ x, y, active = false, dimmed = false }: { x: number; y: number; active?: boolean; dimmed?: boolean }) {
   return (
-    <g className={`architecture-build-item architecture-build-dot transition-all duration-300 ${dimmed ? "opacity-20" : ""}`}>
+    <g className={`architecture-build-item architecture-build-dot transition-all duration-500 ease-out ${dimmed ? "opacity-20" : ""}`}>
       <circle cx={x} cy={y} r={active ? 7 : 5} className={active ? "fill-accent/30" : "fill-accent/15"} />
       <circle cx={x} cy={y} r={active ? 3.5 : 2.5} className="fill-accent" />
     </g>
@@ -150,14 +165,14 @@ function FlowPath({
       <path
         d={d}
         pathLength={1}
-        className={`flow-line architecture-build-line transition-all duration-300 ${
+        className={`flow-line architecture-build-line transition-all duration-500 ease-out ${
           active ? "stroke-accent/70 stroke-[1.75px]" : dimmed ? "stroke-border/5" : ""
         }`}
         style={{ "--build-delay": `${delay}s` } as CSSProperties}
       />
       <path
         d={d}
-        className={`flow-overlay transition-all duration-300 ${
+        className={`flow-overlay transition-all duration-500 ease-out ${
           active ? "stroke-[2.5px] opacity-100" : dimmed ? "opacity-10" : ""
         }`}
         style={{ "--flow-delay": `${overlayDelay}s` } as CSSProperties}
@@ -249,7 +264,7 @@ export function ArchitectureDiagram({ spec }: ArchitectureDiagramProps) {
           height={g.h}
           rx={10}
           fill="transparent"
-          className="architecture-build-item architecture-build-group stroke-border/15 transition-all duration-300"
+          className="architecture-build-item architecture-build-group stroke-border/15 transition-all duration-500 ease-out"
           strokeWidth={1}
           strokeDasharray="3 4"
           style={{ "--build-delay": `${i * 0.14}s` } as CSSProperties}
@@ -427,7 +442,7 @@ export function ArchitectureDiagram({ spec }: ArchitectureDiagramProps) {
 
       {/* Node: Monitoring Footer */}
       <g
-        className={`architecture-build-item architecture-build-node cursor-pointer transition-all duration-300 ${
+        className={`architecture-build-item architecture-build-node cursor-pointer transition-all duration-500 ease-out ${
           hoveredNode === spec.footer ? "scale-[1.01]" : hasHover && hoveredNode !== spec.footer ? "opacity-35" : ""
         }`}
         style={{
@@ -445,7 +460,7 @@ export function ArchitectureDiagram({ spec }: ArchitectureDiagramProps) {
             height={MONITOR.h + 8}
             rx={R + 2}
             fill="rgb(var(--color-accent) / 0.15)"
-            className="blur-[6px] transition-all duration-300"
+            className="blur-[6px] transition-all duration-500 ease-out"
           />
         )}
         <rect
@@ -461,14 +476,29 @@ export function ArchitectureDiagram({ spec }: ArchitectureDiagramProps) {
           }
           strokeWidth={hoveredNode === spec.footer ? 1.5 : 1}
         />
+        {hoveredNode === spec.footer && (
+          <rect
+            x={MONITOR.x}
+            y={MONITOR.y}
+            width={MONITOR.w}
+            height={MONITOR.h}
+            rx={R}
+            fill="transparent"
+            stroke="rgb(var(--color-accent))"
+            strokeWidth={2.5}
+            pathLength="100"
+            strokeDasharray="30 70"
+            className="border-trace"
+          />
+        )}
         <text
           x={MONITOR.x + MONITOR.w / 2}
           y={MONITOR.y + MONITOR.h / 2 + 4}
           textAnchor="middle"
           className={
             hoveredNode === spec.footer
-              ? "fill-accent text-[11px] font-semibold transition-colors duration-300"
-              : "fill-text text-[11px] transition-colors duration-300"
+              ? "fill-accent text-[11px] font-semibold transition-colors duration-500 ease-out"
+              : "fill-text text-[11px] transition-colors duration-500 ease-out"
           }
           style={{
             "--build-delay": "1.4s",
