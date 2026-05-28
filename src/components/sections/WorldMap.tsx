@@ -73,7 +73,7 @@ export function WorldMap({ highlights = [] }: WorldMapProps) {
             <circle cx={cx} cy={cy} r={4} fill="rgb(var(--color-accent))" />
             
             {h.label && (
-              <g className="opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <g className="opacity-100 md:opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                 <rect
                   x={cx - 75}
                   y={cy - 50}
@@ -87,7 +87,7 @@ export function WorldMap({ highlights = [] }: WorldMapProps) {
                   x={cx}
                   y={cy - 25}
                   textAnchor="middle"
-                  className="fill-text text-[18px] font-bold uppercase tracking-wider"
+                  className="fill-text text-[18px] font-bold normal-case md:uppercase tracking-wider"
                 >
                   {h.label}
                 </text>

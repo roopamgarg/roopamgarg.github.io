@@ -32,7 +32,7 @@ export function Sidebar({ brand, nav, activeId, visible }: SidebarProps) {
       <div className="sticky top-0 flex h-screen flex-col gap-8 px-3 py-6 sm:px-4 md:gap-10 md:px-6 md:py-8">
         <a
           href="#home"
-          className="inline-flex items-center justify-center gap-2 text-lg font-black uppercase tracking-[0.15em] text-text md:justify-start"
+          className="inline-flex items-center justify-center gap-2 text-lg font-black normal-case md:uppercase tracking-[0.15em] text-text md:justify-start"
         >
           <span className="h-2 w-2 rotate-45 bg-accent" aria-hidden="true" />
           <span className="hidden md:inline">{brand}</span>
@@ -49,7 +49,7 @@ export function Sidebar({ brand, nav, activeId, visible }: SidebarProps) {
                     href={`#${item.id}`}
                     aria-current={isActive ? "true" : undefined}
                     className={[
-                      "group flex items-center justify-center gap-3 rounded-lg px-2 py-2.5 text-xs font-bold uppercase tracking-wider transition-all duration-300 md:justify-start md:px-4 border-l-2",
+                      "group flex items-center justify-center gap-3 rounded-lg px-2 py-2.5 text-xs font-bold normal-case md:uppercase tracking-wider transition-all duration-300 md:justify-start md:px-4 border-l-2",
                       isActive
                         ? "bg-accent/[0.06] text-accent border-accent pl-1.5 md:pl-3.5"
                         : "text-muted hover:bg-surface/40 hover:text-text border-transparent hover:border-accent/30",
