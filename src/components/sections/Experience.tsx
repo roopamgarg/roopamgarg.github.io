@@ -27,7 +27,7 @@ export function Experience({
       className="grid gap-8 border-b border-border/10 px-4 py-16 md:grid-cols-[220px_minmax(0,1fr)] md:px-8 lg:grid-cols-[240px_minmax(0,1fr)]"
     >
       <div id={`${navItem.id}-heading`}>
-        <SectionLabel item={navItem} targetHref={`#${navItem.id}`} />
+        <SectionLabel item={navItem} />
       </div>
 
       <div className="grid min-w-0 gap-8 md:grid-cols-2 md:gap-10">

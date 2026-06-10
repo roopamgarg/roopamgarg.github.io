@@ -23,6 +23,7 @@ export interface NavItem {
   label: string;
   blurb?: string;
   ctaLabel?: string;
+  ctaHref?: string;
 }
 
 export interface Project {

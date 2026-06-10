@@ -18,7 +18,7 @@ export function Projects({ navItem, projects }: ProjectsProps) {
       className="grid gap-8 border-b border-border/10 px-4 py-16 md:grid-cols-[220px_minmax(0,1fr)] md:px-8 lg:grid-cols-[240px_minmax(0,1fr)]"
     >
       <div id={`${navItem.id}-heading`}>
-        <SectionLabel item={navItem} targetHref={`#${navItem.id}`} />
+        <SectionLabel item={navItem} />
       </div>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">

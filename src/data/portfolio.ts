@@ -11,6 +11,7 @@ export const portfolio: Portfolio = {
       label: "Projects",
       blurb: "A selection of systems I've built and shipped.",
       ctaLabel: "View all projects",
+      ctaHref: "https://github.com/roopamgarg",
     },
     {
       id: "experience",
@@ -18,6 +19,7 @@ export const portfolio: Portfolio = {
       label: "Experience",
       blurb: "Where I've worked and what I've built.",
       ctaLabel: "View full timeline",
+      ctaHref: "https://www.linkedin.com/in/roopamgarg1",
     },
     { id: "skills", num: "04", label: "Skills" },
     {

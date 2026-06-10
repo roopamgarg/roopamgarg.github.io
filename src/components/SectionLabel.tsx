@@ -20,10 +20,11 @@ export function SectionLabel({ item, targetHref }: SectionLabelProps) {
           {item.blurb}
         </p>
       )}
-      {item.ctaLabel && targetHref && (
+      {item.ctaLabel && (item.ctaHref ?? targetHref) && (
         <a
-          href={targetHref}
+          href={item.ctaHref ?? targetHref}
           className="group inline-flex items-center gap-1.5 text-xs font-bold capitalize tracking-wider text-accent hover:brightness-110"
+          {...(item.ctaHref?.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
         >
           {item.ctaLabel}
           <span className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">{"\u2192"}</span>
