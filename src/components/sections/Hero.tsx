@@ -1,4 +1,5 @@
 import { ArrowUpRight, Download } from "lucide-react";
+import type { CSSProperties } from "react";
 import { useSectionView } from "@/hooks/useSectionView";
 import { trackCtaClick, trackResumeDownload } from "@/lib/analytics";
 import type { ArchitectureSpec, HeroSpec, NavItem } from "@/types/portfolio";
@@ -24,14 +25,18 @@ export function Hero({ navItem, hero, architecture }: HeroProps) {
       <div className="absolute right-10 bottom-10 -z-10 h-80 w-80 rounded-full bg-accent/[0.04] blur-[140px]" />
 
       <div className="flex flex-col gap-6 relative z-10">
-        <div className="inline-flex max-w-fit items-center gap-2 rounded-full border border-accent/20 bg-accent/[0.03] px-3.5 py-1 font-mono text-[10px] font-bold capitalize tracking-[0.2em] text-accent select-none">
+        <div
+          className="hero-enter-item inline-flex max-w-fit items-center gap-2 rounded-full border border-accent/20 bg-accent/[0.03] px-3.5 py-1 font-mono text-[10px] font-bold capitalize tracking-[0.2em] text-accent select-none"
+          style={{ "--hero-delay": "0ms" } as CSSProperties}
+        >
           <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
           {hero.greeting} 👋
         </div>
 
         <h1
           id="hero-heading"
-          className="text-4xl font-black leading-[1.05] tracking-tight text-text sm:text-5xl md:text-6xl lg:text-7xl capitalize font-sans"
+          className="hero-enter-item text-4xl font-black leading-[1.05] tracking-tight text-text sm:text-5xl md:text-6xl lg:text-7xl capitalize font-sans"
+          style={{ "--hero-delay": "100ms" } as CSSProperties}
         >
           {hero.titleLead}{" "}
           <span className="text-accent font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-accent via-accent to-accent/90">
@@ -39,11 +44,17 @@ export function Hero({ navItem, hero, architecture }: HeroProps) {
           </span>
         </h1>
 
-        <p className="max-w-md text-sm leading-relaxed text-muted sm:text-base">
+        <p
+          className="hero-enter-item max-w-md text-sm leading-relaxed text-muted sm:text-base"
+          style={{ "--hero-delay": "200ms" } as CSSProperties}
+        >
           {hero.description}
         </p>
 
-        <div className="mt-4 flex flex-wrap items-center gap-4">
+        <div
+          className="hero-enter-item mt-4 flex flex-wrap items-center gap-4"
+          style={{ "--hero-delay": "300ms" } as CSSProperties}
+        >
           <a
             href="#projects"
             onClick={() => trackCtaClick("view_projects", "hero")}
