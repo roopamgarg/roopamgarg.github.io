@@ -93,12 +93,13 @@ export const portfolio: Portfolio = {
     },
 
     {
-      name: "FileStore",
+      name: "Cursor Agent SDK",
       icon: "Folder",
       description:
-        "Scalable file storage service with S3 integration, signed URLs and access control.",
-      stack: ["AWS S3", "Node.js", "Redis"],
-      github: "#",
+        "Embeddable SDK for local Cursor agent interaction directly inside your project",
+      stack: ["Cursor CLI", "Node.js", "ReactJS"],
+      live: "https://www.npmjs.com/package/@viralengine/cursor-agent",
+      github: "https://github.com/roopamgarg/cursor-agent-sdk",
     },
   ],
 
