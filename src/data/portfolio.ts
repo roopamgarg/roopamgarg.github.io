@@ -1,7 +1,7 @@
 import type { Portfolio } from "@/types/portfolio";
 
 export const portfolio: Portfolio = {
-  brand: "Roopam.dev",
+  brand: "Roopam Garg",
 
   nav: [
     { id: "home", num: "01", label: "Home" },

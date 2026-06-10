@@ -46,7 +46,7 @@ export function TopNav({
           <a
             href="#home"
             className={[
-              "flex items-center gap-2 text-sm font-black normal-case xl:uppercase tracking-[0.15em] text-text",
+              "flex items-center gap-2 text-sm font-black capitalize tracking-[0.15em] text-text",
               sidebarVisible ? "md:hidden" : "",
             ].join(" ")}
           >
@@ -59,7 +59,7 @@ export function TopNav({
         </div>
 
         <nav aria-label="Top">
-          <ul className="flex items-center gap-2 text-xs font-bold normal-case xl:uppercase tracking-wider">
+          <ul className="flex items-center gap-2 text-xs font-bold capitalize tracking-wider">
             {desktopItems.map((item) => (
               <li key={item.id}>
                 <a

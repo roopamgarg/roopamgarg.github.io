@@ -256,7 +256,7 @@
 
 
 .sliding-text-banner {
-  @apply select-none overflow-hidden py-10 bg-gradient-to-r from-accent via-accent/90 to-accent text-accent-fg font-black text-4xl sm:text-6xl md:text-8xl tracking-tight uppercase flex whitespace-nowrap;
+  @apply select-none overflow-hidden py-10 bg-gradient-to-r from-accent via-accent/90 to-accent text-accent-fg font-black text-4xl sm:text-6xl md:text-8xl tracking-tight capitalize flex whitespace-nowrap;
 }
 
 @keyframes stroke-trace {
