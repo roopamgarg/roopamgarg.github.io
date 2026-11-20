@@ -3,6 +3,8 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import { initAnalytics } from "@/lib/analytics";
 import { ThemeProvider } from "@/theme/ThemeProvider";
+import "@fontsource-variable/geist";
+import "@fontsource-variable/geist-mono";
 import "./index.css";
 
 initAnalytics();

@@ -1,5 +1,5 @@
 import { useTheme } from "@/theme/useTheme";
-import { getIcon } from "@/lib/icons";
+import { getIcon, ICON_STROKE } from "@/lib/icons";
 
 export function ThemeToggle() {
   const { preference, cyclePreference, preferences } = useTheme();
@@ -21,9 +21,9 @@ export function ThemeToggle() {
       onClick={cyclePreference}
       aria-label={`Theme: ${meta.label}. Click to switch to ${nextLabel}.`}
       title={`Theme: ${meta.label}`}
-      className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/10 bg-surface/80 text-muted transition-colors hover:text-text hover:border-border/20"
+      className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/10 text-muted transition-colors hover:border-border/20 hover:text-text active:scale-[0.96]"
     >
-      <Icon className="h-4 w-4" aria-hidden="true" />
+      <Icon className="h-4 w-4" strokeWidth={ICON_STROKE} aria-hidden="true" />
     </button>
   );
 }

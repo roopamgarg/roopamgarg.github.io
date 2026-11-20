@@ -1,36 +1,34 @@
 import type { Portfolio } from "@/types/portfolio";
 
+const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
+
 export const portfolio: Portfolio = {
   brand: "Roopam Garg",
 
   nav: [
-    { id: "home", num: "01", label: "Home" },
+    { id: "home", label: "Home" },
     {
       id: "projects",
-      num: "02",
       label: "Projects",
       blurb: "A selection of systems I've built and shipped.",
-      ctaLabel: "View all projects",
+      ctaLabel: "More on GitHub",
       ctaHref: "https://github.com/roopamgarg",
     },
     {
       id: "experience",
-      num: "03",
       label: "Experience",
       blurb: "Where I've worked and what I've built.",
       ctaLabel: "View full timeline",
       ctaHref: "https://www.linkedin.com/in/roopamgarg1",
     },
-    { id: "skills", num: "04", label: "Skills" },
+    { id: "skills", label: "Skills" },
     {
       id: "about",
-      num: "05",
       label: "About",
       blurb: "A bit about me and what drives me.",
     },
     {
       id: "contact",
-      num: "06",
       label: "Contact",
       blurb: "Let's build something awesome together.",
     },
@@ -38,12 +36,14 @@ export const portfolio: Portfolio = {
 
   hero: {
     greeting: "Hi, I'm Roopam",
-    titleLead: "I don't just code features, I build",
-    titleAccent: "systems.",
+    titleLead: "I don't just code features,",
+    titleAccent: "I build systems.",
     description:
       "Scalable architecture. Clean code. Thoughtful design. Reliable systems.",
     primaryCta: "View my work",
     secondaryCta: "Download resume",
+    resumeHref:
+      "https://drive.google.com/file/d/1lwOmAjjsoOb-1j1m7jlbLwTnwVcDyS9F/view?usp=sharing",
   },
 
   architecture: {
@@ -67,47 +67,63 @@ export const portfolio: Portfolio = {
 
   projects: [
     {
-      name: "DPP Protocol",
-      icon: "CreditCard",
+      name: "Scout My Home",
       description:
-        "Lets AI agents make payments on users behalf with control, merchant trust, and audit trails.",
-      stack: ["Node.js", "Typescript", "MCP"],
-      live: "https://roopamgarg.in/delegated-payments-protocol/",
-      github: "https://github.com/roopamgarg/delegated-payments-protocol",
+        "Checks a flat before you buy by reading the public records around its address and the builder's RERA floor plans, flat by flat.",
+      stack: ["OpenStreetMap", "RERA data"],
+      live: "https://scoutmyhome.in/",
+      image: {
+        src: asset("projects/scoutmyhome.jpg"),
+        alt: "Scout My Home landing page: Read the building before you buy the flat.",
+      },
     },
     {
-      name: "StoryLens",
-      icon: "Code2",
+      name: "Anvesha",
       description:
-        "A system that converts stories into graphs to detect plot holes, inconsistencies, and logical gaps",
-      stack: ["Next.js", "Node.js", "LLMs", "wink-nlp"],
-      live: "https://storylens.viralengine.in/",
-      github: "https://github.com/roopamgarg/StoryLens",
+        "A browser-based detective mystery game where you inspect evidence, question witnesses and reconstruct what happened.",
+      stack: ["Next.js", "React"],
+      live: "https://anvesha.vyom.sh/",
+      image: {
+        src: asset("projects/anvesha.jpg"),
+        alt: "Anvesha landing page: Every crime leaves a pattern. Find where the threads cross.",
+      },
     },
     {
       name: "Webcam Tracker",
-      icon: "Lock",
       description:
-        "A tiny app that quietly tells you which apps are using your webcam, for how long, without ever touching your camera feed.",
+        "A tiny macOS app that tells you which apps use your webcam and for how long, without touching the camera feed.",
       stack: ["Rust", "Tauri", "React"],
       live: "https://roopamgarg.in/webcam-usage-tracker/",
       github: "https://github.com/roopamgarg/webcam-usage-tracker",
+      image: {
+        src: asset("projects/webcam.jpg"),
+        alt: "Webcam Tracker landing page",
+      },
     },
-
     {
-      name: "Cursor Agent SDK",
-      icon: "Folder",
+      name: "DPP Protocol",
       description:
-        "Embeddable SDK for local Cursor agent interaction directly inside your project",
-      stack: ["Cursor CLI", "Node.js", "ReactJS"],
-      live: "https://www.npmjs.com/package/@viralengine/cursor-agent",
-      github: "https://github.com/roopamgarg/cursor-agent-sdk",
+        "Lets AI agents make payments on a user's behalf, with spending controls, merchant trust and audit trails.",
+      stack: ["Node.js", "TypeScript", "MCP"],
+      live: "https://roopamgarg.in/delegated-payments-protocol/",
+      github: "https://github.com/roopamgarg/delegated-payments-protocol",
+      image: {
+        src: asset("projects/dpp.jpg"),
+        alt: "Delegated Payments Protocol landing page",
+      },
     },
   ],
 
   experience: [
     {
-      period: "2024 - Present",
+      period: "2026 - Present",
+      role: "Sr. AI Software Engineer",
+      company: "Five9",
+      description:
+        "Building contact center software that records agent screens, monitors them live, takes remote control and analyzes what agents did during calls.",
+    },
+    {
+      period: "2024 - 2026",
       role: "Software Engineer 2",
       company: "Observe.AI",
       description:
@@ -118,7 +134,7 @@ export const portfolio: Portfolio = {
       role: "Software Engineer",
       company: "Juspay",
       description:
-        "Built and optimized critical payment flows and cross-platform systems to improve transaction success and onboarding efficiency."
+        "Built and optimized critical payment flows and cross-platform systems to improve transaction success and onboarding efficiency.",
     },
     {
       period: "2021 - 2022",
@@ -148,25 +164,15 @@ export const portfolio: Portfolio = {
     "Nginx",
   ],
 
-  codeSnippet: `const buildSystem = (requirements) => {
-  const analyze = breakDown(requirements);
-  const design  = createArchitecture(analyze);
-  const build   = implement(design);
-  const test    = ensureReliability(build);
-  return deploy(test);
-};`,
-
   about: {
-    whoami: [
-      "roopam@dev:~$ whoami",
-      "Software Engineer",
-      "Passionate about building reliable systems",
-      "that solve real problems.",
-      "",
-      "I enjoy turning ideas into products and",
-      "constantly learning new things.",
-      "roopam@dev:~$ _",
-    ],
+    statement:
+      "I'm a software engineer who likes building reliable systems that solve real problems.",
+    statementMuted:
+      "I enjoy turning ideas into products, and I'm always learning something new.",
+    portrait: {
+      src: asset("avatar.jpg"),
+      alt: "Illustrated portrait of Roopam Garg",
+    },
     traits: [
       {
         icon: "Brain",
@@ -197,11 +203,11 @@ export const portfolio: Portfolio = {
 
   contact: {
     headline: "Let's connect",
-    description:
-      "I'm open to new opportunities and interesting projects.",
+    description: "I'm open to new opportunities and interesting projects.",
     email: "hello@roopamgarg.in",
     linkedin: "https://www.linkedin.com/in/roopamgarg1",
+    github: "https://github.com/roopamgarg",
     status: "Open to work",
-    location: { label: "India", flag: "🇮🇳" },
+    location: "Bangalore, India",
   },
 };

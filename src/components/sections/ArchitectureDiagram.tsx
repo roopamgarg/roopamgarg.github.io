@@ -42,7 +42,7 @@ const GROUPS = [
 ];
 
 const RAIL_Y = 215;
-const MONITOR = { x: 180, y: 240, w: 280, h: 32 };
+const MONITOR = { x: 130, y: 240, w: 380, h: 32 };
 
 function Node({
   x,
@@ -83,8 +83,8 @@ function Node({
         textAnchor="middle"
         className={
           accent
-            ? "fill-accent text-[11px] font-semibold"
-            : "fill-text text-[11px]"
+            ? "fill-accent text-[10.5px] font-medium"
+            : "fill-text text-[10.5px]"
         }
         style={{ fontFamily: "inherit" }}
       >
@@ -191,7 +191,7 @@ export function ArchitectureDiagram({ spec }: ArchitectureDiagramProps) {
   return (
     <svg
       viewBox={`0 0 ${V_W} ${V_H}`}
-      className="architecture-diagram block h-auto w-full max-w-full"
+      className="architecture-diagram block h-auto w-full max-w-full font-mono"
       role="img"
       aria-label="System architecture diagram"
     >
@@ -324,7 +324,7 @@ export function ArchitectureDiagram({ spec }: ArchitectureDiagramProps) {
           x={MONITOR.x + MONITOR.w / 2}
           y={MONITOR.y + MONITOR.h / 2 + 4}
           textAnchor="middle"
-          className="fill-text text-[11px]"
+          className="fill-text text-[10.5px]"
           style={{
             "--build-delay": "1.4s",
             fontFamily: "inherit",

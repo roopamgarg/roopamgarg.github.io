@@ -1,12 +1,10 @@
 export type IconName =
-  | "Code2"
-  | "Lock"
-  | "CreditCard"
-  | "Folder"
   | "Mail"
   | "Linkedin"
+  | "Github"
   | "Download"
   | "ArrowUpRight"
+  | "ArrowRight"
   | "Sun"
   | "Moon"
   | "Monitor"
@@ -14,25 +12,35 @@ export type IconName =
   | "Boxes"
   | "BookOpen"
   | "Target"
-  | "PanelLeft"
-  | "PanelLeftClose";
+  | "Menu"
+  | "X";
 
 export interface NavItem {
   id: string;
-  num: string;
   label: string;
   blurb?: string;
   ctaLabel?: string;
   ctaHref?: string;
 }
 
+export interface ProjectImage {
+  src: string;
+  alt: string;
+}
+
+export interface ProjectSnippet {
+  title: string;
+  code: string;
+}
+
 export interface Project {
   name: string;
-  icon: IconName;
   description: string;
   stack: string[];
   live?: string;
-  github: string;
+  github?: string;
+  image?: ProjectImage;
+  snippet?: ProjectSnippet;
 }
 
 export interface ExperienceItem {
@@ -67,10 +75,13 @@ export interface HeroSpec {
   description: string;
   primaryCta: string;
   secondaryCta: string;
+  resumeHref: string;
 }
 
 export interface AboutSpec {
-  whoami: string[];
+  statement: string;
+  statementMuted: string;
+  portrait: ProjectImage;
   traits: Trait[];
 }
 
@@ -79,8 +90,9 @@ export interface ContactSpec {
   description: string;
   email: string;
   linkedin: string;
+  github: string;
   status: string;
-  location: { label: string; flag: string };
+  location: string;
 }
 
 export interface Portfolio {
@@ -91,7 +103,6 @@ export interface Portfolio {
   projects: Project[];
   experience: ExperienceItem[];
   techStack: string[];
-  codeSnippet: string;
   about: AboutSpec;
   contact: ContactSpec;
 }

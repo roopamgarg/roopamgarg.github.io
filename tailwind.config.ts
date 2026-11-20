@@ -21,7 +21,7 @@ export default {
       },
       fontFamily: {
         sans: [
-          "Inter",
+          "Geist Variable",
           "ui-sans-serif",
           "system-ui",
           "-apple-system",
@@ -30,7 +30,7 @@ export default {
           "sans-serif",
         ],
         mono: [
-          "JetBrains Mono",
+          "Geist Mono Variable",
           "ui-monospace",
           "SFMono-Regular",
           "Menlo",

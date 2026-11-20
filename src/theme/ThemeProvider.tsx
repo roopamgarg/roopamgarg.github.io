@@ -36,8 +36,15 @@ function readStoredPreference(): ThemePreference {
   }
 }
 
-function resolve(preference: ThemePreference): ThemeName {
-  return preference === "light" ? "light" : "dark";
+const LIGHT_QUERY = "(prefers-color-scheme: light)";
+
+function systemTheme(): ThemeName {
+  if (typeof window === "undefined") return "dark";
+  return window.matchMedia(LIGHT_QUERY).matches ? "light" : "dark";
+}
+
+function resolve(preference: ThemePreference, system: ThemeName): ThemeName {
+  return preference === "system" ? system : preference;
 }
 
 const CYCLE: ThemePreference[] = ["dark", "light", "system"];
@@ -47,7 +54,19 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     readStoredPreference(),
   );
 
-  const resolvedTheme = useMemo(() => resolve(preference), [preference]);
+  const [system, setSystem] = useState<ThemeName>(() => systemTheme());
+
+  useEffect(() => {
+    const mql = window.matchMedia(LIGHT_QUERY);
+    const onChange = () => setSystem(mql.matches ? "light" : "dark");
+    mql.addEventListener("change", onChange);
+    return () => mql.removeEventListener("change", onChange);
+  }, []);
+
+  const resolvedTheme = useMemo(
+    () => resolve(preference, system),
+    [preference, system],
+  );
 
   useEffect(() => {
     document.documentElement.dataset.theme = resolvedTheme;
@@ -55,7 +74,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     if (metaThemeColor) {
       metaThemeColor.setAttribute(
         "content",
-        resolvedTheme === "dark" ? "#0a0e1a" : "#ffffff",
+        resolvedTheme === "dark" ? "#0b0c0e" : "#fafafa",
       );
     }
   }, [resolvedTheme]);

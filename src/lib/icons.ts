@@ -1,43 +1,42 @@
 import {
+  ArrowRight,
   ArrowUpRight,
   BookOpen,
   Boxes,
   Brain,
-  Code2,
-  CreditCard,
   Download,
-  Folder,
+  Github,
   Linkedin,
-  Lock,
   Mail,
+  Menu,
   Monitor,
   Moon,
-  PanelLeft,
-  PanelLeftClose,
   Sun,
   Target,
+  X,
   type LucideIcon,
 } from "lucide-react";
 import type { IconName } from "@/types/portfolio";
 
+/** All icons share one stroke width so the set reads as a single family. */
+export const ICON_STROKE = 1.75;
+
 export const icons: Record<IconName, LucideIcon> = {
-  Code2,
-  Lock,
-  CreditCard,
-  Folder,
-  Mail,
-  Linkedin,
-  Download,
+  ArrowRight,
   ArrowUpRight,
-  Sun,
-  Moon,
-  Monitor,
-  Brain,
-  Boxes,
   BookOpen,
+  Boxes,
+  Brain,
+  Download,
+  Github,
+  Linkedin,
+  Mail,
+  Menu,
+  Monitor,
+  Moon,
+  Sun,
   Target,
-  PanelLeft,
-  PanelLeftClose,
+  X,
 };
 
 export function getIcon(name: IconName): LucideIcon {
