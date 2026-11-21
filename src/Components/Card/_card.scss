@@ -1,0 +1,78 @@
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem 0;
+  width: 100%;
+  font-family: "Open Sans Condensed", sans-serif;
+  transform-origin: bottom;
+  transition: all 0.2s;
+  @media (max-width: 720px) {
+    padding: 0;
+  }
+  &__content {
+    padding: 0 2rem;
+    border-left: 0.1rem solid $red;
+    margin-left: 1rem;
+  height: 100%;
+    color:$black;
+  }
+  &__image {
+    height: 5rem;
+    width: 5rem;
+    background: $white;
+    //background: center center no-repeat;
+    background-size: contain;
+    //box-shadow: 0.4rem 0.4rem 4rem rgba($black,0.4);
+    border-radius: 200rem;
+    display: flex;
+    align-items: center;
+    margin-top: 1.4rem;
+    padding: 1rem;
+    @media (max-width: 720px) {
+      width: 2rem;
+      height: 2rem;
+    }
+    img {
+      //height: 50%;
+      width: 5rem;
+      @media (max-width: 720px) {
+        width: 2rem;
+      }
+    }
+  }
+  &__name {
+    flex: 1;
+
+    font-weight: 400;
+
+    font-size: 2rem;
+    margin-top: 2rem;
+  }
+  &__description {
+    // flex:0;
+
+    text-align: left;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+    line-height: 1.8rem;
+    height: 100%;
+    //overflow: hidden;
+
+    animation: slideInUp 0.5s;
+    //display: none;
+    @media (max-width: 720px) {
+      font-size: 1rem;
+    
+    }
+  }
+}
+@keyframes slideInUp {
+  from {
+    height: 0;
+  }
+
+  to {
+    height: 10rem;
+  }
+}
