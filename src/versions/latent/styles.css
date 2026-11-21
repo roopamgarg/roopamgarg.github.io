@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Latent palette
+ *   void   #05060a   page
+ *   panel  #0a0c14   cards
+ *   frost  #e9ebf2   text
+ *   Cluster colours live in src/versions/latent/space.ts.
+ */
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  background: #05060a;
+}
+
+body {
+  margin: 0;
+  color: #e9ebf2;
+  font-family: "Satoshi", ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: #a78bfa;
+  color: #05060a;
+}
+
+:focus-visible {
+  outline: 2px solid #7dd3fc;
+  outline-offset: 3px;
+}
+
+.font-mono {
+  font-family: "Geist Mono Variable", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* Labels that follow points in the WebGL field. Positioned every frame by LatentScene. */
+.latent-label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  pointer-events: none;
+  white-space: nowrap;
+  will-change: transform, opacity;
+}
+
+.latent-label > span {
+  display: inline-block;
+  transform: translate(12px, -50%);
+  font-family: "Geist Mono Variable", ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  color: rgba(233, 235, 242, 0.8);
+  text-shadow: 0 1px 10px rgba(5, 6, 10, 0.95);
+}
+
+.latent-label[data-kind="project"] > span,
+.latent-label[data-kind="role"] > span {
+  font-family: "Satoshi", ui-sans-serif, system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  color: #f5f6fa;
+}
+
+.latent-label[data-kind="ai"] > span {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.latent-label[data-kind="cluster"] > span {
+  transform: translate(-50%, -50%);
+  font-family: "Satoshi", ui-sans-serif, system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}

@@ -1,0 +1,484 @@
+<!doctype html>
+<!--
+  Roopam Garg's resume. This file is the single source for:
+    - the web page at /resume/
+    - the PDF at /Roopam_Garg_Resume.pdf (every "Download resume" button on the site)
+
+  To update: edit the content below, then run `npm run resume:pdf` and commit both files.
+
+  ATS rules this page follows (keep them when editing):
+    - One column. Reading order is the HTML order.
+    - Real text only: no icons, images or text inside SVGs.
+    - No letter-spacing and no ligatures, so PDF text extracts cleanly.
+    - Must stay on one page; `npm run resume:pdf` prints the page count.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Roopam Garg | Resume</title>
+    <meta name="description" content="Resume of Roopam Garg, Senior AI Software Engineer at Five9." />
+    <meta property="og:title" content="Roopam Garg | Resume" />
+    <meta property="og:description" content="Senior AI Software Engineer at Five9. Rust, WebRTC, AI agents and high-traffic frontend systems." />
+    <meta name="theme-color" content="#eceae6" />
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+    <style>
+      @page {
+        size: letter;
+        margin: 0.42in 0.55in;
+      }
+
+      :root {
+        --navy: #1e3a5f;
+        --ink: #1a1a1a;
+        --muted: #444;
+        --tint: #eef2f7;
+        --paper-bg: #eceae6;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper-bg);
+        color: var(--ink);
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        font-size: 9.3pt;
+        line-height: 1.3;
+        font-variant-ligatures: none;
+        letter-spacing: 0;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      li {
+        position: relative;
+      }
+
+      /* ------------------------------------------------ screen-only toolbar */
+
+      .toolbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        width: 8.5in;
+        margin: 24px auto 0;
+        font: 500 14px/1 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      .toolbar a {
+        border-radius: 999px;
+        padding: 10px 16px;
+        transition: background-color 0.2s;
+      }
+
+      .toolbar .back {
+        color: #333;
+      }
+
+      .toolbar .back:hover {
+        background: rgba(0, 0, 0, 0.06);
+      }
+
+      .toolbar .download {
+        background: #141414;
+        color: #fff;
+        font-weight: 600;
+      }
+
+      .toolbar .download:hover {
+        background: #333;
+      }
+
+      /* -------------------------------------------------------------- sheet */
+
+      .page {
+        width: 8.5in;
+        min-height: 11in;
+        margin: 16px auto 40px;
+        padding: 0.42in 0.55in;
+        background: #fff;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 12px 40px rgba(0, 0, 0, 0.08);
+      }
+
+      .serif {
+        font-family: "Iowan Old Style", Palatino, Georgia, serif;
+      }
+
+      .name-row {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 16pt;
+      }
+
+      h1 {
+        color: var(--navy);
+        font-size: 27pt;
+        font-weight: 700;
+        line-height: 1;
+      }
+
+      .title {
+        color: var(--navy);
+        font-size: 12pt;
+        font-weight: 500;
+      }
+
+      .contact {
+        margin-top: 6pt;
+        padding-bottom: 7pt;
+        border-bottom: 1pt solid var(--navy);
+        color: var(--muted);
+        font-size: 8.6pt;
+      }
+
+      .summary {
+        margin-top: 7pt;
+      }
+
+      .highlights {
+        display: flex;
+        justify-content: space-between;
+        gap: 10pt;
+        margin-top: 7pt;
+        padding: 6pt 9pt;
+        border-radius: 4pt;
+        background: var(--tint);
+        font-size: 8.8pt;
+      }
+
+      /* Each highlight must stay on one line or ATS text order breaks. */
+      .highlights li {
+        white-space: nowrap;
+      }
+
+      .highlights strong {
+        color: var(--navy);
+      }
+
+      h2 {
+        margin: 9pt 0 3pt;
+        padding-left: 6pt;
+        border-left: 3pt solid var(--navy);
+        color: var(--navy);
+        font-size: 12pt;
+        font-weight: 700;
+        line-height: 1.15;
+        break-after: avoid;
+      }
+
+      .entry {
+        margin-top: 5pt;
+      }
+
+      .entry-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 14pt;
+      }
+
+      h3 {
+        font-size: 10.2pt;
+        font-weight: 700;
+      }
+
+      .meta {
+        color: var(--muted);
+        font-size: 8.8pt;
+        white-space: nowrap;
+      }
+
+      .role {
+        color: var(--muted);
+        font-style: italic;
+      }
+
+      .entry ul {
+        margin-top: 2pt;
+      }
+
+      .entry li {
+        margin: 1pt 0;
+        padding-left: 11pt;
+      }
+
+      .entry li::before {
+        content: "•";
+        position: absolute;
+        left: 1pt;
+        color: var(--navy);
+      }
+
+      /* Hyphenated words never break across lines, so the PDF keeps "client-side" intact. */
+      .nw {
+        white-space: nowrap;
+      }
+
+      @media screen and (max-width: 8.6in) {
+        .toolbar {
+          width: 100%;
+          margin: 0;
+          padding: 12px 16px;
+        }
+        .page {
+          width: 100%;
+          min-height: 0;
+          margin: 0 0 24px;
+          padding: 24px 16px;
+          box-shadow: none;
+        }
+        .name-row,
+        .entry-head,
+        .highlights {
+          flex-wrap: wrap;
+          gap: 2pt 14pt;
+        }
+        .highlights li {
+          white-space: normal;
+        }
+      }
+
+      @media print {
+        body {
+          background: #fff;
+        }
+        .toolbar {
+          display: none;
+        }
+        .page {
+          width: auto;
+          min-height: 0;
+          margin: 0;
+          padding: 0;
+          box-shadow: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="toolbar" aria-label="Resume">
+      <a class="back" href="../">&larr; Back to portfolio</a>
+      <a class="download" href="../Roopam_Garg_Resume.pdf" download>Download PDF</a>
+    </nav>
+
+    <main class="page">
+      <!-- ============================================================ Header -->
+      <header>
+        <div class="name-row">
+          <h1 class="serif">Roopam Garg</h1>
+          <p class="title serif">Senior AI Software Engineer</p>
+        </div>
+        <p class="contact">
+          <a href="tel:+919990765727">9990765727</a> |
+          <a href="mailto:roopamg777@gmail.com">roopamg777@gmail.com</a> |
+          <a href="https://roopamgarg.in">roopamgarg.in</a> |
+          <a href="https://www.linkedin.com/in/roopamgarg1">linkedin.com/in/roopamgarg1</a>
+        </p>
+      </header>
+
+      <!-- =========================================================== Summary -->
+      <p class="summary">
+        Senior AI Software Engineer with 4+ years of experience building high-traffic products. At Five9, I build a
+        Rust screen recorder, WebRTC live monitoring and AI analysis for contact center agents. Before that, I led
+        frontend performance at Observe.AI and built payment systems at Juspay.
+      </p>
+
+      <ul class="highlights" aria-label="Highlights">
+        <li>Rust recorder at <strong>8% of one CPU core</strong></li>
+        <li><strong>60% lower load time</strong> (80K+ daily users)</li>
+        <li><strong>30% less UI dev effort</strong> (3+ products)</li>
+      </ul>
+
+      <!-- ======================================================== Experience -->
+      <section>
+        <h2 class="serif">Experience</h2>
+
+        <article class="entry">
+          <div class="entry-head">
+            <h3>Five9 <span class="role">— Senior AI Software Engineer</span></h3>
+            <span class="meta">May 2026 – Present | Bangalore</span>
+          </div>
+          <ul>
+            <li>
+              Built a <strong>screen recorder app in Rust</strong> that captures contact center agents' screens during
+              calls while using only <strong>8% of a single CPU core</strong>.
+            </li>
+            <li>
+              Developed <strong>live monitoring</strong> and <strong>remote control</strong> over
+              <strong>WebRTC</strong>, letting supervisors watch agent screens in real time and take control of agent
+              desktops.
+            </li>
+            <li>
+              Building <strong>AI analysis of agent activity</strong> during calls from
+              <strong>screen data alone</strong>, without recording audio.
+            </li>
+          </ul>
+        </article>
+
+        <article class="entry">
+          <div class="entry-head">
+            <h3>Observe.AI <span class="role">— Software Development Engineer II</span></h3>
+            <span class="meta">Feb 2024 – May 2026 | Bangalore</span>
+          </div>
+          <ul>
+            <li>
+              Cut load time from <strong>6s to 2.4s</strong> on a high-traffic surface serving
+              <strong>80K+ daily users</strong> by re-architecting the client-side data fetching and rendering pipeline
+              with parallel requests, route-level code splitting and deferred execution.
+            </li>
+            <li>
+              Reduced <strong>UI development effort by 30%</strong> across <strong>3+ products</strong> by leading the
+              design of a shared UI platform: component library, design tokens and accessibility primitives.
+            </li>
+            <li>
+              Reduced <strong>unnecessary re-renders by 40%</strong> by profiling rendering bottlenecks and
+              restructuring state ownership through memoization and state co-location.
+            </li>
+            <li>
+              Improved <strong>time to data by 28%</strong> by redesigning the client-side data layer with request
+              deduplication and caching, while balancing data freshness.
+            </li>
+            <li>
+              Prevented <strong>performance regressions in production-critical flows</strong> with CI-based guardrails
+              that enforce page-load and bundle-size budgets.
+            </li>
+          </ul>
+        </article>
+
+        <article class="entry">
+          <div class="entry-head">
+            <h3>Juspay <span class="role">— Software Development Engineer I</span></h3>
+            <span class="meta">Apr 2022 – Feb 2024 | Bangalore</span>
+          </div>
+          <ul>
+            <li>
+              Improved <strong>verification completion rates by 15%</strong> by building KYC and validation pipelines for
+              insurance, stock and mutual fund onboarding, reducing manual intervention.
+            </li>
+            <li>
+              Improved <strong>payment reliability</strong> and reduced drop-offs in
+              <strong>high-volume transaction paths</strong> by redesigning checkout flows across web and mobile with
+              product, design and PSP integrations.
+            </li>
+            <li>
+              Developed core modules of the <strong>Presto cross-platform framework</strong>, letting teams ship to iOS,
+              Android and Web from a <strong>single codebase</strong>, and built its
+              <strong>hot reloading infrastructure</strong> to shorten developer feedback loops.
+            </li>
+            <li>
+              Raised success rates and reduced latency for <strong>third-party payment integrations</strong> with failure
+              handling and retry mechanisms built for unreliable networks and PSPs.
+            </li>
+          </ul>
+        </article>
+      </section>
+
+      <!-- ========================================================== Projects -->
+      <section>
+        <h2 class="serif">Projects</h2>
+
+        <article class="entry">
+          <div class="entry-head">
+            <h3>Scout My Home</h3>
+            <a class="meta" href="https://scoutmyhome.in/">scoutmyhome.in</a>
+          </div>
+          <ul>
+            <li>
+              Built a web app that helps buyers <strong>check a flat before they buy</strong> by reading the
+              <strong>public records</strong> around any address in Bengaluru, Delhi and Pune.
+            </li>
+            <li>
+              Built an <strong>AI agent</strong> that reads builders' <strong>RERA floor plans</strong> flat by flat,
+              runs <strong>plan checks</strong>, adds <strong>vastu markings</strong> and generates a
+              <strong>3D model</strong> of each flat.
+            </li>
+            <li>
+              Linked <strong>every figure to its source</strong>, so each result points back to the public record or
+              RERA drawing it came from.
+            </li>
+          </ul>
+        </article>
+      </section>
+
+      <!-- ============================================================ Skills -->
+      <section>
+        <h2 class="serif">Skills</h2>
+        <ul>
+          <li><strong>AI:</strong> RAG, Vector databases, Agent frameworks, MCP, Evals</li>
+          <li>
+            <strong>Languages &amp; Frameworks:</strong> C++, Rust, JavaScript, TypeScript, React, Next.js, Node.js,
+            WebRTC
+          </li>
+          <li><strong>Tools:</strong> AWS, Jenkins, Git, GitHub Actions, Husky/lint-staged</li>
+        </ul>
+      </section>
+
+      <!-- ========================================================= Education -->
+      <section>
+        <h2 class="serif">Education</h2>
+        <article class="entry">
+          <div class="entry-head">
+            <h3>
+              Maharaja Agrasen Institute of Technology
+              <span class="role">— Bachelor of Technology in Information Technology</span>
+            </h3>
+            <span class="meta">2018 – 2022</span>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <script>
+      // Wrap hyphenated words (client-side, co-location...) in a no-wrap span so a line never breaks at
+      // the hyphen. Text extracted from the PDF then keeps the word whole, which ATS keyword matching needs.
+      (function () {
+        var word = /[A-Za-z0-9+]+(?:-[A-Za-z0-9+]+)+/g;
+        var hasWord = /[A-Za-z0-9+]-[A-Za-z0-9+]/;
+        var walker = document.createTreeWalker(document.querySelector(".page"), NodeFilter.SHOW_TEXT);
+        var nodes = [];
+        while (walker.nextNode()) if (hasWord.test(walker.currentNode.nodeValue)) nodes.push(walker.currentNode);
+        nodes.forEach(function (node) {
+          var text = node.nodeValue;
+          var frag = document.createDocumentFragment();
+          var last = 0;
+          text.replace(word, function (match, offset) {
+            frag.appendChild(document.createTextNode(text.slice(last, offset)));
+            var span = document.createElement("span");
+            span.className = "nw";
+            span.textContent = match;
+            frag.appendChild(span);
+            last = offset + match.length;
+          });
+          frag.appendChild(document.createTextNode(text.slice(last)));
+          node.parentNode.replaceChild(frag, node);
+        });
+      })();
+    </script>
+  </body>
+</html>

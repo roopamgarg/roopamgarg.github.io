@@ -67,7 +67,7 @@ export function Hero({ navItem, hero, architecture }: HeroProps) {
               />
             </a>
             <a
-              href={hero.resumeHref}
+              href={hero.resumeHref} download
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackResumeDownload("hero")}

@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Nocturne palette
+ *   night   #08070d   page
+ *   mist    #f3f0ff   text
+ *   peach   #ffc2a3 -> lilac #f0b6ff -> iris #a99bff   accent gradient
+ *   violet  #5b3bff, ember #ff8f6b, cobalt #2a5bff     ambient light
+ */
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  background: #08070d;
+}
+
+body {
+  margin: 0;
+  background: #08070d;
+  color: #f3f0ff;
+  font-family: "Outfit Variable", ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: #a99bff;
+  color: #08070d;
+}
+
+:focus-visible {
+  outline: 2px solid #f0b6ff;
+  outline-offset: 3px;
+}
+
+.text-aurora {
+  background-image: linear-gradient(100deg, #ffc2a3 0%, #f0b6ff 48%, #a99bff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* Extend the painted box so descenders (g, y) are not clipped. */
+  padding-bottom: 0.1em;
+  margin-bottom: -0.1em;
+}
+
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.07;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}

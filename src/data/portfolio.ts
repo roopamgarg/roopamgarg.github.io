@@ -42,8 +42,7 @@ export const portfolio: Portfolio = {
       "Scalable architecture. Clean code. Thoughtful design. Reliable systems.",
     primaryCta: "View my work",
     secondaryCta: "Download resume",
-    resumeHref:
-      "https://drive.google.com/file/d/1lwOmAjjsoOb-1j1m7jlbLwTnwVcDyS9F/view?usp=sharing",
+    resumeHref: asset("Roopam_Garg_Resume.pdf"),
   },
 
   architecture: {
@@ -69,7 +68,7 @@ export const portfolio: Portfolio = {
     {
       name: "Scout My Home",
       description:
-        "Checks a flat before you buy by reading the public records around its address and the builder's RERA floor plans, flat by flat.",
+        "Check a flat before you buy. An AI agent reads the builder's RERA floor plans, checks each flat's plan, adds vastu markings and builds a 3D model, alongside the public records around the address.",
       stack: ["OpenStreetMap", "RERA data"],
       live: "https://scoutmyhome.in/",
       image: {
@@ -80,7 +79,7 @@ export const portfolio: Portfolio = {
     {
       name: "Anvesha",
       description:
-        "A browser-based detective mystery game where you inspect evidence, question witnesses and reconstruct what happened.",
+        "A browser-based detective mystery game. You inspect evidence and question AI characters who reveal clues by set rules and hold back what they aren't meant to say.",
       stack: ["Next.js", "React"],
       live: "https://anvesha.vyom.sh/",
       image: {
@@ -135,13 +134,6 @@ export const portfolio: Portfolio = {
       company: "Juspay",
       description:
         "Built and optimized critical payment flows and cross-platform systems to improve transaction success and onboarding efficiency.",
-    },
-    {
-      period: "2021 - 2022",
-      role: "Software Developer Intern",
-      company: "Appdesk",
-      description:
-        "Developed scalable frontend and end-to-end wallet systems, boosting development speed and improving payment reliability.",
     },
   ],
 

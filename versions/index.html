@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#0b0b0c" />
+    <title>Roopam Garg | Four directions</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #0b0b0c;
+        --text: #efeee9;
+        --muted: rgba(239, 238, 233, 0.56);
+        --line: rgba(255, 255, 255, 0.09);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      main {
+        max-width: 1360px;
+        margin: 0 auto;
+        padding: clamp(3rem, 8vw, 7rem) clamp(1.25rem, 4vw, 2.5rem) 4rem;
+      }
+      h1 {
+        margin: 0;
+        max-width: 18ch;
+        font-size: clamp(2.5rem, 5.4vw, 5rem);
+        font-weight: 600;
+        line-height: 0.98;
+        letter-spacing: -0.045em;
+      }
+      .lede {
+        margin: 1.5rem 0 0;
+        max-width: 46ch;
+        font-size: 1.125rem;
+        line-height: 1.6;
+        color: var(--muted);
+      }
+      .grid {
+        display: grid;
+        gap: 1.25rem;
+        margin-top: clamp(3rem, 6vw, 5rem);
+      }
+      @media (min-width: 900px) {
+        .grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      a.card {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid var(--line);
+        border-radius: 1.5rem;
+        padding: 0.6rem;
+        color: inherit;
+        text-decoration: none;
+        background: rgba(255, 255, 255, 0.02);
+        transition: border-color 0.4s, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      a.card:hover {
+        border-color: rgba(255, 255, 255, 0.28);
+        transform: translateY(-4px);
+      }
+      a.card:focus-visible {
+        outline: 2px solid var(--text);
+        outline-offset: 4px;
+      }
+      .shot {
+        overflow: hidden;
+        border-radius: 1.05rem;
+        aspect-ratio: 16 / 10;
+        background: #151517;
+      }
+      .shot img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      a.card:hover .shot img {
+        transform: scale(1.05);
+      }
+      .body {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        padding: 1.4rem 1rem 1rem;
+      }
+      .name {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 1.6rem;
+        font-weight: 600;
+        letter-spacing: -0.03em;
+      }
+      .swatches {
+        display: flex;
+      }
+      .swatches span {
+        width: 1.1rem;
+        height: 1.1rem;
+        margin-left: -0.3rem;
+        border-radius: 999px;
+        border: 2px solid var(--bg);
+      }
+      .desc {
+        margin: 0.6rem 0 0;
+        line-height: 1.55;
+        color: var(--muted);
+      }
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin: 1.4rem 0 0;
+        padding: 0;
+        list-style: none;
+      }
+      li {
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 0.3rem 0.7rem;
+        font-size: 0.8rem;
+        color: rgba(239, 238, 233, 0.72);
+      }
+      .open {
+        margin-top: auto;
+        padding-top: 1.6rem;
+        font-weight: 600;
+      }
+      footer {
+        margin-top: 4rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--line);
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+      footer a {
+        color: var(--text);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Four directions for the portfolio.</h1>
+      <p class="lede">
+        Same content, same data file as the live site. Open each one, scroll all the way to the
+        bottom, and pick the one that feels most like you.
+      </p>
+
+      <div class="grid">
+        <a class="card" href="/versions/signal/">
+          <div class="shot"><img src="/versions/previews/signal.jpg" alt="Signal hero: headline over a black and white bridge" /></div>
+          <div class="body">
+            <div class="name">
+              Signal
+              <span class="swatches" aria-hidden="true">
+                <span style="background: #0a0a0a"></span>
+                <span style="background: #ecebe6"></span>
+                <span style="background: #ff5a1f"></span>
+              </span>
+            </div>
+            <p class="desc">
+              Dark and cinematic. A centered headline over suspension-bridge cables, a pinned
+              project index and a signal-orange accent.
+            </p>
+            <ul>
+              <li>Geist</li>
+              <li>Pinned split scroll</li>
+              <li>Images grow and fade</li>
+              <li>Experience accordion</li>
+              <li>Principles carousel</li>
+            </ul>
+            <span class="open">Open Signal &rarr;</span>
+          </div>
+        </a>
+
+        <a class="card" href="/versions/folio/">
+          <div class="shot"><img src="/versions/previews/folio.jpg" alt="Folio hero: editorial headline beside a steel lattice photo" /></div>
+          <div class="body">
+            <div class="name">
+              Folio
+              <span class="swatches" aria-hidden="true">
+                <span style="background: #eeeae2"></span>
+                <span style="background: #141414"></span>
+                <span style="background: #2b3dff"></span>
+              </span>
+            </div>
+            <p class="desc">
+              Light and editorial, like a print magazine. Heavy type, photos set inside sentences,
+              and project cards that stack as you scroll.
+            </p>
+            <ul>
+              <li>Cabinet Grotesk</li>
+              <li>Stacking project cards</li>
+              <li>Images inside type</li>
+              <li>Experience accordion</li>
+              <li>Stack ticker</li>
+            </ul>
+            <span class="open">Open Folio &rarr;</span>
+          </div>
+        </a>
+
+        <a class="card" href="/versions/nocturne/">
+          <div class="shot"><img src="/versions/previews/nocturne.jpg" alt="Nocturne hero: light headline beside a star-trail photo" /></div>
+          <div class="body">
+            <div class="name">
+              Nocturne
+              <span class="swatches" aria-hidden="true">
+                <span style="background: #08070d"></span>
+                <span style="background: #ffc2a3"></span>
+                <span style="background: #a99bff"></span>
+              </span>
+            </div>
+            <p class="desc">
+              Atmospheric night. Slowly drifting aurora light, a floating star-trail photo, and an
+              about paragraph that lights up word by word.
+            </p>
+            <ul>
+              <li>Outfit</li>
+              <li>Scroll-lit text</li>
+              <li>Project bento</li>
+              <li>Experience carousel</li>
+              <li>Principles accordion</li>
+            </ul>
+            <span class="open">Open Nocturne &rarr;</span>
+          </div>
+        </a>
+
+        <a class="card" href="/versions/latent/">
+          <div class="shot"><img src="/versions/previews/latent.jpg" alt="Latent hero: headline beside a 3D map of clustered points" /></div>
+          <div class="body">
+            <div class="name">
+              Latent
+              <span class="swatches" aria-hidden="true">
+                <span style="background: #7dd3fc"></span>
+                <span style="background: #a78bfa"></span>
+                <span style="background: #34d399"></span>
+              </span>
+            </div>
+            <p class="desc">
+              The AI engineer version. Your work as a 3D embedding map: scroll flies the camera
+              through retrieval, agents, evals, real-time and payments, then everything collapses
+              into one point.
+            </p>
+            <ul>
+              <li>Satoshi</li>
+              <li>WebGL point field</li>
+              <li>Scroll camera flight</li>
+              <li>Nearest neighbours</li>
+              <li>Project bento</li>
+            </ul>
+            <span class="open">Open Latent &rarr;</span>
+          </div>
+        </a>
+      </div>
+
+      <footer>Compare with the <a href="/">current site</a>.</footer>
+    </main>
+  </body>
+</html>
